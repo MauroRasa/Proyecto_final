@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #2d2d2d;
+    color: #ddd;
+}
+.header {
+    background: black;
+    color: #eee;
+    width: 100%;
+    padding: 20px;
+    text-align: right;    
+}
+
+.header a {
+    color: #eee;
+}
+
+.header a:hover {
+    color:rgb(146, 189, 223);
+}
+
+.foro {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    background: rgba(146, 145, 145, 0.5);
+    /* border: 1px solid #615f5f; */
+    padding: 10px;
+}
+.foro .cont_publis {
+    width: 95%;
+    height: 80vh;
+    margin: 10px auto;
+    overflow: auto;
+    padding: 10px;
+}
+
+
+.foro .cont_publis a {
+    text-decoration: none;
+
+  
+}
+
+
+.foro .publi {
+    width: 95%;
+    margin: auto;
+    background: #eee;
+    padding: 8px;
+    margin-bottom: 5px;
+}
+
+.foro .publi:hover {
+    background: rgb(146, 189, 223);
+}
+
+.foro .abierta {
+    width: 95%;
+    margin: auto;
+    padding: 8px;
+    margin-bottom: 5px;
+    background:  rgb(143, 202, 192);
+    color: #eee;
+}
+
+.foro .publi_user p { 
+    width: 100%;
+    text-align: right; 
+    font-size: 0.8em;
+    font-weight: bold;
+    color: #000;
+
+}
+
+.foro .publi_texto p{
+    font-size: 1em;
+    font-style: italic;
+    color: #000;
+}
+
+.foro form {
+    width: 100%;
+    margin: 10px auto;
+    padding: 10px;
+    text-align: center;
+}
+
+.foro form input[type=text]  {
+    width: 70%;
+    padding: 5px;
+}
+.foro form input[type=submit] {
+    width: 27%;
+    padding: 5px;
+    background: steelblue;
+    color: #eee;
+}
+
+p span.cant {
+
+    color: red 
+;
+
+}
+
+a {
+    color:#eee;
+    font-size: 1em;
+}
