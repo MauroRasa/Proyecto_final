@@ -10,7 +10,7 @@
 <body>
   <header>
     <div class="logo">
-      <img src="imagenes/Logo blanco completo.png" alt="Logo">
+      <img src="imagenes/Logo_blanco.png" alt="Logo">
     </div>
     <nav>
       <ul class="menu">
@@ -81,5 +81,99 @@
 
   </footer>
 </body>
-
 </html>
+
+
+
+
+
+
+<!-- <script>
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+  document.addEventListener("DOMContentLoaded", () => {
+      let header = document.querySelector("header");
+      let nav = document.querySelector("nav");
+      let logoDiv = document.querySelector(".logo");
+      let logoImg = document.querySelector(".logo img");
+
+      let logoSVG = document.getElementById("logo");
+      let logoText = document.getElementById("text");
+      let cont = document.getElementById(".container");
+      let imgCont = document.querySelector(".image-container");
+
+      const navLinks = document.querySelectorAll("ul li a");
+      navLinks.forEach(link => {
+          link.addEventListener("click", () => {
+              let id = link.getAttribute('id');
+              document.querySelector("#" + id.slice(2, id.length)).scrollIntoView();
+          })
+      })
+
+      header.style.height = "18vh";
+      logoDiv.style.display = "flex";
+      logoDiv.style.height = "8vh";
+      logoSVG.style.transition = "0.8s";
+      logoText.style.transition = "0.8s";
+      logoDiv.style.transition = "0.8s";
+      logoText.style.height = "4vh";
+      imgCont.style.height = "83vh";
+
+      header.style.height = "20vh";
+      logoImg.style.height = "8vh";
+      cont.style.paddingTop = "17vh";
+      imgCont.style.height = "83vh";
+      logoDiv.style.flexDirection = "column";
+      logoDiv.style.height = "15vh";
+      logoText.style.height = "4.5vh";
+      logoText.style.paddingTop = "0%";
+      window.addEventListener("scroll", function () {
+          let scrollY = window.scrollY || window.pageYOffset;
+          if (scrollY > 0) {
+              header.style.height = "15vh";
+              logoImg.style.height = "8vh";
+              cont.style.paddingTop = "27.8vh";
+              imgCont.style.height = "83vh";
+              logoDiv.style.flexDirection = "row";
+              logoDiv.style.height = "11vh";
+              logoDiv.style.width = "28vw";
+              logoDiv.style.alignItem = "center";
+              logoDiv.style.paddingLeft = "0vw";
+              logoDiv.style.alignItems = "center";
+              logoDiv.style.justifyContent = "center";
+              logoText.style.height = "7.8vh";
+              logoText.style.paddingTop = "5%";       
+
+          } else {
+              header.style.height = "20vh";
+              logoImg.style.height = "8vh";
+              cont.style.paddingTop = "17vh";
+              imgCont.style.height = "83vh";
+              logoDiv.style.flexDirection = "column";
+              logoDiv.style.height = "15vh";
+              logoText.style.height = "4.5vh";
+              logoText.style.paddingTop = "0%";
+              
+          }
+
+      });
+  });
+  document.addEventListener("DOMContentLoaded", function () {
+      const menuLinks = document.querySelectorAll(".menu-left a, .menu-right a");
+
+      menuLinks.forEach(function (link) {
+          link.addEventListener("click", function (event) {
+              menuLinks.forEach(function (otherLink) {
+                  otherLink.classList.remove("active");
+              });
+
+              link.classList.add("active");
+          });
+      });
+
+      document.querySelector(".toggle-menu").addEventListener("click",()=>{
+          document.querySelector(".menu-left").classList.toggle("nav-active");
+          document.querySelector(".menu-right").classList.toggle("nav-active");
+      });
+  });
+</script> -->

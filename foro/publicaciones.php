@@ -13,12 +13,13 @@ session_start();
 require_once("include/conexion.php");
 if(isset($_SESSION['usuario'])){
     echo '<div class="header">';
-    echo '<span>Hola: '.$_SESSION['usuario'].'</span> | ';
+    echo '<span>Hola: ' . htmlentities($_SESSION['usuario']) . '</span>';
     echo '<a href="logout.php">SALIR</a>';
     echo '</div>';
 }else{
     header('location:index.php');
 }
+
 
 if(isset($_POST['publicar'])){
     $publicacion = $_POST['publi'];
@@ -27,33 +28,48 @@ if(isset($_POST['publicar'])){
     $fecha = date("Y/m/d h:i:s");
 
     $sql = "INSERT INTO publicaciones (Publicacion, ID_user, Respuesta_ID_publi, Fecha_publi) VALUES ('$publicacion','$id_user', '$respuesta_ID_publi', '$fecha')";
-    $guardar_publi = mysqli_query($conexion, $sql);
+    $guardar_publi = mysqli_query($conexion, $sql) ? print ("<script> alert ('Publicación enviada'); window.location = 'publicaciones.php'</script>") : print ("<script> alert ('Error al envíar publicación'</script>");
 }
  ?>
 
 
     
     <?php
+
+        echo '<div class="contenedor_pant">';
+            echo '<div class="pantalla_izq">';
+                echo '<a> Esta es la pantalla izquierda</a>';
+            echo '</div>';
+
     // $sql = "SELECT * FROM publicaciones WHERE Respuesta_ID_publi = 0 ORDER BY Fecha_publi desc";
     $sql = "SELECT p.ID_publi, p.Publicacion, p.ID_user, p.Respuesta_ID_publi, p.Fecha_publi, p.Cant_respuestas, u.Usuario
     FROM publicaciones p
     JOIN usuarios u ON p.ID_user = U.ID_user AND Respuesta_ID_publi = 0 ORDER BY Fecha_publi desc";
     $consulta = mysqli_query($conexion, $sql);
     echo '<div class="foro">';
-    echo '<h2>Foro</h2>';
     echo '<div class="cont_publis">';
     while($registro = mysqli_fetch_assoc($consulta)) {
        echo '<a href="publicacion.php?id_publi='.$registro['ID_publi'].'"><div class="publi"><div class="publi_user"><p>'.$registro['Usuario'].' - '.$registro['Fecha_publi'].' - <span class="cant">'.$registro['Cant_respuestas'].'</span></p></div><div class="publi_texto"><p>'.$registro['Publicacion'].'</p></div></div></a>';
     }
     echo '</div>';
-    echo '
-    <form action="" method="post">
-    <input type="text" name="publi" id="publi" required>
-    <input type="submit" name="publicar" value="PUBLICAR">
-    </form>
-    ';
-    
+
     echo '</div>';
+    echo '<div class="contenedor_pant">';
+        echo '<div class="pantalla_der">';
+            echo '<a> Esta es la pantalla derecha</a>';
+        echo '</div>';
+    echo '</div>';
+        echo '</div>';
+
+
+        
+    echo '<div class="btn_publicar">';
+
+        echo '<a href="publicacion.html"> Redactar </a>';
+
+    echo '</div>';
+
+
     ?>
    
 

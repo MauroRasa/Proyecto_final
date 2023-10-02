@@ -31,7 +31,7 @@ require_once("include/conexion.php");
             $registro = mysqli_fetch_array($query);
             $_SESSION['usuario'] = $user;
             $_SESSION['ID_user'] = $registro['ID_user'];
-            header('location:Publicaciones.php');
+            header('location:publicaciones.php');
         }else{
             echo '<div class="error">usuario y/o contraseña incorrecta</div>';
             session_destroy();
