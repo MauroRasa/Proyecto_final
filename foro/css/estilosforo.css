@@ -8,15 +8,18 @@ body {
     background: #2d2d2d;
     color: #ddd;
 }
+
+/* Header fijo en la parte de arriba */
 .header{
     position: fixed;
     top: 0;
     left: 0;
-    background: black;
+    background: #464141;
     color: #eee;
     width: 100%;
     padding: 30px 0;
     z-index: 100;  
+    border-bottom: 1px solid #acacac; 
 }
 
 .header span, .header a {
@@ -28,38 +31,59 @@ body {
 .header a:hover {
     color:rgb(146, 189, 223);
 }
+/* Fin Header fijo en la parte de arriba */
 
+
+
+/* Pantallas de los lados del foro */
 .contenedor_pant{
     display: flex;
-    justify-content: space-between; /* Distribuye .pantalla_izq y .foro en los extremos */
+    justify-content: space-between;
     margin-top: 80px;
+    margin-left: 22%; 
+    margin-right: 30%;
 }
-.pantalla_izq, .pantalla_der{
+.pantalla_izq{
     background-color: #535353;
-    width: 30%; /* 30% del ancho total */
-    margin: 0;
+    width: 22%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    border-right: 1px solid #acacac;
+    z-index: 80;
 }
+.pantalla_der{
+    background-color: #535353;
+    width: 30%;
+    height: 100%;
+    position: fixed;
+    right: 0;
+    border-left: 1px solid #acacac;
+    z-index: 80;
+}
+.pantalla_izq a{
+    left: 0;
+    z-index: 80;
+}
+.pantalla_der a{
+    right: 0;
+    z-index: 80;
+}
+/* Fin Pantallas de los lados del foro */
 
+
+/* Todas las publicaciones del foro  */
 .foro {
-    width: 40%;
+    width: 100%;
     max-width: 100%;
-    margin: 0;
-
-    /* border: 1px solid #615f5f; */
+    margin: 0 auto;
+    background-color: #464141;
 }
 .foro .cont_publis {
-    width: 95%;
-    height: 80vh;
-    margin: 10px auto;
-
 }
-
-
 .foro .cont_publis a {
     text-decoration: none;
 }
-
-
 .foro .publi {
     width: 95%;
     margin: auto;
@@ -67,11 +91,28 @@ body {
     padding: 8px;
     margin-bottom: 5px;
 }
-
 .foro .publi:hover {
     background: rgb(146, 189, 223);
 }
+/* Fin Todas las publicaciones del foro  */
 
+
+
+/* Color nro de respuestas */
+p span.cant {
+    color: red ;
+}
+/* / */
+/* Btn redactar */
+.btn_publicar a {
+    color:#eee;
+    font-size: 1em;
+    text-decoration: none;
+}
+/* / */
+
+
+/* Estilos para responder publicacion */
 .foro .abierta {
     width: 95%;
     margin: auto;
@@ -114,15 +155,4 @@ body {
     background: steelblue;
     color: #eee;
 }
-
-p span.cant {
-
-    color: red 
-;
-
-}
-
-a {
-    color:#eee;
-    font-size: 1em;
-}
+/* Fin Estilos para responder publicacion */

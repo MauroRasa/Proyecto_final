@@ -14,13 +14,15 @@ header {
     background-color: black;
     color: #fff;
     z-index: 100;  
+    max-height: 105px;
+    width: 100%;
   }
 
 .logo img {
   width: 100%;
   height: auto;
   max-width: 100%;
-  max-height: 100%;
+  max-height: 105px;
   object-fit: cover;
 }
   
@@ -54,14 +56,8 @@ header {
 
 /* Estilos de imagenes con boton dentro (comenzar, foro) */
 .container {
-    margin-top: 105px;
     display: flex;
     justify-content: space-between;
-}
-@media (width <= 1050px){
-  .container{
-    margin-top: 52px;
-  }
 }
 .image-container {
     position: relative;
@@ -112,25 +108,63 @@ header {
 /* Fin estilos de imagenes con boton dentro (comenzar, foro) */
 
 
+/* Estilos Bienvenida texto y slider */
+.bienvenidaCont {
+  margin-top: 7.8%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #acacac;
+  align-items: center;
+}
+
+@media (max-width: 1050px) {
+  .bienvenidaCont {
+    margin-top: 5%;
+  }
+}
+
+.bienvenidaCont p {
+  text-align: center;
+  width: 100%;
+}
+
+.slider_bienvenida {
+  max-width: 500px;
+  height: auto;
+  margin: auto;
+  overflow: hidden;
+  position: relative; 
+}
+
+.slider_bienvenida .slide {
+  width: 500px;
+  position: relative; 
+}
+
+.slider_bienvenida .slide video {
+  width: 100%;
+}
+/* Fin Estilos slider de bienvenida */
+
+
+
 /* Estilos slider */
 .slider-container {
     width: 100%;
     overflow: hidden;
     position: relative;
   }
-  
   .slider-track {
     display: flex;
-    width: 600%; /* 6 sections * 100% */
-    transition: transform 0.5s ease-in-out; /* Agrega una transición suave */
+    width: 600%; 
+    transition: transform 0.5s ease-in-out; 
   }
-  
   .slider-section {
-    flex: 0 0 16.1112%; /* 100% / 6 sections */
+    flex: 0 0 16.1112%; 
     padding: 20px;
     text-align: center;
   }
-  
   .slider-controls {
     position: absolute;
     top: 50%;
@@ -139,7 +173,6 @@ header {
     display: flex;
     justify-content: space-between;
   }
-  
   .slider-control {
     background-color: rgba(0, 0, 0, 0.3);
     color: #fff;
@@ -148,11 +181,9 @@ header {
     padding: 10px;
     transition: background-color 0.3s;
   }
-  
   .slider-control:hover {
     background-color: rgba(0, 0, 0, 0.6);
   }
-  
   .slider-section h2 {
     margin-bottom: 10px;
   }

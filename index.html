@@ -4,7 +4,6 @@
 <head>
   <title>FitPlanGains</title>
   <link rel="stylesheet" type="text/css" href="estilos/estilos.css">
-  <script src="proyect.js"></script>
 </head>
 
 <body>
@@ -23,8 +22,63 @@
     </nav>
   </header>
 
+  <!-- Bienvenida a la pagina e informacion del uso de la página -->
+
+
+  <div class="bienvenidaCont">
+    <p>Bienvenido a FitPlanGains, en nuestra página podrás encontrar</p>
+    <div class="slider_bienvenida">
+      <div class="slide-track" id="video-slider">
+          <div class="slide">
+            <a>Arma tu plan de alimentacion para empezar un camino saludable hacia una vida mejor</a>
+            <video width="100%" height="auto" id="video1" loop autoplay muted>
+              <source src="videos/alimentacion.mp4" type="video/mp4">
+              Tu navegador no admite el elemento de video.
+            </video>
+          </div>
+          <div class="slide">
+            <a>Arma una rutina de ejercicios para poder empezar a convertirte a ti mismo en tu mejor version</a>
+            <video width="100%" height="auto" id="video2" loop autoplay muted>
+              <source src="videos/gimnasio.mp4" type="video/mp4">
+              Tu navegador no admite el elemento de video.
+            </video>
+          </div>
+          <div class="slide">
+            <video width="100%" height="auto" id="video3" loop autoplay muted>
+              <source src="videos/alimentacion.mp4" type="video/mp4">
+              Tu navegador no admite el elemento de video.
+            </video>
+          </div>
+
+          <div class="slide">
+            <video width="100%" height="auto" id="video4" loop autoplay muted>
+              <source src="videos/gimnasio.mp4" type="video/mp4">
+              Tu navegador no admite el elemento de video.
+            </video>
+          </div>
+          <div class="slide">
+            <video width="100%" height="auto" id="video5" loop autoplay muted>
+              <source src="videos/alimentacion.mp4" type="video/mp4">
+              Tu navegador no admite el elemento de video.
+            </video>
+          </div>
+          <div class="slide">
+            <video width="100%" height="auto" id="video6" loop autoplay muted>
+              <source src="videos/gimnasio.mp4" type="video/mp4">
+              Tu navegador no admite el elemento de video.
+            </video>
+          </div>
+      </div>
+  </div>
+  </div>
+  <!-- Fin -->
+
+
+
+  <!-- Contenedor imagenes con links a foro y plan de alimentacion -->
   <div class="container">
     <div class="image-container">
+      <!-- Imagen plan alimentacion -->
       <a href="foro/index.php">
         <img class="image" src="imagenes/image1.jpg" alt="Image 1">
         <div class="square" onclick="redirectToPedirDatos()">
@@ -33,6 +87,7 @@
       </a>
     </div>
     <div class="image-container">
+      <!-- Imagen foro -->
       <a href="foro/index.php"></a>
       <img class="image" src="imagenes/foro.jpg" alt="Image 2">
       <div class="square" onclick="redirectToPedirDatos()">
@@ -43,6 +98,7 @@
     </div>
   </div>
 
+  <!-- Slider con recomendaciones deportivas y alimenticias -->
   <div class="slider-container">
     <div class="slider-track">
       <div class="slider-section">
@@ -80,6 +136,7 @@
   <footer>
 
   </footer>
+  <script src="proyect.js"></script>
 </body>
 </html>
 

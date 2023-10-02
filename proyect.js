@@ -35,3 +35,49 @@ function updateSlider() {
 });
 
 //   Fin Slider
+
+
+var videos = document.querySelectorAll("video");
+
+videos.forEach(function(video) {
+  video.addEventListener("play", function() {
+    video.removeAttribute("controls");
+  });
+});
+
+
+
+// Obtén todos los elementos de video
+videoss = document.querySelectorAll('.slide video');
+
+// Función para pausar todos los videos
+function pauseVideos() {
+  videoss.forEach((video) => {
+    video.pause();
+  });
+}
+
+// Función para reproducir un video específico
+function playVideo(videoId) {
+  const video = document.getElementById(videoId);
+  if (video) {
+    video.play();
+  }
+}
+
+// Inicia la animación
+const slider = document.getElementById('video-slider');
+let currentIndexx = 0;
+
+function animateSlider() {
+  pauseVideos(); // Pausa todos los videos antes de avanzar
+  currentIndexx = (currentIndexx + 1) % videoss.length;
+  playVideo(`video${currentIndexx + 1}`);
+  slider.style.transform = `translateX(calc(-500px * ${currentIndexx}))`;
+
+  setTimeout(() => {
+    animateSlider();
+  }, 5000); // 5 segundos de pausa antes de avanzar nuevamente
+}
+
+animateSlider(); // Inicia la animación
