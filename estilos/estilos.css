@@ -1,14 +1,80 @@
 body.toda_la_pagina{
     margin: 0;
     padding: 0;
-    background-color: #474545;
+    background-color: #4c5257;
   }
 
 
   /* Header */
-header{
 
+
+  header{
+    position: sticky;
+    top: 0;
+    left: 0;
+    transition: 0.5s;
+    z-index: 10;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
 }
+  header.abajo{
+    background: #6C757D;
+    padding: 5px 5px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+  }
+
+  nav.navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  ul.dropdown-menu li a.dropdown-item:hover {
+    background-color: #555;
+    width: 80%;
+  }
+
+  ul.navbar-nav li.nav_item a.nav-link:hover {
+    color: #555; 
+  }
+
+  header nav.navbar .container-fluid .collapse ul li{
+    list-style: none;
+  }
+
+  header nav.navbar .container-fluid .collapse ul li a{
+    position: relative;
+    font-family: helvetica;
+    margin: 0 15px;
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: 600;
+    transition: 0.7s;
+    -webkit-transition: 0.7s;
+    -moz-transition: 0.7s;
+    -ms-transition: 0.7s;
+    -o-transition: 0.7s;
+}
+
+  .zona1{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
+  }
+  header.abajo .navbar-brand,
+  header.abajo .navbar .container-fluid .collapse ul li a{
+    color: #000;
+  }
+
+
+
+
+
   /* Fin header */
 
 
@@ -17,7 +83,7 @@ header{
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  background-color: #474545;
+  background-color: #4c5257;
   align-items: center;
 }
 
@@ -28,6 +94,7 @@ header{
   width: 50%;
   font-size: 32px;
   font-weight: bold;
+  color: #bbbbbbc0;
 }
 
 .sliderr{
@@ -80,7 +147,7 @@ header{
 .container_tarjetas {
     display: flex;
     justify-content: space-between;
-    background-color: #474545;
+    background-color: #4c5257;
 }
 .image-container {
   width: 32%;
@@ -182,18 +249,16 @@ header{
   line-height: 300px;
 }
 
-.slider__element--consejo1{
-  background-color: red;
-}
-.slider__element--consejo2{
-  background-color: blue;
-}
-.slider__element--consejo3{
-  background-color: violet;
-}
+
 
 .slider__element p{
   width: 70%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.slider__element img{
+  width: 100%;
   height: 100%;
   margin: 0 auto;
 }
@@ -243,7 +308,7 @@ header{
 
  /* Estilos del footer */ 
 footer {
-  background-color: #474545;
+  background-color: #4c5257;
     padding: 10px;
     text-align: center;
     color: #555;
