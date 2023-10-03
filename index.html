@@ -1,24 +1,43 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>FitPlanGains</title>
   <link rel="stylesheet" type="text/css" href="estilos/estilos.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 
-<body>
+<body class="toda_la_pagina">
   <header>
-    <div class="logo">
-      <img src="imagenes/Logo_blanco.png" alt="Logo">
-    </div>
-    <nav>
-      <ul class="menu">
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Planes</a></li>
-        <li><a href="#">App</a></li>
-        <li><a href="#">Ayuda</a></li>
-        <li><a href="#">Contacto</a></li>
-      </ul>
+    <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand fs-2 fw-medium" href="#index.html">
+          <img src="imagenes/logo_vacio_blanco.png" alt="Logo" width="60" height="60" class="d-inline-block" >
+          FitPlanGains
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">App</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Nosotros
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Ayuda</a></li>
+                <li><a class="dropdown-item" href="#">Contacto</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
   </header>
 
@@ -26,61 +45,46 @@
 
 
   <div class="bienvenidaCont">
-    <p>Bienvenido a FitPlanGains, en nuestra página podrás encontrar</p>
-    <div class="slider_bienvenida">
-      <div class="slide-track" id="video-slider">
-          <div class="slide">
-            <a>Arma tu plan de alimentacion para empezar un camino saludable hacia una vida mejor</a>
-            <video width="100%" height="auto" id="video1" loop autoplay muted>
-              <source src="videos/alimentacion.mp4" type="video/mp4">
-              Tu navegador no admite el elemento de video.
-            </video>
-          </div>
-          <div class="slide">
-            <a>Arma una rutina de ejercicios para poder empezar a convertirte a ti mismo en tu mejor version</a>
-            <video width="100%" height="auto" id="video2" loop autoplay muted>
-              <source src="videos/gimnasio.mp4" type="video/mp4">
-              Tu navegador no admite el elemento de video.
-            </video>
-          </div>
-          <div class="slide">
-            <video width="100%" height="auto" id="video3" loop autoplay muted>
-              <source src="videos/alimentacion.mp4" type="video/mp4">
-              Tu navegador no admite el elemento de video.
-            </video>
-          </div>
-
-          <div class="slide">
-            <video width="100%" height="auto" id="video4" loop autoplay muted>
-              <source src="videos/gimnasio.mp4" type="video/mp4">
-              Tu navegador no admite el elemento de video.
-            </video>
-          </div>
-          <div class="slide">
-            <video width="100%" height="auto" id="video5" loop autoplay muted>
-              <source src="videos/alimentacion.mp4" type="video/mp4">
-              Tu navegador no admite el elemento de video.
-            </video>
-          </div>
-          <div class="slide">
-            <video width="100%" height="auto" id="video6" loop autoplay muted>
-              <source src="videos/gimnasio.mp4" type="video/mp4">
-              Tu navegador no admite el elemento de video.
-            </video>
-          </div>
-      </div>
-  </div>
+    <p>Encuentra la mejor forma de mejorar tu vida</p>
+    <div class="sliderr">
+      <video width="100%" height="auto" id="video1" loop autoplay muted>
+        <source src="videos/alimentacion.mp4" type="video/mp4">
+        Tu navegador no admite el elemento de video.
+      </video>
+      <video width="100%" height="auto" id="video2" loop autoplay muted>
+        <source src="videos/gimnasio.mp4" type="video/mp4">
+        Tu navegador no admite el elemento de video.
+      </video>
+      <video width="100%" height="auto" id="video3" loop autoplay muted>
+        <source src="videos/alimentacion.mp4" type="video/mp4">
+        Tu navegador no admite el elemento de video.
+      </video>
+      <video width="100%" height="auto" id="video4" loop autoplay muted>
+        <source src="videos/gimnasio.mp4" type="video/mp4">
+        Tu navegador no admite el elemento de video.
+      </video>
+      <video width="100%" height="auto" id="video5" loop autoplay muted>
+        <source src="videos/alimentacion.mp4" type="video/mp4">
+        Tu navegador no admite el elemento de video.
+      </video>
+      <video width="100%" height="auto" id="video6" loop autoplay muted>
+        <source src="videos/gimnasio.mp4" type="video/mp4">
+        Tu navegador no admite el elemento de video.
+      </video>
+    </div>
   </div>
   <!-- Fin -->
 
-
+  <div class="linea_separadora">
+    
+  </div>
 
   <!-- Contenedor imagenes con links a foro y plan de alimentacion -->
-  <div class="container">
+  <div class="container_tarjetas" id="planes">
     <div class="image-container">
       <!-- Imagen plan alimentacion -->
       <a href="foro/index.php">
-        <img class="image" src="imagenes/image1.jpg" alt="Image 1">
+        <img class="image" src="imagenes/plancha.jpg" alt="Image 1">
         <div class="square" onclick="redirectToPedirDatos()">
           <a href="foro/index.php">Comienza tu camino por una alimentación saludable y una vida mejor.</a>
         </div>
@@ -88,7 +92,7 @@
     </div>
     <div class="image-container">
       <!-- Imagen foro -->
-      <a href="foro/index.php"></a>
+      <a href="foro/index.php">
       <img class="image" src="imagenes/foro.jpg" alt="Image 2">
       <div class="square" onclick="redirectToPedirDatos()">
         <a href="foro/index.php">Ingresa a nuestro foro para compartir experiencias con otros apasionados por el
@@ -96,141 +100,67 @@
       </div>
       </a>
     </div>
+    <div class="image-container">
+      <!-- Imagen plan alimentacion -->
+      <a href="foro/index.php">
+        <img class="image" src="imagenes/nubes.jpg" alt="Image 1">
+        <div class="square" onclick="redirectToPedirDatos()">
+          <a href="foro/index.php">Comienza tu camino por una alimentación saludable y una vida mejor.</a>
+        </div>
+      </a>
+    </div>
   </div>
 
   <!-- Slider con recomendaciones deportivas y alimenticias -->
-  <div class="slider-container">
-    <div class="slider-track">
-      <div class="slider-section">
-        <h2>Section 1</h2>
-        <p>Section 1 content goes here...</p>
+  <div id="slider-container" class="slider_container">
+    <div id="slider" class="slider">
+      <div class="slider__element slider__element--consejo1">
+        <h2></h2>
+        <p>Búscate un gym adecuado a tus necesidades. Parece una tontería, pero la elección del gimnasio puede determinar el que lo visites con frecuencia o no. Intenta buscarlo cerca de casa, del trabajo o en el camino de ambos. De este modo, no te dará tanta pereza desplazarte y, piénsalo, puedes hasta ahorrar en tiempo y en coste.</p>
       </div>
-      <div class="slider-section">
-        <h2>Section 2</h2>
-        <p>Section 2 content goes here...</p>
+      <div class="slider__element slider__element--consejo2">
+        <h2></h2>
+        <p>¿No sabes cómo entrenar? Hazte un horario. Piensa en tus objetivos y establece unas rutinas. Para ello, te recomendamos apuntar cuándo quieres ir (antes de ir al trabajo, a la hora de comer, por la tarde, a última hora del día…), cuántas veces por semana realizarás esta rutina (sé sensato y empieza por una rutina de gimnasio para principiantes, siempre podrás aumentar la frecuencia y la dificultad más adelante) y cuánto tiempo durarán las sesiones y cómo estructurarás los ejercicios.</p>
       </div>
-      <div class="slider-section">
-        <h2>Section 3</h2>
-        <p>Section 3 content goes here...</p>
+      <div class="slider__element slider__element--consejo3">
+        <h2></h2>
+        <p>Prepáralo todo antes de ir al gym. Aunque parezca una tontería, tener siempre la bolsa preparada te ayudará a vencer la pereza de tener que pasar por casa previamente. ¡No hay tiempo que perder!</p>
       </div>
-      <div class="slider-section">
-        <h2>Section 4</h2>
-        <p>Section 4 content goes here...</p>
+      <div class="slider__element slider__element--consejo4">
+        <h2></h2>
+        <p>Confía en ti y en caso de no saber qué es lo que tienes que hacer exactamente, pide ayuda. Existen personal trainners que te ayudarán a realizar los ejercicios más adecuados para ti, teniendo en cuenta tu condición y tus objetivos. No estés más pendiente de los demás que de ti mismo y no te sientas acomplejado: estás en el gimnasio para ponerte en forma y lo lograrás. Si quieres, para empezar, puedes probar de ir a horas más tranquilas, a fin de ir ganando en seguridad y comodidad poco a poco.</p>
       </div>
-      <div class="slider-section">
-        <h2>Section 5</h2>
-        <p>Section 5 content goes here...</p>
+      <div class="slider__element slider__element--consejo5">
+        <h2></h2>
+        <p>Calienta siempre antes de iniciar los ejercicios y haz tu rutina preestablecida con ganas.</p>
       </div>
-      <div class="slider-section">
-        <h2>Section 6</h2>
-        <p>Section 6 content goes here...</p>
+      <div class="slider__element slider__element--consejo6">
+        <h2></h2>
+        <p>Hidrátate siempre antes y después de tus sesiones de deporte, así evitarás que tu rendimiento físico no disminuya.</p>
       </div>
     </div>
-    <div class="slider-controls">
-      <div class="slider-control" id="prevBtn">&#8249;&#xFE0E;</div>
-      <div class="slider-control" id="nextBtn">&#8250;&#xFE0E;</div>
+    <div class="slider-buttons">
+      <button id="button-left" class="button button--left">
+        <span class="material-symbols-outlined">
+          chevron_left
+        </span>
+      </button>
+      <button id="button-right" class="button button--right">
+        <span class="material-symbols-outlined">
+          navigate_next
+        </span>
+      </button>
     </div>
   </div>
+
 
 
   <footer>
 
   </footer>
   <script src="proyect.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 </body>
+
 </html>
-
-
-
-
-
-
-<!-- <script>
-  document.documentElement.scrollTop = 0;
-  document.body.scrollTop = 0;
-  document.addEventListener("DOMContentLoaded", () => {
-      let header = document.querySelector("header");
-      let nav = document.querySelector("nav");
-      let logoDiv = document.querySelector(".logo");
-      let logoImg = document.querySelector(".logo img");
-
-      let logoSVG = document.getElementById("logo");
-      let logoText = document.getElementById("text");
-      let cont = document.getElementById(".container");
-      let imgCont = document.querySelector(".image-container");
-
-      const navLinks = document.querySelectorAll("ul li a");
-      navLinks.forEach(link => {
-          link.addEventListener("click", () => {
-              let id = link.getAttribute('id');
-              document.querySelector("#" + id.slice(2, id.length)).scrollIntoView();
-          })
-      })
-
-      header.style.height = "18vh";
-      logoDiv.style.display = "flex";
-      logoDiv.style.height = "8vh";
-      logoSVG.style.transition = "0.8s";
-      logoText.style.transition = "0.8s";
-      logoDiv.style.transition = "0.8s";
-      logoText.style.height = "4vh";
-      imgCont.style.height = "83vh";
-
-      header.style.height = "20vh";
-      logoImg.style.height = "8vh";
-      cont.style.paddingTop = "17vh";
-      imgCont.style.height = "83vh";
-      logoDiv.style.flexDirection = "column";
-      logoDiv.style.height = "15vh";
-      logoText.style.height = "4.5vh";
-      logoText.style.paddingTop = "0%";
-      window.addEventListener("scroll", function () {
-          let scrollY = window.scrollY || window.pageYOffset;
-          if (scrollY > 0) {
-              header.style.height = "15vh";
-              logoImg.style.height = "8vh";
-              cont.style.paddingTop = "27.8vh";
-              imgCont.style.height = "83vh";
-              logoDiv.style.flexDirection = "row";
-              logoDiv.style.height = "11vh";
-              logoDiv.style.width = "28vw";
-              logoDiv.style.alignItem = "center";
-              logoDiv.style.paddingLeft = "0vw";
-              logoDiv.style.alignItems = "center";
-              logoDiv.style.justifyContent = "center";
-              logoText.style.height = "7.8vh";
-              logoText.style.paddingTop = "5%";       
-
-          } else {
-              header.style.height = "20vh";
-              logoImg.style.height = "8vh";
-              cont.style.paddingTop = "17vh";
-              imgCont.style.height = "83vh";
-              logoDiv.style.flexDirection = "column";
-              logoDiv.style.height = "15vh";
-              logoText.style.height = "4.5vh";
-              logoText.style.paddingTop = "0%";
-              
-          }
-
-      });
-  });
-  document.addEventListener("DOMContentLoaded", function () {
-      const menuLinks = document.querySelectorAll(".menu-left a, .menu-right a");
-
-      menuLinks.forEach(function (link) {
-          link.addEventListener("click", function (event) {
-              menuLinks.forEach(function (otherLink) {
-                  otherLink.classList.remove("active");
-              });
-
-              link.classList.add("active");
-          });
-      });
-
-      document.querySelector(".toggle-menu").addEventListener("click",()=>{
-          document.querySelector(".menu-left").classList.toggle("nav-active");
-          document.querySelector(".menu-right").classList.toggle("nav-active");
-      });
-  });
-</script> -->

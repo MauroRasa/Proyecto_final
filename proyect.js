@@ -1,83 +1,110 @@
-function redirectToPedirDatos() {
-    window.location.href = 'foro/index.php';
+//   Slider
+const sliderContainer = document.getElementById('slider-container');
+const slider = document.getElementById('slider');
+const buttonLeft = document.getElementById('button-left');
+const buttonRight = document.getElementById('button-right');
+
+const rootStyles = document.documentElement.style;
+
+const sliderElements = document.querySelectorAll('.slider__element')
+
+let slideCounter = 0;
+
+let isInTransition = false;
+
+const DIRECTION ={
+  RIGHT:'RIGHT',
+  LEFT:'LEFT'
+}
+
+const getTransformValue = () => 
+  Number(rootStyles.getPropertyValue('--slide-transform').replace('px', ''));
+
+const reorderSlider = () =>{
+  const transformValue = getTransformValue();
+  rootStyles.setProperty('--transition', 'none')
+  if(slideCounter === sliderElements.length - 1){
+    slider.appendChild(slider.firstElementChild);
+    rootStyles.setProperty('--slide-transform', `${transformValue + sliderElements[slideCounter].scrollWidth}px`);
+    slideCounter --;
+  }else if(slideCounter === 0){
+    slider.prepend(slider.lastElementChild)
+    rootStyles.setProperty('--slide-transform', `${transformValue - sliderElements[slideCounter].scrollWidth}px`);
+    slideCounter ++;
   }
 
-
-//   Slider
-document.addEventListener("DOMContentLoaded", function () {
-  
-let currentIndex = 0;
-const sections = document.querySelectorAll('.slider-section');
-const totalSections = sections.length;
-
-document.getElementById('prevBtn').addEventListener('click', () => {
-  slideLeft();
-});
-
-document.getElementById('nextBtn').addEventListener('click', () => {
-  slideRight();
-});
-
-function slideLeft() {
-  currentIndex = (currentIndex - 1 + totalSections) % totalSections;
-  updateSlider();
+  isInTransition = false
 }
 
-function slideRight() {
-  currentIndex = (currentIndex + 1) % totalSections;
-  updateSlider();
-}
+const moveSlide = direction =>{
+  if(isInTransition) return 
+  const transformValue = getTransformValue();
+  rootStyles.setProperty('--transition', 'transform 1s')
+  isInTransition = true
+  if(direction === DIRECTION.LEFT){
+    rootStyles.setProperty('--slide-transform', `${transformValue + sliderElements[slideCounter].scrollWidth}px`);
+    slideCounter --;
+  }else if(direction === DIRECTION.RIGHT){
+    rootStyles.setProperty('--slide-transform', `${transformValue - sliderElements[slideCounter].scrollWidth}px`);
+    slideCounter ++;
+  }
+};
 
-function updateSlider() {
-  const track = document.querySelector('.slider-track');
-  track.style.transform = `translateX(-${currentIndex * 16.6667}%)`;
-}
-});
+buttonRight.addEventListener('click', () => moveSlide(DIRECTION.RIGHT))
+buttonLeft.addEventListener('click', () => moveSlide(DIRECTION.LEFT))
+
+
+slider.addEventListener('transitionend', reorderSlider)
+
+reorderSlider();
 
 //   Fin Slider
 
 
+
+
+// Slider de videos presentado la pagina
+
+// Eliminar controles de reproduccion
 var videos = document.querySelectorAll("video");
 
 videos.forEach(function(video) {
-  video.addEventListener("play", function() {
+video.addEventListener("play", function() {
     video.removeAttribute("controls");
-  });
+    video.style.pointerEvents = "none";
+});
 });
 
 
 
-// Obtén todos los elementos de video
-videoss = document.querySelectorAll('.slide video');
+// modificar mouse y convertirlo en una mano que puede scrollear    
+const sliderr = document.querySelector(".sliderr");
+let isDragging = false;
+let startPosition = 0;
+let currentTranslate = 0;
 
-// Función para pausar todos los videos
-function pauseVideos() {
-  videoss.forEach((video) => {
-    video.pause();
-  });
-}
+sliderr.addEventListener("mousedown", (e) => {
+isDragging = true;
+startPosition = e.clientX;
+currentTranslate = sliderr.scrollLeft;
+sliderr.style.cursor = "grabbing";
+});
 
-// Función para reproducir un video específico
-function playVideo(videoId) {
-  const video = document.getElementById(videoId);
-  if (video) {
-    video.play();
-  }
-}
+sliderr.addEventListener("mousemove", (e) => {
+if (!isDragging) return;
+const deltaX = e.clientX - startPosition;
+sliderr.scrollLeft = currentTranslate - deltaX;
+});
 
-// Inicia la animación
-const slider = document.getElementById('video-slider');
-let currentIndexx = 0;
+sliderr.addEventListener("mouseup", () => {
+isDragging = false;
+sliderr.style.cursor = "grab";
+});
 
-function animateSlider() {
-  pauseVideos(); // Pausa todos los videos antes de avanzar
-  currentIndexx = (currentIndexx + 1) % videoss.length;
-  playVideo(`video${currentIndexx + 1}`);
-  slider.style.transform = `translateX(calc(-500px * ${currentIndexx}))`;
+sliderr.addEventListener("mouseleave", () => {
+isDragging = false;
+sliderr.style.cursor = "grab";
+});
 
-  setTimeout(() => {
-    animateSlider();
-  }, 5000); // 5 segundos de pausa antes de avanzar nuevamente
-}
 
-animateSlider(); // Inicia la animación
+// FinSlider de videos presentado la pagina

@@ -1,78 +1,110 @@
-body {
+body.toda_la_pagina{
     margin: 0;
     padding: 0;
+    background-color: #474545;
   }
 
-/* Todo el header */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: black;
-    color: #fff;
-    z-index: 100;  
-    max-height: 105px;
-    width: 100%;
-  }
 
-.logo img {
+  /* Header */
+header{
+
+}
+  /* Fin header */
+
+
+/* Estilos Bienvenida texto y slider */
+.bienvenidaCont {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #474545;
+  align-items: center;
+}
+
+
+.bienvenidaCont p {
+  text-align: center;
+  margin: 50px auto;
+  width: 50%;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.sliderr{
+  aspect-ratio: 7/4;
+  width: 60%;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  scroll-snap-type: x mandatory;
+  margin: 0 auto;
+}
+
+.sliderr video{
   width: 100%;
-  height: auto;
-  max-width: 100%;
-  max-height: 105px;
+  left: 0;
+  position: sticky;
   object-fit: cover;
+  scroll-snap-align: center;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
 }
-  
-.menu {
-    list-style: none;
-    display: flex;
-}
-  
-.menu li {
-    margin-left: 50px;
-    margin-right: 50px;
-}
-  
-.menu li a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-    font-size: 17px;
-}
-  
-.menu li a:hover {
-    color: #444444;
+.sliderr video:hover {
+  cursor: pointer; 
 }
 
-@media (width <= 768px){
-    .logo img{
-    
-  }
+/* Fin Estilos slider de bienvenida */
+
+
+
+/* Linea separadora */
+.linea_separadora{
+  width: 85%;
+  height: 2px;
+  background-color: #919191;
+  margin: 60px auto;
+  border-radius:50px ;
+  -webkit-border-radius:50px ;
+  -moz-border-radius:50px ;
+  -ms-border-radius:50px ;
+  -o-border-radius:50px ;
 }
-/* Fin de todo el header */
+/* Fin linea separadora */
+
+
 
 /* Estilos de imagenes con boton dentro (comenzar, foro) */
-.container {
+.container_tarjetas {
     display: flex;
     justify-content: space-between;
+    background-color: #474545;
 }
 .image-container {
-    position: relative;
-    width: 50%;
-    overflow: hidden; 
-  }
+  width: 32%;
+  height: 600px;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 5%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
 
 .image {
   cursor: pointer;
   filter: brightness(70%); 
   display: block;
+  object-fit: cover;
   width: 100%;
   height: 100%;
   transition: filter 0.5s ease-in-out;
-  object-fit: cover;
 }
 
 .square {
@@ -108,94 +140,110 @@ header {
 /* Fin estilos de imagenes con boton dentro (comenzar, foro) */
 
 
-/* Estilos Bienvenida texto y slider */
-.bienvenidaCont {
-  margin-top: 7.8%;
+
+
+/* Estilos slider consejos*/
+.slider{
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  background-color: #acacac;
-  align-items: center;
+  transform: translateX(var(--slide-transform));
+  -webkit-transform: translateX(var(--slide-transform));
+  -moz-transform: translateX(var(--slide-transform));
+  -ms-transform: translateX(var(--slide-transform));
+  -o-transform: translateX(var(--slide-transform));
+  transition: var(--transition);
+  -webkit-transition: var(--transition);
+  -moz-transition: var(--transition);
+  -ms-transition: var(--transition);
+  -o-transition: var(--transition);
 }
 
-@media (max-width: 1050px) {
-  .bienvenidaCont {
-    margin-top: 5%;
-  }
-}
-
-.bienvenidaCont p {
-  text-align: center;
-  width: 100%;
-}
-
-.slider_bienvenida {
-  max-width: 500px;
-  height: auto;
-  margin: auto;
+.slider_container{
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 4px solid black;
   overflow: hidden;
-  position: relative; 
+  position: relative;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+.slider_container img{
+  max-width: 100%;
 }
 
-.slider_bienvenida .slide {
-  width: 500px;
-  position: relative; 
+.slider__element{
+  min-width: 100%;
+  height: 300px;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 300px;
 }
 
-.slider_bienvenida .slide video {
-  width: 100%;
+.slider__element--consejo1{
+  background-color: red;
 }
-/* Fin Estilos slider de bienvenida */
+.slider__element--consejo2{
+  background-color: blue;
+}
+.slider__element--consejo3{
+  background-color: violet;
+}
+
+.slider__element p{
+  width: 70%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.slider-buttons {
+  position: absolute;
+  top: 50%; /* Centra verticalmente los botones */
+  width: 100%; /* Ocupa todo el ancho del contenedor del slider */
+  text-align: center; /* Centra horizontalmente los botones */
+  transform: translateY(-50%); /* Alinea verticalmente los botones al centro */
+
+}
+
+.button {
+  display: inline-block;
+  background-color: black; /* Color de fondo negro */
+  color: white; /* Texto en blanco */
+  padding: 20px 20px; /* Relleno para hacer que los botones sean más grandes */
+  border: none; /* Sin bordes */
+  font-size: 18px; /* Tamaño de fuente */
+  cursor: pointer; /* Cursor de puntero al pasar el ratón */
+  border-radius: 4px; /* Bordes redondeados */
+  margin: 0 6px; /* Espacio horizontal entre los botones */
+}
+
+.button:hover {
+  background-color: grey; /* Cambio de color de fondo en el hover (gris) */
+}
+
+/* Estilo para el botón izquierdo */
+.button--left {
+  position: absolute;
+  left: 0; /* Alinea el botón izquierdo a la izquierda */
+}
+
+/* Estilo para el botón derecho */
+.button--right {
+  position: absolute;
+  right: 0; /* Alinea el botón derecho a la derecha */
+}
 
 
-
-/* Estilos slider */
-.slider-container {
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-  }
-  .slider-track {
-    display: flex;
-    width: 600%; 
-    transition: transform 0.5s ease-in-out; 
-  }
-  .slider-section {
-    flex: 0 0 16.1112%; 
-    padding: 20px;
-    text-align: center;
-  }
-  .slider-controls {
-    position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-  }
-  .slider-control {
-    background-color: rgba(0, 0, 0, 0.3);
-    color: #fff;
-    font-size: 24px;
-    cursor: pointer;
-    padding: 10px;
-    transition: background-color 0.3s;
-  }
-  .slider-control:hover {
-    background-color: rgba(0, 0, 0, 0.6);
-  }
-  .slider-section h2 {
-    margin-bottom: 10px;
-  }
-
-  /* Fin estilos slider */
+  /* Fin estilos slider consejos*/
 
   
 
 
  /* Estilos del footer */ 
 footer {
-    background-color: #eee;
+  background-color: #474545;
     padding: 10px;
     text-align: center;
     color: #555;
