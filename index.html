@@ -11,10 +11,12 @@
   <header>
     <nav class="navbar navbar-expand-lg shadow" data-bs-theme="dark">
       <div class="container-fluid">
-        <a class="navbar-brand fs-2 fw-medium" href="#index.html">
+        <a class="navbar-brand fs-2 fw-medium d-lg-block" href="#index.html">
           <img class="d-inline-block logo-color d-none" src="imagenes/logo_vacio.png" alt="Logo en color" width="60" height="60">
-          <img class="d-inline-block logo-blanco" src="imagenes/logo_vacio_blanco.png" alt="Logo blanco" width="60" height="60">
-          FitPlanGains
+          <img class="d-inline-block logo-blanco d-none" src="imagenes/logo_vacio_blanco.png" alt="Logo blanco" width="60" height="60">
+          <img class="d-inline-block logo-color_chico d-none" src="imagenes/Logo.png" alt="Logo-chico" width="60" height="60">
+          <img class="d-inline-block logo-blanco_chico d-none" src="imagenes/Logo_blanco.png" alt="Logo-blanco-chico" width="60" height="60">
+          <span class="d-none d-lg-inline">FitPlanGains</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -35,8 +37,12 @@
                 Nosotros
               </a>
               <ul class="dropdown-menu bg-transparent">
-                <li><a class="dropdown-item" href="ayuda.html">Ayuda</a></li>
-                <li><a class="dropdown-item" href="#">Contacto</a></li>
+                <li><a class="dropdown-item btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalAyuda">
+                  Ayuda
+                </a></li>
+                <li><a class="dropdown-item btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalContacto">
+                      Contacto
+                    </a></li>
               </ul>
             </li>
           </ul>
@@ -45,37 +51,142 @@
     </nav>
   </header>
 
+
+  <!-- Modal Ayuda-->
+  <div class="modal fade" id="modalAyuda" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">El contacto del andy</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <body class="modalAyuda">
+                <header class="modalAyuda">
+                    <h1 class="modalAyuda">Página de Ayuda - Creación de Rutinas</h1>
+                </header>
+                <nav class="modalAyuda">
+                    <ul class="modalAyuda">
+                        <li><a href="#pregunta1">¿Cómo puedo crear una rutina de ejercicios?</a></li>
+                        <li><a href="#pregunta2">¿Cómo puedo diseñar una dieta equilibrada?</a></li>
+                        <li><a href="#pregunta3">¿Dónde puedo encontrar recetas saludables?</a></li>
+                    </ul>
+                </nav>
+                <main class="modalAyuda">
+                    <section  class="modalAyuda" id="pregunta1">
+                        <h2 class="modalAyuda">¿Cómo puedo crear una rutina de ejercicios?</h2>
+                        <p class="modalAyuda">Para crear una rutina de ejercicios personalizada, sigue estos pasos:</p>
+                        <ol class="modalAyuda">
+                            <li class="modalAyuda">Establece tus objetivos de entrenamiento.</li>
+                            <li class="modalAyuda">Selecciona los ejercicios adecuados para tus objetivos.</li>
+                            <li class="modalAyuda">Planifica la duración y frecuencia de tu rutina.</li>
+                            <li class="modalAyuda">Realiza un seguimiento de tu progreso.</li>
+                        </ol>
+                    </section>
+                    <section class="modalAyuda" id="pregunta2">
+                        <h2 class="modalAyuda">¿Cómo puedo diseñar una dieta equilibrada?</h2>
+                        <p class="modalAyuda">Para diseñar una dieta equilibrada, ten en cuenta lo siguiente:</p>
+                        <ul class="modalAyuda">
+                            <li class="modalAyuda">Incluye una variedad de alimentos: frutas, verduras, proteínas magras, carbohidratos y grasas saludables.</li>
+                            <li class="modalAyuda">Calcula tus necesidades calóricas diarias.</li>
+                            <li class="modalAyuda">Planifica tus comidas y meriendas.</li>
+                            <li class="modalAyuda">Bebe suficiente agua y evita el exceso de azúcar y alimentos procesados.</li>
+                        </ul>
+                    </section>
+                    <section class="modalAyuda" id="pregunta3">
+                        <h2 class="modalAyuda">¿Dónde puedo encontrar recetas saludables?</h2>
+                        <p class="modalAyuda">Puedes encontrar recetas saludables en los siguientes lugares:</p>
+                        <ul class="modalAyuda">
+                            <li class="modalAyuda">Libros de cocina especializados en nutrición.</li>
+                            <li class="modalAyuda">Sitios web de salud y nutrición.</li>
+                            <li class="modalAyuda">Aplicaciones móviles de recetas saludables.</li>
+                            <li class="modalAyuda">Consultando a un dietista o nutricionista.</li>
+                        </ul>
+                    </section>
+                </main>
+                <footer class="modalAyuda">
+                    <p class="modalAyuda">Si tienes más preguntas, contáctanos en <a href="mailto:soporte@tusitio.com">maurosnack2004@gmail.com</a></p>
+                </footer>
+            </body>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Curtite perro</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- Modal contacto-->
+<div class="modal fade" id="modalContacto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content bg-secondary">
+      <div class="modal-header bg-secondary">
+        <h1 class="modal-title fs-5 bg-secondary" id="exampleModalLabel">El contacto del andy</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body bg-secondary">
+        <body class="modalContacto">
+          <div class="modalContacto content">
+              <h1 class="modalContacto logo">Contacto <span>FitPlanGains</span></h1>
+              <div class="modalContacto contact-wrapper animated bounceInUp">
+                  <div class="modalContacto contact-form">
+                      <h3 class="modalContacto text-white">Contacto</h3>
+                      <form class="modalContacto" action="">
+                          <p class="modalContacto text-white">
+                              <label>Nombre Completo</label>
+                              <input type="text" name="fullname">
+                          </p>
+                          <p class="modalContacto text-white">
+                              <label>Email</label>
+                              <input type="email" name="email">
+                          </p>
+                          <p class="modalContacto text-white">
+                              <label>Numero de telefono</label>
+                              <input type="tel" name="phone">
+                          </p>
+                      
+                          <p class="modalContacto block text-white">
+                             <label>Mensaje</label> 
+                              <textarea name="message" rows="3"></textarea>
+                          </p>
+                          <p class="modalContacto block text-white">
+                              <button>
+                                  Enviar
+                              </button>
+                          </p>
+                      </form>
+                  </div>
+                  <div class="modalContacto contact-info">  
+                      <h4 class="modalContacto">Mas informacion</h4>
+                      <ul class="modalContacto">
+                          <li><i class="fas fa-map-marker-alt"></i>Ing. Marconi 745</li>
+                          <li><i class="fas fa-phone"></i>77777777</li>
+                          <li><i class="fas fa-envelope-open-text"></i>maurosnack2004@gmail.com</li>
+                      </ul>
+                      <p class="modalContacto">Nuestros agentes responderán a la brevedad posible, generalmente en un plazo de 24 a 48 horas. Para asistencia urgente, llámanos al 7777-7777 durante nuestro horario de atención. De Lunes a Viernes de 08 a 20 hs.</p>
+                      <p class="modalContacto">FitPlanGains.com</p>
+                  </div>
+              </div>
+          </div>
+      </body>
+      </div>
+      <div class="modal-footer bg-secondary">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
   <!-- Bienvenida a la pagina e informacion del uso de la página -->
 
 
   <div class="bienvenidaCont">
-    <p>Encuentra la mejor forma de mejorar tu vida</p>
-    <div class="sliderr">
-      <video width="100%" height="auto" id="video1" loop autoplay muted>
-        <source src="videos/alimentacion.mp4" type="video/mp4">
-        Tu navegador no admite el elemento de video.
-      </video>
-      <video width="100%" height="auto" id="video2" loop autoplay muted>
-        <source src="videos/gimnasio.mp4" type="video/mp4">
-        Tu navegador no admite el elemento de video.
-      </video>
-      <video width="100%" height="auto" id="video3" loop autoplay muted>
-        <source src="videos/alimentacion.mp4" type="video/mp4">
-        Tu navegador no admite el elemento de video.
-      </video>
-      <video width="100%" height="auto" id="video4" loop autoplay muted>
-        <source src="videos/gimnasio.mp4" type="video/mp4">
-        Tu navegador no admite el elemento de video.
-      </video>
-      <video width="100%" height="auto" id="video5" loop autoplay muted>
-        <source src="videos/alimentacion.mp4" type="video/mp4">
-        Tu navegador no admite el elemento de video.
-      </video>
-      <video width="100%" height="auto" id="video6" loop autoplay muted>
-        <source src="videos/gimnasio.mp4" type="video/mp4">
-        Tu navegador no admite el elemento de video.
-      </video>
-    </div>
+    <p class="texto-bienvenida fs-2 fw-medium text-center">Encuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vida</p>
+    
   </div>
   <!-- Fin -->
 
@@ -170,17 +281,51 @@
 
   <script type="text/javascript">
 
+
+    document.addEventListener("DOMContentLoaded", function() {
+
+      const botonToggler = document.querySelector('.navbar-toggler');
+      const logoBlanco = document.querySelector('.logo-blanco');
+      const logoBlancoChico = document.querySelector('.logo-blanco_chico');
+
+      if(window.getComputedStyle(botonToggler).display === 'none'){
+        logoBlanco.classList.remove("d-none");
+      }else{
+        logoBlancoChico.classList.remove("d-none");
+      }
+    });
+
+
     window.addEventListener("scroll", function(){
       var header = document.querySelector("header");
       var logoColor = document.querySelector(".logo-color");
       var logoBlanco = document.querySelector(".logo-blanco");
+
+      const botonToggler = document.querySelector('.navbar-toggler');
+      const logoColorChico = document.querySelector('.logo-color_chico');
+      const logoBlancoChico = document.querySelector('.logo-blanco_chico');
+
       var backgroundHeader = document.querySelector(".navbar");
       var btnDrop = document.querySelector(".dropdown-menu");
       var sombra = document.querySelector(".navbar");
 
+
+
       header.classList.toggle("abajo",window.scrollY>0);
-      logoBlanco.classList.add("d-none");
-      logoColor.classList.remove("d-none");
+      if(window.getComputedStyle(botonToggler).display === 'none'){
+        logoColorChico.classList.remove('mx-auto');
+        logoColorChico.classList.add('d-none');
+        logoBlancoChico.classList.add('d-none');
+        logoBlanco.classList.add("d-none");
+        logoColor.classList.remove("d-none");
+      }else{
+        logoColorChico.classList.remove('d-none');
+        logoColorChico.classList.add('mx-auto');
+        logoBlancoChico.classList.remove('mx-auto');
+        logoBlancoChico.classList.add('d-none');
+        logoBlanco.classList.add("d-none");
+        logoColor.classList.add("d-none");
+      }
 
       backgroundHeader.classList.add("bg-secondary");
 
@@ -190,9 +335,21 @@
       sombra.classList.remove("shadow");
 
       if(window.scrollY===0){
-        logoColor.classList.add("d-none");
-        logoBlanco.classList.remove("d-none");
-
+        if(window.getComputedStyle(botonToggler).display === 'none'){
+          logoColorChico.classList.remove('mx-auto');
+          logoColorChico.classList.add('d-none');
+          logoBlancoChico.classList.add('d-none');
+          logoColor.classList.add("d-none");
+          logoBlanco.classList.remove("d-none");
+        }else{
+          logoBlancoChico.classList.remove('d-none');
+          logoBlancoChico.classList.add('mx-auto');
+          logoColorChico.classList.remove('mx-auto');
+          logoColorChico.classList.add('d-none');
+          logoBlanco.classList.add("d-none");
+          logoColor.classList.add("d-none");
+        }
+        
         backgroundHeader.classList.remove("bg-secondary");
 
         btnDrop.classList.remove("bg-secondary");
@@ -202,6 +359,20 @@
       }
       });
 
+
+
+
+
+      const myModal = document.getElementById('myModal')
+      const myInput = document.getElementById('myInput')
+
+      myModal.addEventListener('shown.bs.modal', () => {
+        myInput.focus()
+      })
+
+
+      window.addEventListener('load', funcionHeader);
+      window.addEventListener('resize', funcionHeader);
 
   </script>
 </body>

@@ -2,6 +2,8 @@
 -Completo diseño del header [falta agregar animaciones hover]
 -Completo diseño index.html
 -Modificaciones del foro 
+-Elimino ayuda.html y contacto.html, estilos_ayuda.css y estilos_contacto.css para agregarlos al index. 
+-Tambien agrego ventana modal
 -----------------------------------------------------------------------------------------------------------------
 
 

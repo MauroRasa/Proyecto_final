@@ -58,14 +58,6 @@ body.toda_la_pagina{
     -ms-transition: 0.7s;
     -o-transition: 0.7s;
 }
-
-  .zona1{
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background-size: cover;
-    background-position: center center;
-  }
   header.abajo .navbar-brand,
   header.abajo .navbar .container-fluid .collapse ul li a{
     color: #000;
@@ -79,48 +71,9 @@ body.toda_la_pagina{
 
 
 /* Estilos Bienvenida texto y slider */
-.bienvenidaCont {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  background-color: #4c5257;
-  align-items: center;
-}
 
-
-.bienvenidaCont p {
-  text-align: center;
-  margin: 50px auto;
-  width: 50%;
-  font-size: 32px;
-  font-weight: bold;
-  color: #bbbbbbc0;
-}
-
-.sliderr{
-  aspect-ratio: 7/4;
-  width: 60%;
-  position: relative;
-  display: flex;
-  overflow: hidden;
-  scroll-snap-type: x mandatory;
+.bienvenidaCont{
   margin: 0 auto;
-}
-
-.sliderr video{
-  width: 100%;
-  left: 0;
-  position: sticky;
-  object-fit: cover;
-  scroll-snap-align: center;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-}
-.sliderr video:hover {
-  cursor: pointer; 
 }
 
 /* Fin Estilos slider de bienvenida */
@@ -322,16 +275,217 @@ footer {
 
 
 
- /* .button {
-    background-color: #333;
-    color: #fff;
-    border-radius: 5px;
-    padding: 20px 30px;
-    font-size: 16px;
-    margin-top: 10px;
-    position: absolute; 
-    bottom: 10%; /* Lo pone en el centro vertical */
-     /*left: 50%; /* Lo pone en el centro horizontal */
-     /*transform: translate(-50%, 50%); /* Pone el boton en el medio de su propio contenedor (sino queda en medio de la pagina) */
-     /*transition: transform 0.5s ease-in-out;
-} */
+ /* Modal de ayuda estilos */
+
+ /* Estilos generales para el cuerpo de la página */
+body.modalAyuda {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos para el encabezado */
+header.modalAyuda {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Estilos para la barra de navegación */
+nav.modalAyuda ul.modalAyuda {
+  list-style-type: none;
+  padding: 0;
+  background-color: #333;
+  text-align: center;
+}
+
+nav.modalAyuda ul.modalAyuda li {
+  display: inline;
+  margin: 0 10px;
+}
+
+nav.modalAyuda ul.modalAyuda li.modalAyuda a.modalAyuda {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Estilos para el contenido principal */
+main.modalAyuda {
+  padding: 20px;
+}
+
+/* Estilos para las secciones de preguntas frecuentes */
+section.modalAyuda {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Estilos para títulos de secciones */
+h1.modalAyuda {
+  color: #ddd;
+}
+h2.modalAyuda {
+  color: #000;
+}
+
+/* Estilos para listas ordenadas y no ordenadas */
+ol.modalAyuda, ul.modalAyuda {
+  padding-left: 20px;
+}
+
+/* Estilos para el pie de página */
+footer.modalAyuda {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+
+footer.modalAyuda a.modalAyuda {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+
+
+
+
+/* Modal de contacto estilos */
+
+
+.modal-body {
+  box-sizing: border-box;
+}
+
+body.modalContacto {
+  background: #181818;
+  color: #fff;
+  line-height: 1.6;
+  font-family: 'Quicksand', sans-serif;
+  padding: 0 1.5em;
+  margin: 0; /* Evitar el espacio en blanco en los bordes del cuerpo */
+}
+
+.modalContacto.content {
+  max-width: 1170px;
+  margin: 0 auto; /* Centro el contenedor horizontalmente */
+  padding: 1.5em;
+}
+
+ul.modalContacto {
+  list-style: none;
+  padding: 0;
+}
+
+.modalContacto.logo {
+  text-align: center;
+  font-size: 3em;
+}
+
+.modalContacto.logo span {
+  color: #B70E21;
+}
+
+.modalContacto.contact-wrapper {
+  box-shadow: 0 0 20px 0 rgba(255, 255, 255, .3);
+}
+
+.modalContacto.contact-wrapper > * {
+  padding: 1em;
+}
+
+.modalContacto.contact-form {
+  background: #222222;
+  padding: 1em; /* Añadir espacio entre el formulario y el contenedor */
+}
+
+.modalContacto.contact-form form.modalContacto {
+  display: grid;
+  grid-template-columns: 1fr; /* Cambiar a una sola columna en pantallas pequeñas */
+}
+
+.modalContacto.contact-form form.modalContacto label {
+  display: block;
+}
+
+.modalContacto.contact-form form.modalContacto p {
+  margin: 0;
+  padding: 1em;
+}
+
+.modalContacto.contact-form form.modalContacto .block {
+  grid-column: 1 / 2;
+}
+
+.modalContacto.contact-form form button,
+.modalContacto.contact-form form input,
+.modalContacto.contact-form form textarea {
+  width: 100%;
+  padding: .7em;
+  border: none;
+  background: none;
+  outline: 0;
+  color: #fff;
+  border-bottom: 1px solid #d63031;
+  margin-bottom: 1em; /* Añadir espacio entre elementos del formulario */
+}
+
+.modalContacto.contact-form form button {
+  background: #B70E21;
+  border: 0;
+  text-transform: uppercase;
+  padding: 1em;
+}
+
+.modalContacto.contact-form form button:hover,
+.modalContacto.contact-form form button:focus {
+  background: #d63031;
+  color: #fff;
+  transition: background-color 1s ease-out;
+  outline: 0;
+}
+
+/* CONTACT INFO */
+.modalContacto.contact-info {
+  background: #000;
+}
+
+.modalContacto.contact-info h4, .contact-info ul, .contact-info p {
+  text-align: center;
+  margin: 0 0 1rem 0;
+}
+
+/* LARGE SIZE */
+@media(min-width: 700px) {
+  body.modalContacto {
+      padding: 0 4em;
+  }
+  .modalContacto.container {
+      padding: 2em; /* Aumentar el espacio interior del contenedor */
+  }
+  .modalContacto.contact-wrapper {
+      grid-template-columns: 2fr 1fr;
+  }
+  .modalContacto.contact-wrapper > * {
+      padding: 2em;
+  }
+  .modalContacto.contact-info h4,
+  .modalContacto.contact-info ul,
+  .modalContacto.contact-info p {
+      text-align: left;
+  }
+}
+
+
+
+
+
+
+
+

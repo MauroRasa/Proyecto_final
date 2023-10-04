@@ -75,36 +75,4 @@ video.addEventListener("play", function() {
 });
 });
 
-
-
-// modificar mouse y convertirlo en una mano que puede scrollear    
-const sliderr = document.querySelector(".sliderr");
-let isDragging = false;
-let startPosition = 0;
-let currentTranslate = 0;
-
-sliderr.addEventListener("mousedown", (e) => {
-isDragging = true;
-startPosition = e.clientX;
-currentTranslate = sliderr.scrollLeft;
-sliderr.style.cursor = "grabbing";
-});
-
-sliderr.addEventListener("mousemove", (e) => {
-if (!isDragging) return;
-const deltaX = e.clientX - startPosition;
-sliderr.scrollLeft = currentTranslate - deltaX;
-});
-
-sliderr.addEventListener("mouseup", () => {
-isDragging = false;
-sliderr.style.cursor = "grab";
-});
-
-sliderr.addEventListener("mouseleave", () => {
-isDragging = false;
-sliderr.style.cursor = "grab";
-});
-
-
 // FinSlider de videos presentado la pagina

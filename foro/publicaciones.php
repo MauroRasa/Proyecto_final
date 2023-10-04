@@ -41,6 +41,26 @@
             $sql = "INSERT INTO publicaciones (Publicacion, ID_user, Respuesta_ID_publi, Fecha_publi, Hora_publi) VALUES ('$publicacion','$id_user', '$respuesta_ID_publi', '$fecha', '$hora')";
             $guardar_publi = mysqli_query($conexion, $sql) ? print("<script> alert ('Publicación enviada'); window.location = 'publicaciones.php'</script>") : print("<script> alert ('Error al envíar publicación'</script>");
         }
+
+        if (isset($_POST['publicar_2'])) {
+            $publicacion = $_POST['publi'];
+            $id_user = $_SESSION['ID_user'];
+            $respuesta_ID_publi = 0;
+            $fecha = date('Y-m-d');
+
+                        //Codigo para arreglar desface horario de localhost
+                        $hora_actualBD = date('H:i');
+                        $timestamp_actualBD = strtotime($hora_actualBD);
+                        $timestamp_anteriorBD = $timestamp_actualBD - 3600 * 5;
+
+                        $hora = date('H:i', $timestamp_anteriorBD);
+                        //Codigo para arreglar desface horario de localhost
+
+
+
+            $sql = "INSERT INTO publicaciones_2 (Publicacion, ID_user, Respuesta_ID_publi, Fecha_publi, Hora_publi) VALUES ('$publicacion','$id_user', '$respuesta_ID_publi', '$fecha', '$hora')";
+            $guardar_publi = mysqli_query($conexion, $sql) ? print("<script> alert ('Publicación enviada'); window.location = 'publicaciones.php'</script>") : print("<script> alert ('Error al envíar publicación'</script>");
+        }
     ?>
 
 
@@ -118,7 +138,7 @@
                                         <?php 
                                         // Foro (pUBLICACIONES)
                                         $sql = "SELECT p.ID_publi, p.Publicacion, p.ID_user, p.Respuesta_ID_publi, p.Hora_publi, p.Cant_respuestas, u.Usuario
-                                        FROM publicaciones p
+                                        FROM publicaciones_2 p
                                         JOIN usuarios u ON p.ID_user = U.ID_user AND Respuesta_ID_publi = 0 ORDER BY Hora_publi desc";
                                         $consulta = mysqli_query($conexion, $sql);
                                         echo '<div class="foro">';
@@ -213,7 +233,9 @@
     echo '<div class="btn_publicar">';
         echo '<a href="publicacion.html"> Redactar </a>';
     echo '</div>';
-
+    echo '<div class="btn_publicar">';
+        echo '<a href="publicacion_2.html"> Redactar </a>';
+    echo '</div>';
 
     ?>
 
