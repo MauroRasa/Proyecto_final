@@ -5,7 +5,7 @@
 }
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #2d2d2d;
+    background: #4C5257;
     color: #ddd;
 }
 
@@ -14,7 +14,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background: #464141;
+    background: #4C5257;
     color: #eee;
     width: 100%;
     padding: 30px 0;
@@ -44,7 +44,7 @@ body {
     margin-right: 30%;
 }
 .pantalla_izq{
-    background-color: #535353;
+    background-color: #4C5257;
     width: 22%;
     height: 100%;
     position: fixed;
@@ -53,7 +53,7 @@ body {
     z-index: 80;
 }
 .pantalla_der{
-    background-color: #535353;
+    background-color: #4C5257;
     width: 30%;
     height: 100%;
     position: fixed;
@@ -77,7 +77,7 @@ body {
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
-    background-color: #464141;
+    background-color: #4C5257;
 }
 .foro .cont_publis {
 }
@@ -85,11 +85,31 @@ body {
     text-decoration: none;
 }
 .foro .publi {
-    width: 95%;
+    width: 80%;
+    border-radius: 20px;
     margin: auto;
     background: #eee;
     padding: 8px;
     margin-bottom: 5px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+.carousel-control-prev{
+    font-size: 1rem; 
+    width: auto; 
+    padding: 0; 
+    margin-left: 22%;
+}
+.carousel-control-next {
+    font-size: 1rem; 
+    width: auto; 
+    padding: 0; 
+    margin-right: 30%;
+}
+.tiempoTransc{
+    margin-top: 8px;
 }
 .foro .publi:hover {
     background: rgb(146, 189, 223);
@@ -104,10 +124,11 @@ p span.cant {
 }
 /* / */
 /* Btn redactar */
-.btn_publicar a {
+.btn_publicar{
     color:#eee;
     font-size: 1em;
     text-decoration: none;
+    text-align: center;
 }
 /* / */
 
