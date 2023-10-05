@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>FitPlanGains</title>
   <link rel="stylesheet" type="text/css" href="estilos/estilos.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <!-- GOOGLE FONTs -->
+  <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <!-- ANIMATE CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 </head>
 
 <body class="toda_la_pagina">
-  <header>
+  <header class="navbar_header_sticky">
     <nav class="navbar navbar-expand-lg shadow" data-bs-theme="dark">
       <div class="container-fluid">
         <a class="navbar-brand fs-2 fw-medium d-lg-block" href="#index.html">
@@ -45,6 +52,13 @@
                     </a></li>
               </ul>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalInicio">
+                <span class="material-symbols-outlined">
+                  person
+                </span>
+              </a>
+            </li>
           </ul>
         </div>
       </div>
@@ -52,18 +66,109 @@
   </header>
 
 
+
+<!-- Modal de inicio de sesion y registro -->
+
+<div class="modal fade modal-xl" id="modalInicio" aria-hidden="true" aria-labelledby="modalInicioLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark">
+      <div class="modal-body">
+            <body class="modalRegistrarse">
+            <div class="modalRegistrarse outer-container">
+                <div class="modalRegistrarse container">
+                    <div class="modalRegistrarse form-container">
+                        <h2 class="modalRegistrarse fw-medium text-white">Iniciar Sesion</h2>
+                        <form class="modalRegistrarse fw-medium text-white" action="sesion.php" method="POST">
+                              <div class="mb-3">
+                                <label for="usuario" class="form-label text-white">Usuario:</label>
+                                <input type="text" id="usuario" name="usuario" class="form-control" required>
+                              </div>
+                      
+                              <div class="mb-3">
+                                  <label for="password" class="form-label text-white">Contraseña:</label>
+                                  <input type="password" id="password" name="password" class="form-control" required>
+                              </div>
+
+                            <button class="bt btn btn-second" type="submit" name="inicio">Iniciar</but> 
+                        </form>
+                    </div>   
+                    <div class="modalRegistrarse image-container">
+                        <img src="imagenes/image.jpg" alt="Imagen">
+                    </div>
+                </div>
+            </div>
+            </body>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-bs-target="#modalRegistro" data-bs-toggle="modal">Registrarse</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade modal-xl" id="modalRegistro" aria-hidden="true" aria-labelledby="modalRegistroLabel" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark">
+      <div class="modal-body">
+        <body class="modalRegistrarse">
+          <div class="modalRegistrarse outer-container">
+              <div class="modalRegistrarse container">
+                  <div class="form-container">
+                      <h2 class="modalRegistrarse text-center text-white">Registro</h2>
+                      <form class="modalRegistrarse fw-medium text-white" action="registro.php" method="POST">
+                        <div class="mb-3">
+                            <label for="usuario" class="form-label text-white">Usuario:</label>
+                            <input type="text" id="usuario" name="usuario" class="form-control" required>
+                        </div>
+                
+                        <div class="mb-3">
+                            <label for="password" class="form-label text-white">Contraseña:</label>
+                            <input type="password" id="password" name="password" class="form-control" required>
+                        </div>
+                
+                        <div class="mb-3">
+                            <label for="email" class="form-label text-white">Email:</label>
+                            <input type="text" id="email" name="email" class="form-control" required>
+                        </div>
+                
+                        <div class="mb-3">
+                            <label for="confirm_password" class="form-label text-white">Confirmar Contraseña:</label>
+                            <input type="password" id="confirm_password" name="confirm_password" class="form-control" required>
+                        </div>
+                
+                        <button class="bt btn btn-second" type="submit" name="registrarse">Registrarse</button>
+                    </form>
+                  </div>   
+                  <div class="modalRegistrarse image-container">
+                      <img src="imagenes/image.jpg" alt="Imagen">
+                  </div>
+              </div>
+          </div>
+        </body>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" data-bs-target="#modalInicio" data-bs-toggle="modal">Iniciar Sesion</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Fin -->
+
+
+
   <!-- Modal Ayuda-->
-  <div class="modal fade" id="modalAyuda" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="modalAyuda" tabindex="-1" aria-labelledby="modalAyudaLabel" aria-hidden="true">
     <div class="modal-dialog modal-xl">
-      <div class="modal-content">
+      <div class="modal-content bg-dark">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">El contacto del andy</h1>
+          <h1 class="modal-title fs-5" id="modalAyudaLabel">El contacto del andy</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body" id="modalllaaa">
             <body class="modalAyuda">
                 <header class="modalAyuda">
-                    <h1 class="modalAyuda">Página de Ayuda - Creación de Rutinas</h1>
+                    <h1 class="modalAyuda text-white">Página de Ayuda - Creación de Rutinas</h1>
                 </header>
                 <nav class="modalAyuda">
                     <ul class="modalAyuda">
@@ -74,9 +179,9 @@
                 </nav>
                 <main class="modalAyuda">
                     <section  class="modalAyuda" id="pregunta1">
-                        <h2 class="modalAyuda">¿Cómo puedo crear una rutina de ejercicios?</h2>
-                        <p class="modalAyuda">Para crear una rutina de ejercicios personalizada, sigue estos pasos:</p>
-                        <ol class="modalAyuda">
+                        <h2 class="modalAyuda text-white">¿Cómo puedo crear una rutina de ejercicios?</h2>
+                        <p class="modalAyuda text-white">Para crear una rutina de ejercicios personalizada, sigue estos pasos:</p>
+                        <ol class="modalAyuda text-white">
                             <li class="modalAyuda">Establece tus objetivos de entrenamiento.</li>
                             <li class="modalAyuda">Selecciona los ejercicios adecuados para tus objetivos.</li>
                             <li class="modalAyuda">Planifica la duración y frecuencia de tu rutina.</li>
@@ -84,9 +189,9 @@
                         </ol>
                     </section>
                     <section class="modalAyuda" id="pregunta2">
-                        <h2 class="modalAyuda">¿Cómo puedo diseñar una dieta equilibrada?</h2>
-                        <p class="modalAyuda">Para diseñar una dieta equilibrada, ten en cuenta lo siguiente:</p>
-                        <ul class="modalAyuda">
+                        <h2 class="modalAyuda text-white">¿Cómo puedo diseñar una dieta equilibrada?</h2>
+                        <p class="modalAyuda text-white">Para diseñar una dieta equilibrada, ten en cuenta lo siguiente:</p>
+                        <ul class="modalAyuda text-white">
                             <li class="modalAyuda">Incluye una variedad de alimentos: frutas, verduras, proteínas magras, carbohidratos y grasas saludables.</li>
                             <li class="modalAyuda">Calcula tus necesidades calóricas diarias.</li>
                             <li class="modalAyuda">Planifica tus comidas y meriendas.</li>
@@ -94,9 +199,9 @@
                         </ul>
                     </section>
                     <section class="modalAyuda" id="pregunta3">
-                        <h2 class="modalAyuda">¿Dónde puedo encontrar recetas saludables?</h2>
-                        <p class="modalAyuda">Puedes encontrar recetas saludables en los siguientes lugares:</p>
-                        <ul class="modalAyuda">
+                        <h2 class="modalAyuda text-white">¿Dónde puedo encontrar recetas saludables?</h2>
+                        <p class="modalAyuda text-white">Puedes encontrar recetas saludables en los siguientes lugares:</p>
+                        <ul class="modalAyuda text-white">
                             <li class="modalAyuda">Libros de cocina especializados en nutrición.</li>
                             <li class="modalAyuda">Sitios web de salud y nutrición.</li>
                             <li class="modalAyuda">Aplicaciones móviles de recetas saludables.</li>
@@ -105,13 +210,9 @@
                     </section>
                 </main>
                 <footer class="modalAyuda">
-                    <p class="modalAyuda">Si tienes más preguntas, contáctanos en <a href="mailto:soporte@tusitio.com">maurosnack2004@gmail.com</a></p>
+                    <p class="modalAyuda">Si tienes más preguntas, contáctanos en <a href="mailto:soporte@tusitio.com">fitplangains@gmail.com</a></p>
                 </footer>
             </body>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Curtite perro</button>
         </div>
       </div>
     </div>
@@ -121,17 +222,17 @@
 
 
   <!-- Modal contacto-->
-<div class="modal fade" id="modalContacto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modalContacto" tabindex="-1" aria-labelledby="modalContactoLabel" aria-hidden="true">
   <div class="modal-dialog modal-xl">
-    <div class="modal-content bg-secondary">
-      <div class="modal-header bg-secondary">
-        <h1 class="modal-title fs-5 bg-secondary" id="exampleModalLabel">El contacto del andy</h1>
+    <div class="modal-content bg-dark">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="modalContactoLabel">Contacto</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body bg-secondary">
+      <div class="modal-body">
         <body class="modalContacto">
           <div class="modalContacto content">
-              <h1 class="modalContacto logo">Contacto <span>FitPlanGains</span></h1>
+              <h1 class="modalContacto logo text-white">Contacto <span>FitPlanGains</span></h1>
               <div class="modalContacto contact-wrapper animated bounceInUp">
                   <div class="modalContacto contact-form">
                       <h3 class="modalContacto text-white">Contacto</h3>
@@ -161,21 +262,18 @@
                       </form>
                   </div>
                   <div class="modalContacto contact-info">  
-                      <h4 class="modalContacto">Mas informacion</h4>
-                      <ul class="modalContacto">
+                      <h4 class="modalContacto text-white">Mas informacion</h4>
+                      <ul class="modalContacto text-white">
                           <li><i class="fas fa-map-marker-alt"></i>Ing. Marconi 745</li>
                           <li><i class="fas fa-phone"></i>77777777</li>
                           <li><i class="fas fa-envelope-open-text"></i>maurosnack2004@gmail.com</li>
                       </ul>
-                      <p class="modalContacto">Nuestros agentes responderán a la brevedad posible, generalmente en un plazo de 24 a 48 horas. Para asistencia urgente, llámanos al 7777-7777 durante nuestro horario de atención. De Lunes a Viernes de 08 a 20 hs.</p>
-                      <p class="modalContacto">FitPlanGains.com</p>
+                      <p class="modalContacto text-white">Nuestros agentes responderán a la brevedad posible, generalmente en un plazo de 24 a 48 horas. Para asistencia urgente, llámanos al 7777-7777 durante nuestro horario de atención. De Lunes a Viernes de 08 a 20 hs.</p>
+                      <p class="modalContacto text-white">FitPlanGains.com</p>
                   </div>
               </div>
           </div>
       </body>
-      </div>
-      <div class="modal-footer bg-secondary">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>
@@ -185,7 +283,10 @@
 
 
   <div class="bienvenidaCont">
-    <p class="texto-bienvenida fs-2 fw-medium text-center">Encuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vidaEncuentra la mejor forma de mejorar tu vida</p>
+    <p class="texto-bienvenida fs-2 fw-medium text-center">
+      Bienvenido a FitPlanGains
+    </p>
+    <h6 class="texto-bienvenida fs-2 fw-medium text-center">--insertar videos--</h6>
     
   </div>
   <!-- Fin -->
@@ -198,10 +299,10 @@
   <div class="container_tarjetas" id="planes">
     <div class="image-container">
       <!-- Imagen plan alimentacion -->
-      <a href="foro/index.php">
+      <a href="#" data-bs-toggle="modal" data-bs-target="#modalInicio">
         <img class="image" src="imagenes/plancha.jpg" alt="Image 1">
         <div class="square" onclick="redirectToPedirDatos()">
-          <a href="foro/index.php">Comienza tu camino por una alimentación saludable y una vida mejor.</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#modalInicio">Comienza tu camino por una alimentación saludable y una vida mejor.</a>
         </div>
       </a>
     </div>
@@ -217,10 +318,10 @@
     </div>
     <div class="image-container">
       <!-- Imagen plan alimentacion -->
-      <a href="foro/index.php">
+      <a href="#" data-bs-toggle="modal" data-bs-target="#modalInicio">
         <img class="image" src="imagenes/nubes.jpg" alt="Image 1">
         <div class="square" onclick="redirectToPedirDatos()">
-          <a href="foro/index.php">Comienza tu camino por una alimentación saludable y una vida mejor.</a>
+          <a href="#" data-bs-toggle="modal" data-bs-target="#modalInicio">Comienza tu camino por una alimentación saludable y una vida mejor.</a>
         </div>
       </a>
     </div>
@@ -254,12 +355,12 @@
       </div>
     </div>
     <div class="slider-buttons">
-      <button id="button-left" class="button button--left">
+      <button id="button-left" class="button-slider button--left">
         <span class="material-symbols-outlined">
           chevron_left
         </span>
       </button>
-      <button id="button-right" class="button button--right">
+      <button id="button-right" class="button-slider button--right">
         <span class="material-symbols-outlined">
           navigate_next
         </span>
@@ -359,20 +460,14 @@
       }
       });
 
+      // const myModal = document.getElementById('Modal')
+      // const myInput = document.getElementById('myInput')
+
+      // myModal.addEventListener('shown.bs.modal', () => {
+      //   myInput.focus()
+      // })
 
 
-
-
-      const myModal = document.getElementById('myModal')
-      const myInput = document.getElementById('myInput')
-
-      myModal.addEventListener('shown.bs.modal', () => {
-        myInput.focus()
-      })
-
-
-      window.addEventListener('load', funcionHeader);
-      window.addEventListener('resize', funcionHeader);
 
   </script>
 </body>

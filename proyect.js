@@ -61,6 +61,34 @@ reorderSlider();
 //   Fin Slider
 
 
+// Configuración del slider
+const intervalTime = 3000; 
+let autoSlideInterval;
+
+// Función para mover el slider automáticamente hacia la derecha
+const autoSlideRight = () => {
+  moveSlide(DIRECTION.RIGHT);
+}
+
+// Iniciar el slider automático
+const startAutoSlide = () => {
+  autoSlideInterval = setInterval(autoSlideRight, intervalTime);
+}
+
+// Detener el slider automático
+const stopAutoSlide = () => {
+  clearInterval(autoSlideInterval);
+}
+
+// Agregar listeners para detener el slider automático cuando el mouse está encima del slider
+sliderContainer.addEventListener('mouseenter', stopAutoSlide);
+sliderContainer.addEventListener('mouseleave', startAutoSlide);
+
+// Iniciar el slider automático
+startAutoSlide();
+
+
+
 
 
 // Slider de videos presentado la pagina

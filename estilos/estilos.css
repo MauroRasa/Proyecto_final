@@ -8,7 +8,7 @@ body.toda_la_pagina{
   /* Header */
 
 
-  header{
+  header.navbar_header_sticky{
     position: sticky;
     top: 0;
     left: 0;
@@ -19,11 +19,17 @@ body.toda_la_pagina{
     -ms-transition: 0.5s;
     -o-transition: 0.5s;
 }
-  header.abajo{
+  header.navbar_header_sticky.abajo{
     background: #6C757D;
-    padding: 5px 5px;
+    padding: 0.2%;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
   }
+  @media (width <= 992px){
+    .container-fluid .navbar-brand img{
+      width: 120px;
+      height: 120px;
+    }
+}
 
   nav.navbar{
     display: flex;
@@ -40,11 +46,11 @@ body.toda_la_pagina{
     color: #555; 
   }
 
-  header nav.navbar .container-fluid .collapse ul li{
+  header.navbar_header_sticky nav.navbar .container-fluid .collapse ul li{
     list-style: none;
   }
 
-  header nav.navbar .container-fluid .collapse ul li a{
+  header.navbar_header_sticky nav.navbar .container-fluid .collapse ul li a{
     position: relative;
     font-family: helvetica;
     margin: 0 15px;
@@ -58,8 +64,8 @@ body.toda_la_pagina{
     -ms-transition: 0.7s;
     -o-transition: 0.7s;
 }
-  header.abajo .navbar-brand,
-  header.abajo .navbar .container-fluid .collapse ul li a{
+  header.navbar_header_sticky.abajo .navbar-brand,
+  header.navbar_header_sticky.abajo .navbar .container-fluid .collapse ul li a{
     color: #000;
   }
 
@@ -104,7 +110,7 @@ body.toda_la_pagina{
 }
 .image-container {
   width: 32%;
-  height: 600px;
+  height: 400px;
   margin-left: 5%;
   margin-right: 5%;
   margin-bottom: 5%;
@@ -178,10 +184,10 @@ body.toda_la_pagina{
 }
 
 .slider_container{
-  width: 90%;
+  position: relative;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
-  border: 4px solid black;
   overflow: hidden;
   position: relative;
   border-radius: 15px;
@@ -191,7 +197,12 @@ body.toda_la_pagina{
   -o-border-radius: 15px;
 }
 .slider_container img{
-  max-width: 100%;
+  max-width: 85%;
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+  -ms-border-radius: 30px;
+  -o-border-radius: 30px;
 }
 
 .slider__element{
@@ -217,39 +228,37 @@ body.toda_la_pagina{
 }
 
 .slider-buttons {
+  display: flex;
   position: absolute;
   top: 50%; /* Centra verticalmente los botones */
   width: 100%; /* Ocupa todo el ancho del contenedor del slider */
+  height: 30%;
   text-align: center; /* Centra horizontalmente los botones */
   transform: translateY(-50%); /* Alinea verticalmente los botones al centro */
 
 }
 
-.button {
-  display: inline-block;
-  background-color: black; /* Color de fondo negro */
-  color: white; /* Texto en blanco */
-  padding: 20px 20px; /* Relleno para hacer que los botones sean más grandes */
-  border: none; /* Sin bordes */
-  font-size: 18px; /* Tamaño de fuente */
-  cursor: pointer; /* Cursor de puntero al pasar el ratón */
-  border-radius: 4px; /* Bordes redondeados */
-  margin: 0 6px; /* Espacio horizontal entre los botones */
+.button-slider {
+  background: #4c5257;
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin: 0 0;
+  padding: 0;
 }
 
-.button:hover {
+.button-slider:hover {
   background-color: grey; /* Cambio de color de fondo en el hover (gris) */
 }
 
 /* Estilo para el botón izquierdo */
-.button--left {
-  position: absolute;
-  left: 0; /* Alinea el botón izquierdo a la izquierda */
+.button-slider .button--left {
+  right: 0; /* Alinea el botón izquierdo a la izquierda */
 }
 
 /* Estilo para el botón derecho */
-.button--right {
-  position: absolute;
+.button-slider .button--right {
   right: 0; /* Alinea el botón derecho a la derecha */
 }
 
@@ -280,8 +289,6 @@ footer {
  /* Estilos generales para el cuerpo de la página */
 body.modalAyuda {
   font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
-  color: #333;
   margin: 0;
   padding: 0;
 }
@@ -289,7 +296,6 @@ body.modalAyuda {
 /* Estilos para el encabezado */
 header.modalAyuda {
   background-color: #000;
-  color: #fff;
   text-align: center;
   padding: 20px;
 }
@@ -298,7 +304,7 @@ header.modalAyuda {
 nav.modalAyuda ul.modalAyuda {
   list-style-type: none;
   padding: 0;
-  background-color: #333;
+  background-color: black;
   text-align: center;
 }
 
@@ -308,7 +314,6 @@ nav.modalAyuda ul.modalAyuda li {
 }
 
 nav.modalAyuda ul.modalAyuda li.modalAyuda a.modalAyuda {
-  color: #fff;
   text-decoration: none;
 }
 
@@ -319,19 +324,14 @@ main.modalAyuda {
 
 /* Estilos para las secciones de preguntas frecuentes */
 section.modalAyuda {
-  background-color: #fff;
+  background-color: var(--bs-black);
   border: 1px solid #ddd;
   padding: 20px;
   margin-bottom: 20px;
 }
 
 /* Estilos para títulos de secciones */
-h1.modalAyuda {
-  color: #ddd;
-}
-h2.modalAyuda {
-  color: #000;
-}
+
 
 /* Estilos para listas ordenadas y no ordenadas */
 ol.modalAyuda, ul.modalAyuda {
@@ -341,13 +341,11 @@ ol.modalAyuda, ul.modalAyuda {
 /* Estilos para el pie de página */
 footer.modalAyuda {
   background-color: #000;
-  color: #fff;
   text-align: center;
   padding: 10px;
 }
 
 footer.modalAyuda a.modalAyuda {
-  color: #fff;
   text-decoration: none;
 }
 
@@ -361,10 +359,10 @@ footer.modalAyuda a.modalAyuda {
 
 .modal-body {
   box-sizing: border-box;
+  background-color: var(--bs-gray-900);
 }
 
 body.modalContacto {
-  background: #181818;
   color: #fff;
   line-height: 1.6;
   font-family: 'Quicksand', sans-serif;
@@ -401,7 +399,6 @@ ul.modalContacto {
 }
 
 .modalContacto.contact-form {
-  background: #222222;
   padding: 1em; /* Añadir espacio entre el formulario y el contenedor */
 }
 
@@ -489,3 +486,63 @@ ul.modalContacto {
 
 
 
+
+
+
+/* modal registro */
+
+
+
+
+.modalRegistrarse.outer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+
+/* Estilos para el contenedor principal */
+.modalRegistrarse.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Ancho del contenedor principal */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: black; 
+}
+
+/* Estilos para el formulario de registro */
+
+.modalRegistrarse.form-container input[type="text"],
+.modalRegistrarse.form-container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+ 
+}
+/* Estilos para la imagen */
+.modalRegistrarse.image-container {
+width: 65%;
+
+}
+
+.modalRegistrarse.image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  position: relative;
+  display: inline-block;
+  border: 5px white;
+ 
+}
+
+/* modal registro final */
