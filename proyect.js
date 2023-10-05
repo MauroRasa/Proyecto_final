@@ -62,7 +62,7 @@ reorderSlider();
 
 
 // Configuración del slider
-const intervalTime = 3000; 
+const intervalTime = 5000; 
 let autoSlideInterval;
 
 // Función para mover el slider automáticamente hacia la derecha

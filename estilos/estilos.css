@@ -1,14 +1,14 @@
 body.toda_la_pagina{
     margin: 0;
     padding: 0;
-    background-color: #4c5257;
+    background-color: #212529;
   }
 
 
-  /* Header */
 
-
+  /* HEADER */
   header.navbar_header_sticky{
+    background-color: var(--bs-gray-900);
     position: sticky;
     top: 0;
     left: 0;
@@ -22,7 +22,7 @@ body.toda_la_pagina{
   header.navbar_header_sticky.abajo{
     background: #6C757D;
     padding: 0.2%;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.226);
   }
   @media (width <= 992px){
     .container-fluid .navbar-brand img{
@@ -55,7 +55,6 @@ body.toda_la_pagina{
     font-family: helvetica;
     margin: 0 15px;
     text-decoration: none;
-    color: #fff;
     letter-spacing: 2px;
     font-weight: 600;
     transition: 0.7s;
@@ -64,29 +63,41 @@ body.toda_la_pagina{
     -ms-transition: 0.7s;
     -o-transition: 0.7s;
 }
-  header.navbar_header_sticky.abajo .navbar-brand,
-  header.navbar_header_sticky.abajo .navbar .container-fluid .collapse ul li a{
-    color: #000;
+
+  header.navbar_header_sticky .navbar-brand,
+  header.navbar_header_sticky .navbar .container-fluid .collapse ul li a{
+    color: #ffffff;
+    transition: 0.7s;
+  }
+  header.navbar_header_sticky .navbar-brand:hover,
+  header.navbar_header_sticky .navbar .container-fluid .collapse ul li a:hover{
+    color: #ffffff88;
   }
 
+  header.navbar_header_sticky.abajo .navbar-brand,
+  header.navbar_header_sticky.abajo .navbar .container-fluid .collapse ul li a{
+    color: #252525;
+    transition: 0.7s;
+  }
+  header.navbar_header_sticky.abajo .navbar-brand:hover,
+  header.navbar_header_sticky.abajo .navbar .container-fluid .collapse ul li a:hover{
+    color: rgba(39, 39, 39, 0.37);
+  }
+/* Fin HEADER */
 
 
 
-
-  /* Fin header */
-
-
-/* Estilos Bienvenida texto y slider */
+/* Estilos BIENVENIDA */
 
 .bienvenidaCont{
   margin: 0 auto;
 }
 
-/* Fin Estilos slider de bienvenida */
+/* Fin Estilos BIENVENIDA */
 
 
 
-/* Linea separadora */
+/* LINEA separadora */
 .linea_separadora{
   width: 85%;
   height: 2px;
@@ -98,19 +109,20 @@ body.toda_la_pagina{
   -ms-border-radius:50px ;
   -o-border-radius:50px ;
 }
-/* Fin linea separadora */
+/* Fin LINEA separadora */
 
 
 
-/* Estilos de imagenes con boton dentro (comenzar, foro) */
+/* Estilos de TARJETAS (comenzar, foro) */
 .container_tarjetas {
     display: flex;
     justify-content: space-between;
-    background-color: #4c5257;
+    background-color: #212529;
 }
-.image-container {
+.image-container{
   width: 32%;
-  height: 400px;
+  height: 450px;
+  text-align: center;
   margin-left: 5%;
   margin-right: 5%;
   margin-bottom: 5%;
@@ -122,22 +134,32 @@ body.toda_la_pagina{
   -ms-border-radius: 15px;
   -o-border-radius: 15px;
 }
+.image-container .tarjetas_contenido{
+  width: 100%;
+  height: 500px;
+  text-align: center;
+}
 
 .image {
   cursor: pointer;
-  filter: brightness(70%); 
+  filter: brightness(70%);
   display: block;
   object-fit: cover;
   width: 100%;
   height: 100%;
   transition: filter 0.5s ease-in-out;
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
 }
 
 .square {
   position: absolute;
   top: 50%;
   left: 50%;
-  height: 200px;
+  height: 190px;
   transform: translate(-50%, -50%) scale(0); 
   border: 1px solid #fff;
   border-radius: 5px;
@@ -162,15 +184,15 @@ body.toda_la_pagina{
   color: #fff;
   text-decoration: none;
 }
-
-/* Fin estilos de imagenes con boton dentro (comenzar, foro) */
-
+/* Fin estilos de TARJETAS (comenzar, foro) */
 
 
 
-/* Estilos slider consejos*/
+
+/* Estilos SLIDER CONSEJOS*/
 .slider{
   display: flex;
+  position: relative;
   transform: translateX(var(--slide-transform));
   -webkit-transform: translateX(var(--slide-transform));
   -moz-transform: translateX(var(--slide-transform));
@@ -189,7 +211,6 @@ body.toda_la_pagina{
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
-  position: relative;
   border-radius: 15px;
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
@@ -210,15 +231,16 @@ body.toda_la_pagina{
   height: 300px;
   font-size: 1rem;
   text-align: center;
-  line-height: 300px;
 }
 
-
-
 .slider__element p{
-  width: 70%;
+  color: #fff;
+  width: 50%;
   height: 100%;
   margin: 0 auto;
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
 }
 
 .slider__element img{
@@ -227,80 +249,48 @@ body.toda_la_pagina{
   margin: 0 auto;
 }
 
-.slider-buttons {
-  display: flex;
-  position: absolute;
-  top: 50%; /* Centra verticalmente los botones */
-  width: 100%; /* Ocupa todo el ancho del contenedor del slider */
-  height: 30%;
-  text-align: center; /* Centra horizontalmente los botones */
-  transform: translateY(-50%); /* Alinea verticalmente los botones al centro */
-
-}
-
-.button-slider {
-  background: #4c5257;
-  color: white;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  margin: 0 0;
-  padding: 0;
-}
 
 .button-slider:hover {
-  background-color: grey; /* Cambio de color de fondo en el hover (gris) */
+  background-color: grey; 
+}
+.button-slider{
+  background-color: transparent;
+  border: none;
 }
 
-/* Estilo para el botón izquierdo */
-.button-slider .button--left {
-  right: 0; /* Alinea el botón izquierdo a la izquierda */
+.button-slider.button--left {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 100;
+  background: none;
 }
 
-/* Estilo para el botón derecho */
-.button-slider .button--right {
-  right: 0; /* Alinea el botón derecho a la derecha */
+.button-slider.button--right {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  background: none;
 }
 
-
-  /* Fin estilos slider consejos*/
-
-  
-
-
- /* Estilos del footer */ 
-footer {
-  background-color: #4c5257;
-    padding: 10px;
-    text-align: center;
-    color: #555;
-}
-
- /* Fin estilos del footer */ 
-
-
-
-
-
+/* Fin estilos SLIDER CONSEJOS*/
 
 
  /* Modal de ayuda estilos */
 
- /* Estilos generales para el cuerpo de la página */
 body.modalAyuda {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
 
-/* Estilos para el encabezado */
 header.modalAyuda {
   background-color: #000;
   text-align: center;
   padding: 20px;
 }
 
-/* Estilos para la barra de navegación */
+/* BARRA DE NAVEGACION */
 nav.modalAyuda ul.modalAyuda {
   list-style-type: none;
   padding: 0;
@@ -317,12 +307,11 @@ nav.modalAyuda ul.modalAyuda li.modalAyuda a.modalAyuda {
   text-decoration: none;
 }
 
-/* Estilos para el contenido principal */
+
 main.modalAyuda {
   padding: 20px;
 }
 
-/* Estilos para las secciones de preguntas frecuentes */
 section.modalAyuda {
   background-color: var(--bs-black);
   border: 1px solid #ddd;
@@ -330,15 +319,10 @@ section.modalAyuda {
   margin-bottom: 20px;
 }
 
-/* Estilos para títulos de secciones */
-
-
-/* Estilos para listas ordenadas y no ordenadas */
 ol.modalAyuda, ul.modalAyuda {
   padding-left: 20px;
 }
 
-/* Estilos para el pie de página */
 footer.modalAyuda {
   background-color: #000;
   text-align: center;
@@ -354,7 +338,7 @@ footer.modalAyuda a.modalAyuda {
 
 
 
-/* Modal de contacto estilos */
+/* Modal de CONTACTO estilos */
 
 
 .modal-body {
@@ -367,12 +351,12 @@ body.modalContacto {
   line-height: 1.6;
   font-family: 'Quicksand', sans-serif;
   padding: 0 1.5em;
-  margin: 0; /* Evitar el espacio en blanco en los bordes del cuerpo */
+  margin: 0; 
 }
 
 .modalContacto.content {
   max-width: 1170px;
-  margin: 0 auto; /* Centro el contenedor horizontalmente */
+  margin: 0 auto; 
   padding: 1.5em;
 }
 
@@ -399,12 +383,12 @@ ul.modalContacto {
 }
 
 .modalContacto.contact-form {
-  padding: 1em; /* Añadir espacio entre el formulario y el contenedor */
+  padding: 1em; 
 }
 
 .modalContacto.contact-form form.modalContacto {
   display: grid;
-  grid-template-columns: 1fr; /* Cambiar a una sola columna en pantallas pequeñas */
+  grid-template-columns: 1fr; 
 }
 
 .modalContacto.contact-form form.modalContacto label {
@@ -430,7 +414,7 @@ ul.modalContacto {
   outline: 0;
   color: #fff;
   border-bottom: 1px solid #d63031;
-  margin-bottom: 1em; /* Añadir espacio entre elementos del formulario */
+  margin-bottom: 1em; 
 }
 
 .modalContacto.contact-form form button {
@@ -448,7 +432,7 @@ ul.modalContacto {
   outline: 0;
 }
 
-/* CONTACT INFO */
+/* CONTACTO INFO */
 .modalContacto.contact-info {
   background: #000;
 }
@@ -458,13 +442,13 @@ ul.modalContacto {
   margin: 0 0 1rem 0;
 }
 
-/* LARGE SIZE */
+/* RESPONSIVE */
 @media(min-width: 700px) {
   body.modalContacto {
       padding: 0 4em;
   }
   .modalContacto.container {
-      padding: 2em; /* Aumentar el espacio interior del contenedor */
+      padding: 2em; 
   }
   .modalContacto.contact-wrapper {
       grid-template-columns: 2fr 1fr;
@@ -480,20 +464,7 @@ ul.modalContacto {
 }
 
 
-
-
-
-
-
-
-
-
-
-/* modal registro */
-
-
-
-
+/* MODAL REGISTRO INICIAR SESION */
 .modalRegistrarse.outer-container {
   display: flex;
   justify-content: center;
@@ -545,4 +516,15 @@ width: 65%;
  
 }
 
-/* modal registro final */
+/* MODAL REGISTRO INICIAR SESION FINAL */
+
+
+
+ /* Estilos del FOOTER */ 
+ footer {
+  background-color: #212529;
+    padding: 10px;
+    text-align: center;
+    color: #555;
+}
+ /* Fin estilos del FOOTER */ 

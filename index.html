@@ -16,7 +16,7 @@
 
 <body class="toda_la_pagina">
   <header class="navbar_header_sticky">
-    <nav class="navbar navbar-expand-lg shadow" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg shadow">
       <div class="container-fluid">
         <a class="navbar-brand fs-2 fw-medium d-lg-block" href="#index.html">
           <img class="d-inline-block logo-color d-none" src="imagenes/logo_vacio.png" alt="Logo en color" width="60" height="60">
@@ -299,42 +299,55 @@
   <div class="container_tarjetas" id="planes">
     <div class="image-container">
       <!-- Imagen plan alimentacion -->
-      <a href="#" data-bs-toggle="modal" data-bs-target="#modalInicio">
-        <img class="image" src="imagenes/plancha.jpg" alt="Image 1">
-        <div class="square" onclick="redirectToPedirDatos()">
-          <a href="#" data-bs-toggle="modal" data-bs-target="#modalInicio">Comienza tu camino por una alimentación saludable y una vida mejor.</a>
-        </div>
-      </a>
+      <span class="tarjetas_titulo mb-auto fs-3 text-white fw-medium">Plan Alimentación</span>
+      <div class="tarjetas_contenido">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#modalInicio">
+            <img class="image" src="imagenes/plancha.jpg" alt="Image 1">
+            <div class="square" onclick="redirectToPedirDatos()">
+              <a href="#" data-bs-toggle="modal" data-bs-target="#modalInicio">Comienza tu camino por una alimentación saludable y una vida mejor.</a>
+            </div>
+          </a>
+      </div>
     </div>
     <div class="image-container">
       <!-- Imagen foro -->
-      <a href="foro/index.php">
-      <img class="image" src="imagenes/foro.jpg" alt="Image 2">
-      <div class="square" onclick="redirectToPedirDatos()">
-        <a href="foro/index.php">Ingresa a nuestro foro para compartir experiencias con otros apasionados por el
-          gym.</a>
+      <span class="tarjetas_titulo text-white fs-3 fw-medium">Foro</span>
+      <div class="tarjetas_contenido">
+          <a href="foro/index.php">
+          <img class="image" src="imagenes/foro.jpg" alt="Image 2">
+          <div class="square" onclick="redirectToPedirDatos()">
+            <a href="foro/index.php">Ingresa a nuestro foro para compartir experiencias con otros apasionados por el
+              gym.</a>
+          </div>
+          </a>
       </div>
-      </a>
     </div>
     <div class="image-container">
       <!-- Imagen plan alimentacion -->
-      <a href="#" data-bs-toggle="modal" data-bs-target="#modalInicio">
-        <img class="image" src="imagenes/nubes.jpg" alt="Image 1">
-        <div class="square" onclick="redirectToPedirDatos()">
-          <a href="#" data-bs-toggle="modal" data-bs-target="#modalInicio">Comienza tu camino por una alimentación saludable y una vida mejor.</a>
-        </div>
-      </a>
+      <span class="tarjetas_titulo text-white fs-3 fw-medium">Rutinas</span>
+      <div class="tarjetas_contenido">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#modalInicio">
+            <img class="image" src="imagenes/nubes.jpg" alt="Image 1">
+            <div class="square" onclick="redirectToPedirDatos()">
+              <a href="#" data-bs-toggle="modal" data-bs-target="#modalInicio">Comienza tu camino por una alimentación saludable y una vida mejor.</a>
+            </div>
+          </a>
+      </div>
     </div>
   </div>
 
   <!-- Slider con recomendaciones deportivas y alimenticias -->
   <div id="slider-container" class="slider_container">
+    <button id="button-left" class="button-slider button--left">
+      <span class="material-symbols-outlined">
+        chevron_left
+      </span>
+    </button>
     <div id="slider" class="slider">
       <div class="slider__element slider__element--consejo1">
         <img src="imagenes/nubes.jpg" alt=""></img>
       </div>
       <div class="slider__element slider__element--consejo2">
-        <h2></h2>
         <p>¿No sabes cómo entrenar? Hazte un horario. Piensa en tus objetivos y establece unas rutinas. Para ello, te recomendamos apuntar cuándo quieres ir (antes de ir al trabajo, a la hora de comer, por la tarde, a última hora del día…), cuántas veces por semana realizarás esta rutina (sé sensato y empieza por una rutina de gimnasio para principiantes, siempre podrás aumentar la frecuencia y la dificultad más adelante) y cuánto tiempo durarán las sesiones y cómo estructurarás los ejercicios.</p>
       </div>
       <div class="slider__element slider__element--consejo3">
@@ -354,18 +367,11 @@
         <p>Hidrátate siempre antes y después de tus sesiones de deporte, así evitarás que tu rendimiento físico no disminuya.</p>
       </div>
     </div>
-    <div class="slider-buttons">
-      <button id="button-left" class="button-slider button--left">
-        <span class="material-symbols-outlined">
-          chevron_left
-        </span>
-      </button>
       <button id="button-right" class="button-slider button--right">
         <span class="material-symbols-outlined">
           navigate_next
         </span>
       </button>
-    </div>
   </div>
 
 
