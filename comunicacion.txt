@@ -11,7 +11,11 @@
 
 
 ----------------------------------------------Andy---------------------------------------------------------------
+(en casa)
 Agregue la parte de ayuda y los estilos correspondientes.
+11/10 (en clase)
+Evito usuarios duplicados utilizanto el email haciendo 
+cambios en la BD y en registro.php 
 -----------------------------------------------------------------------------------------------------------------
 
 
