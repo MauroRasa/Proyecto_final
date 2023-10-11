@@ -5,6 +5,7 @@
 -Elimino ayuda.html y contacto.html, estilos_ayuda.css y estilos_contacto.css para agregarlos al index. 
 -Tambien agrego ventana modal
 -Completo conexion y agrego detalles del index
+-Agrego funciones de usuario al index
 -----------------------------------------------------------------------------------------------------------------
 
 

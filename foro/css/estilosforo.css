@@ -5,7 +5,7 @@
 }
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #4C5257;
+    background: #212529;
     color: #ddd;
 }
 
@@ -17,7 +17,7 @@ body {
     background: #4C5257;
     color: #eee;
     width: 100%;
-    padding: 30px 0;
+    padding: 15px 0;
     z-index: 100;  
     border-bottom: 1px solid #acacac; 
 }
@@ -44,7 +44,7 @@ body {
     margin-right: 30%;
 }
 .pantalla_izq{
-    background-color: #4C5257;
+    background-color: #373e44;
     width: 22%;
     height: 100%;
     position: fixed;
@@ -53,7 +53,7 @@ body {
     z-index: 80;
 }
 .pantalla_der{
-    background-color: #4C5257;
+    background-color: #373e44;
     width: 30%;
     height: 100%;
     position: fixed;
@@ -77,7 +77,7 @@ body {
     width: 100%;
     max-width: 100%;
     margin: 0 auto;
-    background-color: #4C5257;
+    background-color: #212529;
 }
 .foro .cont_publis {
 }
@@ -88,7 +88,7 @@ body {
     width: 80%;
     border-radius: 20px;
     margin: auto;
-    background: #eee;
+    background: #212529;
     padding: 8px;
     margin-bottom: 5px;
     -webkit-border-radius: 20px;
@@ -177,3 +177,14 @@ p span.cant {
     color: #eee;
 }
 /* Fin Estilos para responder publicacion */
+
+
+#imagen_perfil_header{
+    max-width: 50px;
+    border: 1px solid white;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+}

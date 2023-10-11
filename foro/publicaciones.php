@@ -13,12 +13,25 @@
 <body>
     <?php
         session_start();
-        require_once("include/conexion.php");
+        require_once("../conexion.php");
 
         // Comprobar usuario
         if (isset($_SESSION['usuario'])) {
+            $consulta = "SELECT Img_u FROM usuarios WHERE Usuario = '" . $_SESSION['usuario'] . "'";
+            $resultado = mysqli_query($conexion, $consulta);
+            if ($resultado) {
+                $fila = mysqli_fetch_assoc($resultado);
+                $img = $fila['Img_u'];
+            }
+            // Sticky header de la pagina
+            echo '<div class="header">';
+                echo '<img src ="imagenes/'. $img . '" id="imagen_perfil_header">';
+                echo '<span>-' . htmlentities($_SESSION['usuario']) . '</span>';
+                echo '<span>-' . htmlentities($_SESSION['ID_user']) . '</span>';
+                echo '<a href="../logout.php">SALIR</a>';
+            echo '</div>';
         } else {
-            header('location:index.php');
+            header('location:../index.php');
             }
 
         // Llamar a la BD para crear una publicacion
@@ -66,11 +79,6 @@
 
 
     <?php
-    // Sticky header de la pagina
-    echo '<div class="header">';
-        echo '<span>Hola: ' . htmlentities($_SESSION['usuario']) . '</span>';
-        echo '<a href="logout.php">SALIR</a>';
-    echo '</div>';
 
 
     // Comienza el contenedor de las 2 pantallas (izq, dere) y el foro (publicaciones)

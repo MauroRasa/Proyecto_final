@@ -7,6 +7,10 @@ body.toda_la_pagina{
 
 
   /* HEADER */
+  /* color menú hamburguesa  */
+  
+
+
   header.navbar_header_sticky{
     background-color: var(--bs-gray-900);
     position: sticky;
@@ -23,6 +27,9 @@ body.toda_la_pagina{
     background: #6C757D;
     padding: 0.2%;
     box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.226);
+  }
+  .colorHeaderAbajo{
+    background-color: #212529; /* CAMBIAR COLOR DEL HEADER CUANDO SE BAJA */
   }
   @media (width <= 992px){
     .container-fluid .navbar-brand img{
@@ -83,6 +90,20 @@ body.toda_la_pagina{
   header.navbar_header_sticky.abajo .navbar .container-fluid .collapse ul li a:hover{
     color: rgba(39, 39, 39, 0.37);
   }
+
+
+  /* Imagen de perfil si el usuario está logeado */
+
+  #imagen_perfil_header{
+    max-width: 50px;
+    border: 1px solid white;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+}
+
 /* Fin HEADER */
 
 
@@ -183,6 +204,7 @@ body.toda_la_pagina{
 .square a {
   color: #fff;
   text-decoration: none;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 30);
 }
 /* Fin estilos de TARJETAS (comenzar, foro) */
 
@@ -465,29 +487,27 @@ ul.modalContacto {
 
 
 /* MODAL REGISTRO INICIAR SESION */
-.modalRegistrarse.outer-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f4f4f4;
-  border-radius: 15px;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  -ms-border-radius: 15px;
-  -o-border-radius: 15px;
-}
 
 /* Estilos para el contenedor principal */
 .modalRegistrarse.container {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  width: 100%; /* Ancho del contenedor principal */
+  width: 100%;
+  height: 100%;
   background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: black; 
+  background-color: black;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+.form-container{
+  width: 30%;
+  height: 100% ;
+  padding: 20px; 
+  box-sizing: border-box;
 }
 
 /* Estilos para el formulario de registro */
@@ -503,17 +523,19 @@ ul.modalContacto {
 }
 /* Estilos para la imagen */
 .modalRegistrarse.image-container {
-width: 65%;
-
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 .modalRegistrarse.image-container img {
-  max-width: 100%;
-  max-height: 100%;
-  position: relative;
-  display: inline-block;
-  border: 5px white;
- 
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modalRegistrarse .btn{
 }
 
 /* MODAL REGISTRO INICIAR SESION FINAL */

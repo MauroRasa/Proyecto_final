@@ -13,7 +13,7 @@
 <body>
     <?php
     session_start();
-    require_once("include/conexion.php");
+    require_once("../conexion.php");
     if (isset($_SESSION['usuario'])) {
         echo '<div class="header">';
         echo '<span>Hola: ' . $_SESSION['usuario'] . '</span> | ';

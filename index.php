@@ -1,3 +1,42 @@
+<?php
+include ('conexion.php');
+session_start();
+
+if (isset($_SESSION['usuario'])) {
+  $consulta = "SELECT Img_u FROM usuarios WHERE usuario = '" . $_SESSION['usuario'] . "'";
+  $resultado = mysqli_query($conexion, $consulta);
+  if ($resultado) {
+      $fila = mysqli_fetch_assoc($resultado);
+      $img = $fila['Img_u'];
+      $imagen_perfil = '
+      <li class="icononav-item dropdown">
+        <a class="icononav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="foro/imagenes/'.$img.'" id="imagen_perfil_header">
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end bg-transparent">
+          <li>
+            <a class="dropdown-item btn btn-primary" href="logout.php" type="button">
+            SALIR
+            </a>
+          </li>
+          <li>
+          <a class="dropdown-item btn btn-primary" type="button">
+            CONFIG
+          </a>
+        </li>
+      </ul>
+      </li>';
+  }
+} else {
+    $imagen_perfil = '
+    <li class="nav-item">
+      <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalInicio">
+        <span class="material-symbols-outlined">account_circle</span>
+      </a>
+    </li>';
+    }
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,17 +54,17 @@
 </head>
 
 <body class="toda_la_pagina">
-  <header class="navbar_header_sticky">
+<header class="navbar_header_sticky">
     <nav class="navbar navbar-expand-lg shadow">
       <div class="container-fluid">
-        <a class="navbar-brand fs-2 fw-medium d-lg-block" href="#index.html">
+        <a class="navbar-brand fs-2 fw-medium d-lg-block" href="#index.php">
           <img class="d-inline-block logo-color d-none" src="imagenes/logo_vacio.png" alt="Logo en color" width="60" height="60">
           <img class="d-inline-block logo-blanco d-none" src="imagenes/logo_vacio_blanco.png" alt="Logo blanco" width="60" height="60">
           <img class="d-inline-block logo-color_chico d-none" src="imagenes/Logo.png" alt="Logo-chico" width="60" height="60">
           <img class="d-inline-block logo-blanco_chico d-none" src="imagenes/Logo_blanco.png" alt="Logo-blanco-chico" width="60" height="60">
           <span class="d-none d-lg-inline">FitPlanGains</span>
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -52,13 +91,9 @@
                     </a></li>
               </ul>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalInicio">
-                <span class="material-symbols-outlined">
-                  person
-                </span>
-              </a>
-            </li>
+            <?php
+                echo $imagen_perfil;
+            ?>
           </ul>
         </div>
       </div>
@@ -72,7 +107,7 @@
 <div class="modal fade modal-xl" id="modalInicio" aria-hidden="true" aria-labelledby="modalInicioLabel" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content bg-dark">
-      <div class="modal-body">
+
             <body class="modalRegistrarse">
             <div class="modalRegistrarse outer-container">
                 <div class="modalRegistrarse container">
@@ -94,23 +129,20 @@
                     </div>   
                     <div class="modalRegistrarse image-container">
                         <img src="imagenes/image.jpg" alt="Imagen">
+                        <button class="btn btn-primary position-absolute bottom-0 end-0" data-bs-target="#modalRegistro" data-bs-toggle="modal">Registrarse</button>
                     </div>
                 </div>
             </div>
             </body>
+        </div>
       </div>
-      <div class="modal-footer">
-        <button class="btn btn-primary" data-bs-target="#modalRegistro" data-bs-toggle="modal">Registrarse</button>
-      </div>
-    </div>
   </div>
 </div>
 <div class="modal fade modal-xl" id="modalRegistro" aria-hidden="true" aria-labelledby="modalRegistroLabel" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content bg-dark">
-      <div class="modal-body">
         <body class="modalRegistrarse">
-          <div class="modalRegistrarse outer-container">
+        <div class="modalRegistrarse outer-container">
               <div class="modalRegistrarse container">
                   <div class="form-container">
                       <h2 class="modalRegistrarse text-center text-white">Registro</h2>
@@ -134,21 +166,24 @@
                             <label for="confirm_password" class="form-label text-white">Confirmar Contraseña:</label>
                             <input type="password" id="confirm_password" name="confirm_password" class="form-control" required>
                         </div>
+
+                        <div class="mb-3">
+                            <label for="imagen" class="form-label text-white">Imagen de Perfil:  (Opcional)</label>
+                            <input type="file" id="imagen" name="imagen" class="form-control">
+                        </div>
                 
                         <button class="bt btn btn-second" type="submit" name="registrarse">Registrarse</button>
                     </form>
                   </div>   
-                  <div class="modalRegistrarse image-container">
+                  <div class="modalRegistrarse image-container position-relative">
                       <img src="imagenes/image.jpg" alt="Imagen">
+                      <button class="btn btn-primary position-absolute bottom-0 end-0" data-bs-target="#modalInicio" data-bs-toggle="modal">Iniciar Sesion</button>
                   </div>
               </div>
           </div>
         </body>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-primary" data-bs-target="#modalInicio" data-bs-toggle="modal">Iniciar Sesion</button>
-      </div>
     </div>
+  </div>
   </div>
 </div>
 
@@ -295,7 +330,7 @@
     
   </div>
 
-  <!-- Contenedor imagenes con links a foro y plan de alimentacion -->
+  <!-- Contenedor tarjetas -->
   <div class="container_tarjetas" id="planes">
     <div class="image-container">
       <!-- Imagen plan alimentacion -->
@@ -313,10 +348,10 @@
       <!-- Imagen foro -->
       <span class="tarjetas_titulo text-white fs-3 fw-medium">Foro</span>
       <div class="tarjetas_contenido">
-          <a href="foro/index.php">
+          <a href="foro/publicaciones.php">
           <img class="image" src="imagenes/foro.jpg" alt="Image 2">
           <div class="square" onclick="redirectToPedirDatos()">
-            <a href="foro/index.php">Ingresa a nuestro foro para compartir experiencias con otros apasionados por el
+            <a href="foro/publicaciones.php">Ingresa a nuestro foro para compartir experiencias con otros apasionados por el
               gym.</a>
           </div>
           </a>
