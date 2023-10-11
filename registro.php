@@ -38,8 +38,15 @@ if (isset($_POST['registrarse'])) {
         $password = password_hash($password, PASSWORD_DEFAULT);
 
         // Consulta para insertar los datos en la base de datos
-        $sql = "INSERT INTO usuarios (Usuario, Pass, Email, Token_u, Img_u) VALUES ('$usuario', '$password', '$email', '$token', '$img')";
-        $registrar = mysqli_query($conexion, $sql);
+        $sql = "INSERT INTO usuarios (Usuario, Pass, Token_u, Img_u) VALUES ('$usuario', '$password', '$token', '$img')";
+        $sql2 = "INSERT INTO usuarios (email) VALUES ( '$email')";
+        $registrar = mysqli_query($conexion, $sql, $sql2);
+
+        if($sql2){
+          
+        }else{
+          alert('El email ya está registrado');
+        }
 
     
 ?>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-10-2023 a las 22:57:30
--- Versión del servidor: 10.4.25-MariaDB
--- Versión de PHP: 8.1.10
+-- Tiempo de generación: 12-10-2023 a las 00:47:13
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,13 +29,13 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `publicaciones` (
   `ID_publi` int(11) NOT NULL,
-  `Publicacion` text COLLATE utf8_spanish_ci NOT NULL,
+  `Publicacion` text NOT NULL,
   `ID_user` int(11) NOT NULL,
   `Img_user` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `Respuesta_ID_publi` int(11) NOT NULL,
   `Cant_respuestas` int(11) NOT NULL,
-  `Fecha_publi` varchar(16) COLLATE utf8_spanish_ci NOT NULL,
-  `Hora_publi` varchar(10) COLLATE utf8_spanish_ci NOT NULL
+  `Fecha_publi` varchar(16) NOT NULL,
+  `Hora_publi` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
@@ -57,12 +57,12 @@ INSERT INTO `publicaciones` (`ID_publi`, `Publicacion`, `ID_user`, `Img_user`, `
 
 CREATE TABLE `publicaciones_2` (
   `ID_publi` int(11) NOT NULL,
-  `Publicacion` text COLLATE utf8_bin NOT NULL,
+  `Publicacion` text NOT NULL,
   `ID_user` int(11) NOT NULL,
   `Respuesta_ID_publi` int(11) NOT NULL,
   `Cant_respuestas` int(11) NOT NULL,
-  `Fecha_publi` varchar(16) COLLATE utf8_bin NOT NULL,
-  `Hora_publi` varchar(10) COLLATE utf8_bin NOT NULL
+  `Fecha_publi` varchar(16) NOT NULL,
+  `Hora_publi` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
@@ -83,7 +83,7 @@ INSERT INTO `publicaciones_2` (`ID_publi`, `Publicacion`, `ID_user`, `Respuesta_
 
 CREATE TABLE `roles` (
   `ID` int(5) NOT NULL,
-  `Rol` varchar(50) COLLATE utf8_bin NOT NULL
+  `Rol` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
@@ -102,8 +102,8 @@ INSERT INTO `roles` (`ID`, `Rol`) VALUES
 
 CREATE TABLE `usuarios` (
   `ID_user` int(11) NOT NULL,
-  `Usuario` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
-  `Pass` varchar(100) COLLATE utf8_spanish_ci NOT NULL,
+  `Usuario` varchar(30) NOT NULL,
+  `Pass` varchar(100) NOT NULL,
   `Email` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `Token_u` int(225) NOT NULL,
   `Img_u` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
@@ -115,8 +115,8 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`ID_user`, `Usuario`, `Pass`, `Email`, `Token_u`, `Img_u`, `Rol_ID`) VALUES
-(1, 'pp', 'pp', '', 0, '1696861497-bokita.jpg', 1),
-(2, 'maria', 'maria', '', 0, '1696861528-body male.jpg', 2);
+(1, 'pp', 'pp', 'pp@gmail.com', 0, '1696861497-bokita.jpg', 1),
+(2, 'maria', 'maria', 'maria@gmail.com', 0, '1696861528-body male.jpg', 2);
 
 --
 -- Índices para tablas volcadas
@@ -146,6 +146,7 @@ ALTER TABLE `roles`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`ID_user`),
+  ADD UNIQUE KEY `unique_email` (`Email`),
   ADD KEY `Rol_ID` (`Rol_ID`);
 
 --
@@ -174,7 +175,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
