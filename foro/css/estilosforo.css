@@ -81,6 +81,9 @@ body {
 }
 .foro .cont_publis {
 }
+.foro .publi_user p{
+    left: 0;
+}
 .foro .cont_publis a {
     text-decoration: none;
 }
@@ -146,7 +149,7 @@ p span.cant {
 
 .foro .publi_user p { 
     width: 100%;
-    text-align: right; 
+    text-align: left; 
     font-size: 0.8em;
     font-weight: bold;
     color: #000;

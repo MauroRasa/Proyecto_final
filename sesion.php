@@ -15,7 +15,7 @@ if(isset($_POST['inicio'])){
     if(mysqli_num_rows($query)>0){
         $registro = mysqli_fetch_array($query);
         $_SESSION['usuario'] = $usuario;
-        $_SESSION['id'] = $registro['id'];
+        $_SESSION['ID_user'] = $registro['ID_user'];
         // Agregar una variable de JavaScript para indicar que se debe mostrar el popup
             echo '<script>';
             echo 'window.addEventListener("DOMContentLoaded", function() {';

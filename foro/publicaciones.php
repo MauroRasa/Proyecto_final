@@ -12,6 +12,8 @@
 
 <body>
     <?php
+    error_reporting(E_ALL);
+    ini_set('display_errors', 1);
         session_start();
         require_once("../conexion.php");
 
@@ -89,14 +91,6 @@
                 
             <?php
         echo '</div>';
-
-
-
-
-
-
-
-
                 ?>
                 <div class="botones_fuera">
                     <div id="carouselExampleIndicators" class="carousel slide" data-bs-interval="false">

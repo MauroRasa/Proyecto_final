@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-10-2023 a las 22:34:09
+-- Tiempo de generación: 11-10-2023 a las 22:57:30
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -31,6 +31,7 @@ CREATE TABLE `publicaciones` (
   `ID_publi` int(11) NOT NULL,
   `Publicacion` text COLLATE utf8_spanish_ci NOT NULL,
   `ID_user` int(11) NOT NULL,
+  `Img_user` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `Respuesta_ID_publi` int(11) NOT NULL,
   `Cant_respuestas` int(11) NOT NULL,
   `Fecha_publi` varchar(16) COLLATE utf8_spanish_ci NOT NULL,
@@ -41,11 +42,12 @@ CREATE TABLE `publicaciones` (
 -- Volcado de datos para la tabla `publicaciones`
 --
 
-INSERT INTO `publicaciones` (`ID_publi`, `Publicacion`, `ID_user`, `Respuesta_ID_publi`, `Cant_respuestas`, `Fecha_publi`, `Hora_publi`) VALUES
-(38, 'Sacalamatracaparaestaracatanbellaca', 4, 0, 0, '2023-10-04', '20:34'),
-(39, 'Retaca la matraca de la raca re cualica ala maraca no hay raca que no atraca en la resaca de esta taca y despues de un takak taka nos hacemo el waka waka para una bienvenida historia de una monja y una noria que prudente este destino eligiendo este placer de juntos conocer un fabuloso deber', 4, 0, 0, '2023-10-04', '20:36'),
-(40, 'JAJAJAJAJAJAJA', 0, 0, 0, '2023-10-11', '17:25'),
-(41, 'usdhuiadhasiudasbiudasd', 0, 0, 0, '2023-10-11', '17:33');
+INSERT INTO `publicaciones` (`ID_publi`, `Publicacion`, `ID_user`, `Img_user`, `Respuesta_ID_publi`, `Cant_respuestas`, `Fecha_publi`, `Hora_publi`) VALUES
+(38, 'Sacalamatracaparaestaracatanbellaca', 4, '', 0, 0, '2023-10-04', '20:34'),
+(39, 'Retaca la matraca de la raca re cualica ala maraca no hay raca que no atraca en la resaca de esta taca y despues de un takak taka nos hacemo el waka waka para una bienvenida historia de una monja y una noria que prudente este destino eligiendo este placer de juntos conocer un fabuloso deber', 4, '', 0, 0, '2023-10-04', '20:36'),
+(40, 'JAJAJAJAJAJAJA', 0, '', 0, 0, '2023-10-11', '17:25'),
+(41, 'usdhuiadhasiudasbiudasd', 0, '', 0, 0, '2023-10-11', '17:33'),
+(42, 'Kiksdisadasoldi', 1, '', 0, 0, '2023-10-11', '17:45');
 
 -- --------------------------------------------------------
 
@@ -124,7 +126,8 @@ INSERT INTO `usuarios` (`ID_user`, `Usuario`, `Pass`, `Email`, `Token_u`, `Img_u
 -- Indices de la tabla `publicaciones`
 --
 ALTER TABLE `publicaciones`
-  ADD PRIMARY KEY (`ID_publi`);
+  ADD PRIMARY KEY (`ID_publi`),
+  ADD KEY `Img_user` (`Img_user`);
 
 --
 -- Indices de la tabla `publicaciones_2`
@@ -153,7 +156,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `publicaciones`
 --
 ALTER TABLE `publicaciones`
-  MODIFY `ID_publi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+  MODIFY `ID_publi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT de la tabla `publicaciones_2`
