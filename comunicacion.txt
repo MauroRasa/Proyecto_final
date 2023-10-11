@@ -24,4 +24,5 @@ cambios en la BD y en registro.php
 -Completo registro.php (ya esta listo).
 -Completo sesion.php(ya esta listo).
 -subo los estilos correspondientes.
+-Subo proyecto al Serevidor: fitplangains.lovestoblog.com
 -----------------------------------------------------------------------------------------------------------------
