@@ -11,7 +11,7 @@ if (isset($_SESSION['usuario'])) {
       $imagen_perfil = '
       <li class="icononav-item dropdown">
         <a class="icononav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="foro/imagenes/'.$img.'" id="imagen_perfil_header">
+          <img src="../imagenes/imagenes_perfil/'.$img.'" id="imagen_perfil_header">
         </a>
         <ul class="dropdown-menu dropdown-menu-end bg-transparent">
           <li>
@@ -124,6 +124,7 @@ if (isset($_SESSION['usuario'])) {
                                   <input type="password" id="password" name="password" class="form-control" required>
                               </div>
 
+                            <button class="btn btn-second fs-6" data-bs-target="#modalRecuperar" data-bs-toggle="modal">Recuperar Contraseña</button> 
                             <button class="bt btn btn-second" type="submit" name="inicio">Iniciar</but> 
                         </form>
                     </div>   
@@ -169,7 +170,7 @@ if (isset($_SESSION['usuario'])) {
 
                         <div class="mb-3">
                             <label for="imagen" class="form-label text-white">Imagen de Perfil:  (Opcional)</label>
-                            <input type="file" id="imagen" name="imagen" class="form-control">
+                            <input type="file" id="imagen" name="imagen" class="form-control" accept="image/*">
                         </div>
                 
                         <button class="bt btn btn-second" type="submit" name="registrarse">Registrarse</button>

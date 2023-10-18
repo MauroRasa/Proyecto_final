@@ -38,15 +38,8 @@ if (isset($_POST['registrarse'])) {
         $password = password_hash($password, PASSWORD_DEFAULT);
 
         // Consulta para insertar los datos en la base de datos
-        $sql = "INSERT INTO usuarios (Usuario, Pass, Token_u, Img_u) VALUES ('$usuario', '$password', '$token', '$img')";
-        $sql2 = "INSERT INTO usuarios (email) VALUES ( '$email')";
-        $registrar = mysqli_query($conexion, $sql, $sql2);
-
-        if($sql2){
-          
-        }else{
-          alert('El email ya está registrado');
-        }
+        $sql = "INSERT INTO usuarios (Usuario, Pass, Email, Token_u, Img_u) VALUES ('$usuario', '$password', '$email', '$token', '$img')";
+        $registrar = mysqli_query($conexion, $sql);
 
     
 ?>
@@ -54,7 +47,7 @@ if (isset($_POST['registrarse'])) {
 <script>
   let url_final = 'https://formsubmit.co/ajax/<?php echo $email; ?>'; 
   let usuario = '<?php echo $usuario; ?>';
-  let mensaje = 'Valide su correo : http://localhost/Proyecto_final/registrar.php?token=<?php echo $token; ?>';
+  let mensaje = 'Valide su correo : http://localhost/Proyecto_final/registro.php?token=<?php echo $token; ?>';
 
   $.ajax({
     method: 'POST',
