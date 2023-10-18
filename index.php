@@ -116,15 +116,15 @@ if (isset($_SESSION['usuario'])) {
                         <form class="modalRegistrarse fw-medium text-white" action="sesion.php" method="POST">
                               <div class="mb-3">
                                 <label for="usuario" class="form-label text-white">Usuario:</label>
-                                <input type="text" id="usuario" name="usuario" class="form-control" required>
+                                <input type="text" id="usuario" name="usuario" class="form-control">
                               </div>
                       
                               <div class="mb-3">
                                   <label for="password" class="form-label text-white">Contraseña:</label>
-                                  <input type="password" id="password" name="password" class="form-control" required>
+                                  <input type="password" id="password" name="password" class="form-control">
                               </div>
 
-                            <button class="btn btn-second fs-6" data-bs-target="#modalRecuperar" data-bs-toggle="modal">Recuperar Contraseña</button> 
+                            <a class="btn btn-second fs-6" href="recuperarPass.php">Recuperar Contraseña</a> 
                             <button class="bt btn btn-second" type="submit" name="inicio">Iniciar</but> 
                         </form>
                     </div>   
