@@ -9,23 +9,25 @@ if(isset($_POST['inicio'])){
     $pass = $_POST['password'];
     
 
-    $sql = "SELECT * FROM usuarios WHERE Usuario = '$usuario' AND pass = '$pass'";
+    $sql = "SELECT * FROM usuarios WHERE Usuario = '$usuario'";
     $query = mysqli_query($conexion, $sql);
 
     if(mysqli_num_rows($query)>0){
         $registro = mysqli_fetch_array($query);
-        $_SESSION['usuario'] = $usuario;
-        $_SESSION['ID_user'] = $registro['ID_user'];
-        // Agregar una variable de JavaScript para indicar que se debe mostrar el popup
+        if (password_verify($pass, $registro['Pass'])) {
+            $_SESSION['usuario'] = $usuario;
+            $_SESSION['ID_user'] = $registro['ID_user'];
+            // Agregar una variable de JavaScript para indicar que se debe mostrar el popup
             echo '<script>';
             echo 'window.addEventListener("DOMContentLoaded", function() {';
-            echo '    alert("Inicio de sesión exitoso. Bienvenido.");'; // Puedes personalizar este mensaje
-            echo '    window.location.href = "index.php";'; // Redirige después del mensaje
+            echo '    alert("Inicio de sesión exitoso. Bienvenido.");';
+            echo '    window.location.href = "index.php";';
             echo '});';
             echo '</script>';
-    }else{
-        echo '<div class="error">usuario y/o contraseña incorrecta</div>';
-        session_destroy();
+        } else {
+            echo '<div class="error">Contraseña incorrecta</div>';
+            session_destroy();
+        }
     }
 }
 ?>

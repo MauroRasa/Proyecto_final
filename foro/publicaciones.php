@@ -27,7 +27,7 @@
             }
             // Sticky header de la pagina
             echo '<div class="header">';
-                echo '<img src ="imagenes/'. $img . '" id="imagen_perfil_header">';
+                echo '<img src ="../imagenes/imagenes_perfil/'. $img . '" id="imagen_perfil_header">';
                 echo '<span>-' . htmlentities($_SESSION['usuario']) . '</span>';
                 echo '<span>-' . htmlentities($_SESSION['ID_user']) . '</span>';
                 echo '<a href="../logout.php">SALIR</a>';
