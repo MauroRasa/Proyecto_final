@@ -25,4 +25,5 @@ cambios en la BD y en registro.php
 -Completo sesion.php(ya esta listo).
 -subo los estilos correspondientes.
 -Subo proyecto al Serevidor: fitplangains.lovestoblog.com
+-Agrego ChatBot impulsado por chatgptAI
 -----------------------------------------------------------------------------------------------------------------
