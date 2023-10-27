@@ -89,4 +89,5 @@ require_once("include/conexion.php");
 ?>
 
 </body>
+<script id="embedai" src="https://embedai.thesamur.ai/embedai.js" data-id="fitplangains"></script>
 </html>

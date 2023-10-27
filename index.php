@@ -54,6 +54,7 @@ if (isset($_SESSION['usuario'])) {
 </head>
 
 <body class="toda_la_pagina">
+
 <header class="navbar_header_sticky">
     <nav class="navbar navbar-expand-lg shadow">
       <div class="container-fluid">
@@ -100,7 +101,7 @@ if (isset($_SESSION['usuario'])) {
     </nav>
   </header>
 
-
+  <script id="embedai" src="https://embedai.thesamur.ai/embedai.js" data-id="fitplangains"></script>
 
 <!-- Modal de inicio de sesion y registro -->
 
