@@ -45,7 +45,7 @@ body.toda_la_pagina{
   }
 
   ul.dropdown-menu li a.dropdown-item:hover {
-    background-color: #555;
+    background-color: #262b30;
     width: 80%;
   }
 
@@ -140,7 +140,7 @@ body.toda_la_pagina{
     justify-content: space-between;
     background-color: #212529;
 }
-.image-container{
+.container_tarjetas .image-container{
   width: 32%;
   height: 450px;
   text-align: center;
@@ -161,7 +161,7 @@ body.toda_la_pagina{
   text-align: center;
 }
 
-.image {
+.container_tarjetas .image {
   cursor: pointer;
   filter: brightness(70%);
   display: block;
@@ -176,7 +176,7 @@ body.toda_la_pagina{
   -o-border-radius: 15px;
 }
 
-.square {
+.container_tarjetas .square {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -307,7 +307,7 @@ body.modalAyuda {
 }
 
 header.modalAyuda {
-  background-color: #000;
+  background-color: #212529;
   text-align: center;
   padding: 20px;
 }
@@ -316,7 +316,7 @@ header.modalAyuda {
 nav.modalAyuda ul.modalAyuda {
   list-style-type: none;
   padding: 0;
-  background-color: black;
+  background-color: #212529;
   text-align: center;
 }
 
@@ -346,7 +346,7 @@ ol.modalAyuda, ul.modalAyuda {
 }
 
 footer.modalAyuda {
-  background-color: #000;
+  background-color: #212529;
   text-align: center;
   padding: 10px;
 }
@@ -354,7 +354,7 @@ footer.modalAyuda {
 footer.modalAyuda a.modalAyuda {
   text-decoration: none;
 }
-
+/* Fin modal ayuda */
 
 
 
@@ -363,7 +363,7 @@ footer.modalAyuda a.modalAyuda {
 /* Modal de CONTACTO estilos */
 
 
-.modal-body {
+#modalContacto .modal-body {
   box-sizing: border-box;
   background-color: var(--bs-gray-900);
 }
@@ -484,19 +484,68 @@ ul.modalContacto {
       text-align: left;
   }
 }
+/* Fin modal contacto */
+
+
+/* Modal configuracion de usuario */
+.modal-content.modalConfiguracion{
+  background-color: #212529;
+  color: white;
+}
+.modal-content.modalConfiguracion h1{
+  text-align: center;
+}
+.modal-content.modalConfiguracion a{
+  text-align: center;
+  font-size: 10px;
+}
+.modal-content.modalConfiguracion .formTotal{
+  margin: 5px;
+}
+.modal-content.modalConfiguracion input{
+  width: 30%;
+  background-color: #212529;
+  margin: 5px;
+  color: white;
+}
+.modal-content.modalConfiguracion img{
+  width: 30%;
+  display: flex;
+}
+
+/* fin */
+
+/* Modal recuperar contraseña */
+.modal-content.modalRecuperar{
+  background-color: #212529;
+  color: white;
+}
+.modal-content.modalRecuperar h1{
+  text-align: center;
+  font-size: 20px;
+}
+.modal-content.modalRecuperar .formTotal{
+  margin: 5px;
+}
+.modal-content.modalRecuperar input{
+  width: 90%;
+  background-color: #212529;
+  margin: 5px;
+  color: white;
+}
+/* fin */
 
 
 /* MODAL REGISTRO INICIAR SESION */
-
 /* Estilos para el contenedor principal */
-.modalRegistrarse.container {
+.modalRegistrarse.outer-container,
+.modalLogin.outer-container {
   display: flex;
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: black;
+  background-color: #010101;
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -507,36 +556,82 @@ ul.modalContacto {
   width: 30%;
   height: 100% ;
   padding: 20px; 
-  box-sizing: border-box;
+  text-align: left;
 }
 
 /* Estilos para el formulario de registro */
 
-.modalRegistrarse.form-container input[type="text"],
-.modalRegistrarse.form-container input[type="password"] {
+.modalRegistrarse .form-container input[type="text"],
+.modalRegistrarse .form-container input[type="password"],
+.modalLogin .form-container input[type="text"],
+.modalLogin .form-container input[type="password"] {
   width: 100%;
   padding: 10px;
   margin-bottom: 5%;
   border: 1px solid #ccc;
   border-radius: 5px;
- 
+}
+.modalLogin .form-container button,
+.modalLogin .form-container a,
+.modalRegistrarse .form-container button{
+  width: 100%;
+  display: inline-block;
+  text-align: left;
 }
 /* Estilos para la imagen */
-.modalRegistrarse.image-container {
-  width: 100%;
+.modalRegistrarse.image-container,
+.modalLogin.image-container {
+  width: 70%;
   height: 100%;
   padding: 0;
   margin: 0;
 }
 
-.modalRegistrarse.image-container img {
+.modalRegistrarse.image-container img,
+.modalLogin.image-container img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.modalRegistrarse .btn{
+
+/*Animacion para moverse entre modal*/
+.modalLogin .bt.aregistro,
+.modalRegistrarse .bt.alogin {
+  background-color: #030303;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
+
+.modalLogin .boton,
+.modalRegistrarse .boton {
+  width: 150px;
+  /*Ajustaelanchosegúntusnecesidades*/animation: move 2s infinite;
+  -webkit-animation: move 2s infinite;
+}
+
+@keyframes move {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px); /* Ajusta la cantidad de desplazamiento según tus necesidades */
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+/*Fin*/
+
 
 /* MODAL REGISTRO INICIAR SESION FINAL */
 

@@ -13,11 +13,10 @@ require_once("conexion.php");
 include("redimensionar.php");
 if (isset($_POST['registrarse'])) {
     // Recibe los datos del formulario
-    $usuario = $_POST['usuario'];
-    $password = $_POST['password'];
+    $usuario = $_POST['usuarioRegistro'];
+    $password = $_POST['passwordRegistro'];
     $email = $_POST['email'];
     $token = time();
-    $confirm_password = $_POST['confirm_password'];
 
     if(is_uploaded_file($_FILES['imagen']['tmp_name'])){
       move_uploaded_file($_FILES['imagen']['tmp_name'], $_FILES['imagen']['name']);
@@ -30,16 +29,11 @@ if (isset($_POST['registrarse'])) {
       $img = "default.jpg";
   }
 
-    // Validación de los datos (las contraseñas deben coincidir)
-    if ($password !== $confirm_password) {
-        echo "Las contraseñas no coinciden.";
-    }
+    $password = password_hash($password, PASSWORD_DEFAULT);
 
-        $password = password_hash($password, PASSWORD_DEFAULT);
-
-        // Consulta para insertar los datos en la base de datos
-        $sql = "INSERT INTO usuarios (Usuario, Pass, Email, Token_u, Img_u) VALUES ('$usuario', '$password', '$email', '$token', '$img')";
-        $registrar = mysqli_query($conexion, $sql);
+    // Consulta para insertar los datos en la base de datos
+    $sql = "INSERT INTO usuarios (Usuario, Pass, Email, Token_u, Img_u) VALUES ('$usuario', '$password', '$email', '$token', '$img')";
+    $registrar = mysqli_query($conexion, $sql);
 
     
 ?>

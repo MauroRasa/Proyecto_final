@@ -5,8 +5,8 @@ require_once("conexion.php");
 
 if(isset($_POST['inicio'])){
     // Recibe los datos del formulario
-    $usuario = $_POST['usuario'];
-    $pass = $_POST['password'];
+    $usuario = $_POST['usuarioLogin'];
+    $pass = $_POST['passwordLogin'];
     
 
     $sql = "SELECT * FROM usuarios WHERE Usuario = '$usuario'";
@@ -25,7 +25,9 @@ if(isset($_POST['inicio'])){
             echo '});';
             echo '</script>';
         } else {
-            echo '<div class="error">Contraseña incorrecta</div>';
+            echo '<script>alert("Contraseña incorrecta")</script>';
+            echo '<script>window.location.href = "index.php";</script>';
+            
             session_destroy();
         }
     }

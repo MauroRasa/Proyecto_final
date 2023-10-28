@@ -50,8 +50,8 @@ $nbr_img =time()."-".$img;
 
 //creamos la imagen final en el directorio indicado
 
-imagejpeg($nueva_img,'imagenes/'.$nbr_img,$calidad);
-chmod('imagenes/'.$nbr_img, 0777);
+imagejpeg($nueva_img,'imagenes/imagenes_perfil/'.$nbr_img,$calidad);
+chmod('imagenes/imagenes_perfil/'.$nbr_img, 0777);
 
 //retorna el nombre de la nueva imagen
 return $nbr_img;

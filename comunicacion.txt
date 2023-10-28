@@ -6,6 +6,9 @@
 -Tambien agrego ventana modal
 -Completo conexion y agrego detalles del index
 -Agrego funciones de usuario al index
+-Agrego modals de recuperar contraseña y configuracion de usuario, corrijo problemas de compatibilidad
+y visuales de la página
+-Agrego carpeta de js para poder ordenar mejor los codigos de javascript
 -----------------------------------------------------------------------------------------------------------------
 
 

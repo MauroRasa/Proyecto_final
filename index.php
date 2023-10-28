@@ -11,7 +11,7 @@ if (isset($_SESSION['usuario'])) {
       $imagen_perfil = '
       <li class="icononav-item dropdown">
         <a class="icononav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <img src="../imagenes/imagenes_perfil/'.$img.'" id="imagen_perfil_header">
+          <img src="imagenes/imagenes_perfil/'.$img.'" id="imagen_perfil_header">
         </a>
         <ul class="dropdown-menu dropdown-menu-end bg-transparent">
           <li>
@@ -20,7 +20,7 @@ if (isset($_SESSION['usuario'])) {
             </a>
           </li>
           <li>
-          <a class="dropdown-item btn btn-primary" type="button">
+          <a class="dropdown-item btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalConfiguracion">
             CONFIG
           </a>
         </li>
@@ -43,6 +43,7 @@ if (isset($_SESSION['usuario'])) {
   <meta charset="UTF-8">
   <title>FitPlanGains</title>
   <link rel="stylesheet" type="text/css" href="estilos/estilos.css">
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
   <!-- GOOGLE FONTs -->
@@ -107,84 +108,77 @@ if (isset($_SESSION['usuario'])) {
 <div class="modal fade modal-xl" id="modalInicio" aria-hidden="true" aria-labelledby="modalInicioLabel" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content bg-dark">
-
-            <body class="modalRegistrarse">
-            <div class="modalRegistrarse outer-container">
-                <div class="modalRegistrarse container">
-                    <div class="modalRegistrarse form-container">
-                        <h2 class="modalRegistrarse fw-medium text-white">Iniciar Sesion</h2>
-                        <form class="modalRegistrarse fw-medium text-white" action="sesion.php" method="POST">
-                              <div class="mb-3">
-                                <label for="usuario" class="form-label text-white">Usuario:</label>
-                                <input type="text" id="usuario" name="usuario" class="form-control">
-                              </div>
-                      
-                              <div class="mb-3">
-                                  <label for="password" class="form-label text-white">Contraseña:</label>
-                                  <input type="password" id="password" name="password" class="form-control">
-                              </div>
-
-                            <a class="btn btn-second fs-6" href="recuperarPass.php">Recuperar Contraseña</a> 
-                            <button class="bt btn btn-second" type="submit" name="inicio">Iniciar</but> 
-                        </form>
-                    </div>   
-                    <div class="modalRegistrarse image-container">
-                        <img src="imagenes/image.jpg" alt="Imagen">
-                        <button class="btn btn-primary position-absolute bottom-0 end-0" data-bs-target="#modalRegistro" data-bs-toggle="modal">Registrarse</button>
-                    </div>
-                </div>
-            </div>
-            </body>
+      <body class="modalLogin">
+        <div class="modalLogin outer-container">
+          <div class="form-container">
+            <h2 class="modalLogin fw-medium text-white">Iniciar Sesion</h2>
+            <form class="modalLogin fw-medium text-white" action="sesion.php" method="POST">
+              <div class="mb-3">
+                <label for="usuarioLogin" class="form-label text-white">Usuario:</label>
+                <input type="text" id="usuarioLogin" name="usuarioLogin" class="form-control">
+              </div>
+      
+              <div class="mb-3">
+                  <label for="passwordLogin" class="form-label text-white">Contraseña:</label>
+                  <input type="password" id="passwordLogin" name="passwordLogin" class="form-control">
+              </div>
+              <a class="btn btn-second fs-6" data-bs-target="#modalRecuperar" data-bs-toggle="modal">Recuperar Contraseña</a> 
+              <button class="bt btn btn-second" type="submit" name="inicio">Iniciar</but> 
+            </form>
+          </div>   
+          <div class="modalLogin image-container">
+              <img src="imagenes/image.jpg" alt="Imagen">
+          </div>
+          <button class="bt aregistro boton position-absolute bottom-0 end-0" data-bs-target="#modalRegistro" data-bs-toggle="modal">Registrarse ➡</button>
         </div>
-      </div>
+      </body>
+    </div>
   </div>
 </div>
 <div class="modal fade modal-xl" id="modalRegistro" aria-hidden="true" aria-labelledby="modalRegistroLabel" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content bg-dark">
-        <body class="modalRegistrarse">
+      <body class="modalRegistrarse">
         <div class="modalRegistrarse outer-container">
-              <div class="modalRegistrarse container">
-                  <div class="form-container">
-                      <h2 class="modalRegistrarse text-center text-white">Registro</h2>
-                      <form class="modalRegistrarse fw-medium text-white" action="registro.php" method="POST">
-                        <div class="mb-3">
-                            <label for="usuario" class="form-label text-white">Usuario:</label>
-                            <input type="text" id="usuario" name="usuario" class="form-control" required>
-                        </div>
-                
-                        <div class="mb-3">
-                            <label for="password" class="form-label text-white">Contraseña:</label>
-                            <input type="password" id="password" name="password" class="form-control" required>
-                        </div>
-                
-                        <div class="mb-3">
-                            <label for="email" class="form-label text-white">Email:</label>
-                            <input type="text" id="email" name="email" class="form-control" required>
-                        </div>
-                
-                        <div class="mb-3">
-                            <label for="confirm_password" class="form-label text-white">Confirmar Contraseña:</label>
-                            <input type="password" id="confirm_password" name="confirm_password" class="form-control" required>
-                        </div>
+          <div class="form-container">
+              <h2 class="modalRegistrarse text-center text-white">Registro</h2>
+              <form class="modalRegistrarse fw-medium text-white" onsubmit="return validarFormulario()" method="POST" id="formularioRegistro" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="usuarioRegistro" class="form-label text-white">Usuario:</label>
+                    <input type="text" id="usuarioRegistro" name="usuarioRegistro" class="form-control" required>
+                </div>
+        
+                <div class="mb-3">
+                    <label for="passwordRegistro" class="form-label text-white">Contraseña:</label>
+                    <input type="password" id="passwordRegistro" name="passwordRegistro" class="form-control" required>
+                </div>
+        
+                <div class="mb-3">
+                    <label for="email" class="form-label text-white">Email:</label>
+                    <input type="text" id="email" name="email" class="form-control" required>
+                </div>
+        
+                <div class="mb-3">
+                    <label for="confirm_password" class="form-label text-white">Confirmar Contraseña:</label>
+                    <input type="password" id="confirm_password" name="confirm_password" class="form-control" required>
+                </div>
 
-                        <div class="mb-3">
-                            <label for="imagen" class="form-label text-white">Imagen de Perfil:  (Opcional)</label>
-                            <input type="file" id="imagen" name="imagen" class="form-control" accept="image/*">
-                        </div>
-                
-                        <button class="bt btn btn-second" type="submit" name="registrarse">Registrarse</button>
-                    </form>
-                  </div>   
-                  <div class="modalRegistrarse image-container position-relative">
-                      <img src="imagenes/image.jpg" alt="Imagen">
-                      <button class="btn btn-primary position-absolute bottom-0 end-0" data-bs-target="#modalInicio" data-bs-toggle="modal">Iniciar Sesion</button>
-                  </div>
-              </div>
+                <div class="mb-3">
+                    <label for="imagen" class="form-label text-white">Imagen de Perfil:  (Opcional)</label>
+                    <input type="file" id="imagen" name="imagen" class="form-control" accept="image/*">
+                </div>
+        
+                <input type="hidden" name="registrarse" value="1">
+                <button class="bt btn btn-second" type="submit" name="registrarse">Registrarse</button>
+            </form>
+          </div>   
+          <div class="modalRegistrarse image-container position-relative">
+              <img src="imagenes/image (1).jpg" alt="Imagen">
           </div>
-        </body>
+          <button class="bt alogin boton btn-primary position-absolute bottom-0 end-0" data-bs-target="#modalInicio" data-bs-toggle="modal">Inicio ➡</button>
+        </div>
+      </body>
     </div>
-  </div>
   </div>
 </div>
 
@@ -253,7 +247,7 @@ if (isset($_SESSION['usuario'])) {
       </div>
     </div>
   </div>
-
+<!-- Fin modal ayuda -->
 
 
 
@@ -311,6 +305,167 @@ if (isset($_SESSION['usuario'])) {
           </div>
       </body>
       </div>
+    </div>
+  </div>
+</div>
+<!-- Fin modal contacto -->
+
+<!-- Modal recuperar contraseña -->
+<div class="modal fade bd-modal-recuperar-sm" tabindex="-1" role="dialog" aria-labelledby="modalRecuperarLabel" aria-hidden="true" id="modalRecuperar">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content modalRecuperar">
+      <h1>Recuperar Contraseña</h1>
+      <div class="formTotal">
+        <form action="" method="POST">
+          <label for="email">Ingrese su Correo Electronico</label>
+          <input type="text" name="email" id="email">
+        
+          <button type="submit" name="recuperar">Recuperar</button>
+          <?php
+        
+          if (isset($_POST['recuperar'])) {
+              $emailRecuperar = $_POST['email'];
+              $sqlRecuperar = "SELECT * FROM usuarios WHERE Email = '$emailRecuperar'";
+              $queryRecuperar = mysqli_query($conexion, $sqlRecuperar);
+        
+              if (mysqli_num_rows($queryRecuperar) > 0) {
+                  $registroRecuperar = mysqli_fetch_array($queryRecuperar);
+                  $usuarioRecuperar = $registroRecuperar['Usuario'];
+                  $tokenRecuperar = time();
+        
+                  $sqlRecuperar2 = "UPDATE usuarios SET Token_u = '$tokenRecuperar' WHERE Usuario = '$usuarioRecuperar'";
+                  $queryRecuperar2 = mysqli_query($conexion, $sqlRecuperar2);
+              } else {
+                  echo '<div class="error">No existe ninguna cuenta asociada a este correo electrónico.</div>';
+              }
+        
+          ?>
+        
+        
+          <script>
+            let url_finalRecuperar = 'https://formsubmit.co/ajax/<?php echo $emailRecuperar; ?>'; 
+            let usuarioRecuperar = '<?php echo $usuarioRecuperar; ?>';
+            let mensajeRecuperar = 'Hola, para restablecer tu contraseña, haz clic en el siguiente enlace: http://localhost/Proyecto_final/index.php?token=<?php echo $tokenRecuperar ?>';
+            $.ajax({
+              method: 'POST',
+              url: url_finalRecuperar,
+              dataType: 'json',
+              accepts: 'application/json',
+              data: {
+                name: usuarioRecuperar,
+                message: mensajeRecuperar,
+              },
+              success: (data) => window.location = 'index.php?send=1',
+              error: (err) => window.location = 'index.php?send=0',
+            });
+          </script>
+          <?php } ?>
+          <?php 
+        
+          if(isset($_GET['send'])){
+            if($_GET['send']==1){
+              echo '<script>';
+              echo 'alert("Se ha enviado un correo con instrucciones para restablecer tu contraseña.");';
+              echo '</script>';
+            }else{
+              echo '<div class="error">Error al enviar el correo de recuperación de contraseña.</div>';
+          }
+          }
+        
+          if(isset($_GET['token'])){
+            $tokenRecuperar = $_GET['token'];
+            $sqlRecuperar3 = "SELECT * FROM usuarios WHERE Token_u = '$tokenRecuperar'";
+            $consultaRecuperar = mysqli_query($conexion, $sqlRecuperar3);
+            if(mysqli_num_rows($consultaRecuperar) > 0){
+              $registroRecuperar = mysqli_fetch_array($consultaRecuperar);
+              $usuarioRecuperar = $registroRecuperar['Usuario'];
+              $sqlRecuperar4 = "UPDATE usuarios SET Token_u = '1' WHERE Token_u = '$tokenRecuperar'";
+              $actualizarRecuperar = mysqli_query($conexion, $sqlRecuperar4) ? print ("<script> alert ('Usuario validado correctamente, por favor introduzca la nueva contraseña'); window.location = 'index.php?usuario=" . $usuarioRecuperar . "&mostrarModal=true'</script>") : print ("<script> alert ('Error al validar'</script>");
+            }
+          }
+        
+          ?>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade bd-modal-recuperar-sm" tabindex="-1" role="dialog" aria-labelledby="modalRecuperarFinLabel" aria-hidden="true" id="modalRecuperarFin">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content modalRecuperar">
+      <h1>Recuperar Contraseña</h1>
+      <div class="formTotal">
+        <form action="" method="POST">
+          <label for="newContrasenia"> Introduzca la nueva contraseña</label>
+          <input type="password" name="newContra" id="newContra">
+
+          <label for="newContrasenia"> Confirme la nueva contraseña</label>
+          <input type="password" name="newContraConf" id="newContraConf">
+
+          <button type="submit" name="recuperarFin">Recuperar</button>
+        </form>
+            
+        <?php
+        if (isset($_POST['recuperarFin'])) {
+            $usuario = $_GET['usuario'];
+            $newContra = $_POST['newContra'];
+            $newContraConf = $_POST['newContraConf'];
+
+            if ($newContra !== $newContraConf) {
+                echo "Las contraseñas no coinciden.";
+            }else {
+                $newContra = password_hash($newContra, PASSWORD_DEFAULT);
+                $sql = "UPDATE usuarios SET Pass='$newContra' WHERE Usuario = '$usuario'";
+                $query = mysqli_query($conexion, $sql)? print ("<script> alert ('Contraseña cambiada con exito'); window.location = 'index.php'</script>") : print ("<script> alert ('Error al recuperar'</script>");
+            }
+        }
+        ?>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Fin modal recuperar contraseña -->
+
+<!-- Modal configuracion de usuario -->
+<div class="modal fade bd-modal-config-lg" tabindex="-1" role="dialog" aria-labelledby="modalConfiguracionLabel" aria-hidden="true" id="modalConfiguracion">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content modalConfiguracion">
+      <h1>Configuracion de Usuario</h1>
+        <a>La contraseña y el email no pueden modificarse directamente, esto para evitar problemas de seguridad</a>
+        <?php
+          $consulta = "SELECT * FROM usuarios WHERE usuario = '" . $_SESSION['usuario'] . "'";
+          $resultado = mysqli_query($conexion, $consulta);
+          if ($resultado) {
+            $fila = mysqli_fetch_assoc($resultado);
+            $idConfig = $fila['ID_user'];
+            $usuarioConfig = $fila['Usuario'];
+            $imagenConfig = $fila['Img_u'];
+          }
+          echo '
+          <div class="formTotal">
+              <form action="" method="POST" enctype="multipart/form-data"> 
+                <label for="usuarioConfig" class="form-label text-white">Usuario:</label>
+                <input type="text" id="usuarioConfig" name="usuarioConfig" class="form-control" value="' .$usuarioConfig . '"" 
+                <label for="imgConfig" class="form-label text-white">Imagen de perfil:</label>
+                <img src="imagenes/imagenes_perfil/'.$imagenConfig.'">
+                <input type="file" id="imgConfig" name="imgConfig" class="form-control">
+
+                <button type="submit" name="configuracionUsuario">Guardar</button> 
+              </form>
+          </div>';
+
+          if(isset($_POST['configuracionUsuario'])){
+            $nuevoUsuario = $_POST['usuarioConfig'];
+            $nuevaImagen = $_POST['imgConfig'];
+
+            if($nuevaImagen === null){
+              $nuevaImagen = $imagen;
+            }
+
+            $consultaConfig = "UPDATE usuarios SET Usuario='$nuevoUsuario', Img_u='$imagenConfig' WHERE ID_user='$idConfig'";
+            $guardar = mysqli_query($conexion, $consultaConfig) ? print ("<script> alert ('Datos guardados correctamente'); window.location = 'index.php'</script>") : print ("<script> alert ('Error al guardar'</script>");
+          }
+        ?>
     </div>
   </div>
 </div>
@@ -418,96 +573,29 @@ if (isset($_SESSION['usuario'])) {
 
 
   <!-- Scripts (bootstrap, transition header, etc) -->
-  <script src="proyect.js"></script>
+  <script src="js/sliders.js"></script>
+  <script src="js/stickyHeader.js"></script>
+  <script src="js/registro.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
 
   <script type="text/javascript">
 
 
-    document.addEventListener("DOMContentLoaded", function() {
-
-      const botonToggler = document.querySelector('.navbar-toggler');
-      const logoBlanco = document.querySelector('.logo-blanco');
-      const logoBlancoChico = document.querySelector('.logo-blanco_chico');
-
-      if(window.getComputedStyle(botonToggler).display === 'none'){
-        logoBlanco.classList.remove("d-none");
-      }else{
-        logoBlancoChico.classList.remove("d-none");
+  window.onload = function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('mostrarModal') && urlParams.get('mostrarModal') === 'true') {
+        var modal = new bootstrap.Modal(document.getElementById('modalRecuperarFin'));
+        modal.show();
       }
-    });
+    };
 
+    // const myModal = document.getElementById('Modal')
+    // const myInput = document.getElementById('myInput')
 
-    window.addEventListener("scroll", function(){
-      var header = document.querySelector("header");
-      var logoColor = document.querySelector(".logo-color");
-      var logoBlanco = document.querySelector(".logo-blanco");
-
-      const botonToggler = document.querySelector('.navbar-toggler');
-      const logoColorChico = document.querySelector('.logo-color_chico');
-      const logoBlancoChico = document.querySelector('.logo-blanco_chico');
-
-      var backgroundHeader = document.querySelector(".navbar");
-      var btnDrop = document.querySelector(".dropdown-menu");
-      var sombra = document.querySelector(".navbar");
-
-
-
-      header.classList.toggle("abajo",window.scrollY>0);
-      if(window.getComputedStyle(botonToggler).display === 'none'){
-        logoColorChico.classList.remove('mx-auto');
-        logoColorChico.classList.add('d-none');
-        logoBlancoChico.classList.add('d-none');
-        logoBlanco.classList.add("d-none");
-        logoColor.classList.remove("d-none");
-      }else{
-        logoColorChico.classList.remove('d-none');
-        logoColorChico.classList.add('mx-auto');
-        logoBlancoChico.classList.remove('mx-auto');
-        logoBlancoChico.classList.add('d-none');
-        logoBlanco.classList.add("d-none");
-        logoColor.classList.add("d-none");
-      }
-
-      backgroundHeader.classList.add("bg-secondary");
-
-      btnDrop.classList.remove("bg-transparent");
-      btnDrop.classList.add("bg-secondary");
-
-      sombra.classList.remove("shadow");
-
-      if(window.scrollY===0){
-        if(window.getComputedStyle(botonToggler).display === 'none'){
-          logoColorChico.classList.remove('mx-auto');
-          logoColorChico.classList.add('d-none');
-          logoBlancoChico.classList.add('d-none');
-          logoColor.classList.add("d-none");
-          logoBlanco.classList.remove("d-none");
-        }else{
-          logoBlancoChico.classList.remove('d-none');
-          logoBlancoChico.classList.add('mx-auto');
-          logoColorChico.classList.remove('mx-auto');
-          logoColorChico.classList.add('d-none');
-          logoBlanco.classList.add("d-none");
-          logoColor.classList.add("d-none");
-        }
-        
-        backgroundHeader.classList.remove("bg-secondary");
-
-        btnDrop.classList.remove("bg-secondary");
-        btnDrop.classList.add("bg-transparent");
-
-        sombra.classList.add("shadow");
-      }
-      });
-
-      // const myModal = document.getElementById('Modal')
-      // const myInput = document.getElementById('myInput')
-
-      // myModal.addEventListener('shown.bs.modal', () => {
-      //   myInput.focus()
-      // })
+    // myModal.addEventListener('shown.bs.modal', () => {
+    //   myInput.focus()
+    // })
 
 
 
