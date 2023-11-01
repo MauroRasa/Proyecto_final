@@ -58,15 +58,6 @@ if (isset($_POST['registrarse'])) {
 </script>
 <?php } ?>
 <?php 
-
-if(isset($_GET['send'])){
-  if($_GET['send']==1){
-    echo 'bien';
-  }else{
-    echo 'error al enviar correo';
-}
-}
-
 if(isset($_GET['token'])){
   $token = $_GET['token'];
   $sql2 = "SELECT * FROM usuarios WHERE Token_u = '$token'";

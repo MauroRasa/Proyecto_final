@@ -181,7 +181,17 @@ if (isset($_SESSION['usuario'])) {
     </div>
   </div>
 </div>
-
+<?php
+if(isset($_GET['send'])){
+  if($_GET['send']==1){
+    echo '<script>';
+    echo 'alert("Se ha enviado un correo para verificar la cuenta.");';
+    echo '</script>';
+  }else{
+    echo 'error al enviar correo';
+}
+}
+?>
 
 <!-- Fin -->
 
@@ -345,7 +355,7 @@ if (isset($_SESSION['usuario'])) {
           <script>
             let url_finalRecuperar = 'https://formsubmit.co/ajax/<?php echo $emailRecuperar; ?>'; 
             let usuarioRecuperar = '<?php echo $usuarioRecuperar; ?>';
-            let mensajeRecuperar = 'Hola, para restablecer tu contraseña, haz clic en el siguiente enlace: http://localhost/Proyecto_final/index.php?token=<?php echo $tokenRecuperar ?>';
+            let mensajeRecuperar = 'Hola, para restablecer tu contraseña, haz clic en el siguiente enlace: http://localhost/Proyecto_final/index.php?tokenRec=<?php echo $tokenRecuperar ?>';
             $.ajax({
               method: 'POST',
               url: url_finalRecuperar,
@@ -355,15 +365,15 @@ if (isset($_SESSION['usuario'])) {
                 name: usuarioRecuperar,
                 message: mensajeRecuperar,
               },
-              success: (data) => window.location = 'index.php?send=1',
-              error: (err) => window.location = 'index.php?send=0',
+              success: (data) => window.location = 'index.php?sendRec=1',
+              error: (err) => window.location = 'index.php?sendRec=0',
             });
           </script>
           <?php } ?>
           <?php 
         
-          if(isset($_GET['send'])){
-            if($_GET['send']==1){
+          if(isset($_GET['sendRec'])){
+            if($_GET['sendRec']==1){
               echo '<script>';
               echo 'alert("Se ha enviado un correo con instrucciones para restablecer tu contraseña.");';
               echo '</script>';
@@ -372,8 +382,8 @@ if (isset($_SESSION['usuario'])) {
           }
           }
         
-          if(isset($_GET['token'])){
-            $tokenRecuperar = $_GET['token'];
+          if(isset($_GET['tokenRec'])){
+            $tokenRecuperar = $_GET['tokenRec'];
             $sqlRecuperar3 = "SELECT * FROM usuarios WHERE Token_u = '$tokenRecuperar'";
             $consultaRecuperar = mysqli_query($conexion, $sqlRecuperar3);
             if(mysqli_num_rows($consultaRecuperar) > 0){
