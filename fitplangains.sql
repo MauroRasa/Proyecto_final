@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-11-2023 a las 01:28:50
+-- Tiempo de generación: 02-11-2023 a las 16:27:16
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -24,6 +24,32 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `foro`
+--
+
+CREATE TABLE `foro` (
+  `ID_pregunta` int(11) NOT NULL,
+  `Titulo` varchar(40) COLLATE utf8_bin NOT NULL,
+  `Pregunta` text COLLATE utf8_bin NOT NULL,
+  `Cant_respuestas` int(11) NOT NULL,
+  `Tag` varchar(10) COLLATE utf8_bin NOT NULL,
+  `ID_usuario` int(11) NOT NULL,
+  `Fecha_pregunta` varchar(10) COLLATE utf8_bin NOT NULL,
+  `Hora_pregunta` varchar(16) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Volcado de datos para la tabla `foro`
+--
+
+INSERT INTO `foro` (`ID_pregunta`, `Titulo`, `Pregunta`, `Cant_respuestas`, `Tag`, `ID_usuario`, `Fecha_pregunta`, `Hora_pregunta`) VALUES
+(1, 'Como hacer press banca', 'Tengo un problema con press banca y es que creo que lo estoy haciendo mal ya que siempre que termino de hacerlo me duele el hombro, alguna solucion?', 0, '#PressBanc', 1, '1/11', '4:38'),
+(2, 'Que cenar', 'Vengo del gimnasio, que recomiendan cenar si voy a volver a ir dentro de 10 minutos?', 0, '#Cena', 1, '1/11', '4:39'),
+(3, 'Tiempo de gym', 'Quería saber que tiempo se toman ustedes para estar en el gimnasio, yo estoy 1 hora o 1 hora y media a veces', 0, '#Gym', 1, '1/11', '4:40');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `publicaciones`
 --
 
@@ -31,7 +57,6 @@ CREATE TABLE `publicaciones` (
   `ID_publi` int(11) NOT NULL,
   `Publicacion` text COLLATE utf8_spanish_ci NOT NULL,
   `ID_user` int(11) NOT NULL,
-  `Img_user` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `Respuesta_ID_publi` int(11) NOT NULL,
   `Cant_respuestas` int(11) NOT NULL,
   `Fecha_publi` varchar(16) COLLATE utf8_spanish_ci NOT NULL,
@@ -42,19 +67,24 @@ CREATE TABLE `publicaciones` (
 -- Volcado de datos para la tabla `publicaciones`
 --
 
-INSERT INTO `publicaciones` (`ID_publi`, `Publicacion`, `ID_user`, `Img_user`, `Respuesta_ID_publi`, `Cant_respuestas`, `Fecha_publi`, `Hora_publi`) VALUES
-(38, 'Sacalamatracaparaestaracatanbellaca', 4, '', 0, 0, '2023-10-04', '20:34'),
-(39, 'Retaca la matraca de la raca re cualica ala maraca no hay raca que no atraca en la resaca de esta taca y despues de un takak taka nos hacemo el waka waka para una bienvenida historia de una monja y una noria que prudente este destino eligiendo este placer de juntos conocer un fabuloso deber', 4, '', 0, 0, '2023-10-04', '20:36'),
-(40, 'JAJAJAJAJAJAJA', 0, '', 0, 0, '2023-10-11', '17:25'),
-(41, 'usdhuiadhasiudasbiudasd', 0, '', 0, 0, '2023-10-11', '17:33'),
-(42, 'Kiksdisadasoldi', 1, '', 0, 0, '2023-10-11', '17:45'),
-(43, 'hola', 28, '', 0, 0, '2023-10-31', '13:28'),
-(44, 'kdasklmdasd', 29, '', 0, 0, '2023-11-01', '19:48'),
-(45, 'caca pedo pis', 29, '', 0, 0, '2023-11-01', '19:48'),
-(46, 'a la lucha a la lucha no seremos fuertes pero somos muchas', 29, '', 0, 0, '2023-11-01', '19:48'),
-(47, 'me gusta el arrrrrte', 29, '', 0, 0, '2023-11-01', '19:48'),
-(48, 'sacalacac', 29, '', 0, 0, '2023-11-01', '20:21'),
-(49, 'dasdas', 29, '', 0, 0, '2023-11-01', '20:21');
+INSERT INTO `publicaciones` (`ID_publi`, `Publicacion`, `ID_user`, `Respuesta_ID_publi`, `Cant_respuestas`, `Fecha_publi`, `Hora_publi`) VALUES
+(38, 'Sacalamatracaparaestaracatanbellaca', 4, 0, 0, '2023-10-04', '20:34'),
+(39, 'Retaca la matraca de la raca re cualica ala maraca no hay raca que no atraca en la resaca de esta taca y despues de un takak taka nos hacemo el waka waka para una bienvenida historia de una monja y una noria que prudente este destino eligiendo este placer de juntos conocer un fabuloso deber', 4, 0, 0, '2023-10-04', '20:36'),
+(40, 'JAJAJAJAJAJAJA', 0, 0, 0, '2023-10-11', '17:25'),
+(41, 'usdhuiadhasiudasbiudasd', 0, 0, 0, '2023-10-11', '17:33'),
+(42, 'Kiksdisadasoldi', 1, 0, 0, '2023-10-11', '17:45'),
+(43, 'hola', 28, 0, 0, '2023-10-31', '13:28'),
+(44, 'kdasklmdasd', 29, 0, 0, '2023-11-01', '19:48'),
+(45, 'caca pedo pis', 29, 0, 0, '2023-11-01', '19:48'),
+(46, 'a la lucha a la lucha no seremos fuertes pero somos muchas', 29, 0, 0, '2023-11-01', '19:48'),
+(47, 'me gusta el arrrrrte', 29, 0, 0, '2023-11-01', '19:48'),
+(48, 'sacalacac', 29, 0, 0, '2023-11-01', '20:21'),
+(49, 'dasdas', 29, 0, 0, '2023-11-01', '20:21'),
+(51, 'fdsdfas', 29, 0, 0, '2023-11-01', '02:10'),
+(52, 'fsdfsdf', 29, 0, 0, '2023-11-01', '22:11'),
+(53, 'caralho filho da puta', 29, 0, 0, '2023-11-01', '00:19'),
+(54, 'caralho filho da puta', 29, 0, 0, '2023-11-01', '00:20'),
+(55, 'dasdas', 28, 0, 0, '2023-11-02', '12:22');
 
 -- --------------------------------------------------------
 
@@ -82,6 +112,29 @@ INSERT INTO `publicaciones_2` (`ID_publi`, `Publicacion`, `ID_user`, `Respuesta_
 (4, 'pa las rocha beso pa los giles rafagazo', 4, 0, 0, '2023-10-04', '22:57'),
 (5, 'JAJAJJJAJAJAJAJ', 0, 0, 0, '2023-10-11', '17:25'),
 (6, 'holadada', 28, 0, 0, '2023-10-31', '13:29');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `publicaciones_3`
+--
+
+CREATE TABLE `publicaciones_3` (
+  `ID_publi` int(11) NOT NULL,
+  `Publicacion` text COLLATE utf8_bin NOT NULL,
+  `ID_user` int(11) NOT NULL,
+  `Respuesta_ID_publi` int(11) NOT NULL,
+  `Cant_respuestas` int(11) NOT NULL,
+  `Fecha_publi` varchar(16) COLLATE utf8_bin NOT NULL,
+  `Hora_publi` varchar(10) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Volcado de datos para la tabla `publicaciones_3`
+--
+
+INSERT INTO `publicaciones_3` (`ID_publi`, `Publicacion`, `ID_user`, `Respuesta_ID_publi`, `Cant_respuestas`, `Fecha_publi`, `Hora_publi`) VALUES
+(1, 'Retaca la matraca de la raca re cualica ala maraca no hay raca que no atraca en la resaca de esta taca y despues de un takak taka nos hacemo el waka waka para una bienvenida historia de una monja y una noria que prudente este destino eligiendo este placer de juntos conocer un fabuloso deber', 29, 0, 0, '2023-11-01', '00:20');
 
 -- --------------------------------------------------------
 
@@ -135,16 +188,27 @@ INSERT INTO `usuarios` (`ID_user`, `Usuario`, `Pass`, `Email`, `Token_u`, `Img_u
 --
 
 --
+-- Indices de la tabla `foro`
+--
+ALTER TABLE `foro`
+  ADD PRIMARY KEY (`ID_pregunta`);
+
+--
 -- Indices de la tabla `publicaciones`
 --
 ALTER TABLE `publicaciones`
-  ADD PRIMARY KEY (`ID_publi`),
-  ADD KEY `Img_user` (`Img_user`);
+  ADD PRIMARY KEY (`ID_publi`);
 
 --
 -- Indices de la tabla `publicaciones_2`
 --
 ALTER TABLE `publicaciones_2`
+  ADD PRIMARY KEY (`ID_publi`);
+
+--
+-- Indices de la tabla `publicaciones_3`
+--
+ALTER TABLE `publicaciones_3`
   ADD PRIMARY KEY (`ID_publi`);
 
 --
@@ -165,16 +229,28 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `foro`
+--
+ALTER TABLE `foro`
+  MODIFY `ID_pregunta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT de la tabla `publicaciones`
 --
 ALTER TABLE `publicaciones`
-  MODIFY `ID_publi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `ID_publi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT de la tabla `publicaciones_2`
 --
 ALTER TABLE `publicaciones_2`
   MODIFY `ID_publi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `publicaciones_3`
+--
+ALTER TABLE `publicaciones_3`
+  MODIFY `ID_publi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
