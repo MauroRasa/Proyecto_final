@@ -1,17 +1,21 @@
 <?php
 require_once("../conexion.php");
-
 error_reporting(E_ALL);
-    ini_set('display_errors', 1);
-        session_start();
-        // Comprobar usuario
-        if (isset($_SESSION['usuario'])) {
-            $consultaHeader = "SELECT Img_u FROM usuarios WHERE Usuario = '" . $_SESSION['usuario'] . "'";
-            $resultadoHeader = mysqli_query($conexion, $consultaHeader);
-        } else {
-            header('location:../index.php');
-            }
+ini_set('display_errors', 1);
 
+    session_start();
+    // Comprobar usuario
+    if (isset($_SESSION['usuario'])) {
+        $consultaHeader = "SELECT Img_u FROM usuarios WHERE Usuario = '" . $_SESSION['usuario'] . "'";
+        $resultadoHeader = mysqli_query($conexion, $consultaHeader);
+        if ($resultadoHeader) {
+            $fila = mysqli_fetch_assoc($resultadoHeader);
+            $img = $fila['Img_u'];
+        }
+    } else {
+        header('Location:../index.php?modalToShow=modalInicio');
+        exit();
+        }
 ?>
 
 <!DOCTYPE html>
@@ -30,33 +34,27 @@ error_reporting(E_ALL);
 </head>
 <body>
 <header>
-    <?php
-    if ($resultadoHeader) {
-        $fila = mysqli_fetch_assoc($resultadoHeader);
-        $img = $fila['Img_u'];
-    }
-    ?>
-        <div class="logoFPG">
-            <img onclick="volverARed()" src="../imagenes/Logo.png" alt="">
-        </div>
-        <div class="barraDeBusqueda">
-            <form action="" method="POST">
-                <input type="text" class="iconoPlaceHolder" name="barraDeBusqueda" placeholder="Buscar en FPGForo">
-            </form>
-        </div>
-        <div class="imagenDePerfilHeader">
-            <div class="btn-group">
-                <button type="button" class="btn dropdown-toggle custom-btn" data-toggle="dropdown" aria-expanded="false">
-                    <img src ="../imagenes/imagenes_perfil/<?php echo $img; ?>" id="imagen_perfil_header">
-                    <span><?php echo htmlentities($_SESSION['usuario']); ?></span>
-                </button>
-                <div class="dropdown-menu dropdown-menu-end">
-                    <a href="" class="dropdown-item" type="button">Configuración</a>
-                    <a href="../logout.php" class="dropdown-item" type="button">Cerrar Sesión</a>
-                </div>
+    <div class="logoFPG">
+        <img onclick="volverARed()" src="../imagenes/Logo.png" alt="">
+    </div>
+    <div class="barraDeBusqueda">
+        <form action="" method="POST">
+            <input type="text" class="iconoPlaceHolder" name="barraDeBusqueda" placeholder="Buscar en FPGForo">
+        </form>
+    </div>
+    <div class="imagenDePerfilHeader">
+        <div class="btn-group">
+            <button type="button" class="btn dropdown-toggle custom-btn" data-toggle="dropdown" aria-expanded="false">
+                <img src ="../imagenes/imagenes_perfil/<?php echo $img; ?>" id="imagen_perfil_header">
+                <span><?php echo htmlentities($_SESSION['usuario']); ?></span>
+            </button>
+            <div class="dropdown-menu dropdown-menu-end">
+                <a href="" class="dropdown-item" type="button">Configuración</a>
+                <a href="../logout.php" class="dropdown-item" type="button">Cerrar Sesión</a>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
 
 <div class="foro">

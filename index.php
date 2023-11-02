@@ -28,6 +28,7 @@ if (isset($_SESSION['usuario'])) {
       </li>';
   }
 } else {
+  session_destroy();
     $imagen_perfil = '
     <li class="nav-item">
       <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalInicio">
@@ -596,6 +597,15 @@ if(isset($_GET['send'])){
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams.has('mostrarModal') && urlParams.get('mostrarModal') === 'true') {
         var modal = new bootstrap.Modal(document.getElementById('modalRecuperarFin'));
+        modal.show();
+      }
+    };
+
+
+    window.onload = function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('modalToShow') && urlParams.get('modalToShow') === 'modalInicio') {
+        var modal = new bootstrap.Modal(document.getElementById('modalInicio'));
         modal.show();
       }
     };

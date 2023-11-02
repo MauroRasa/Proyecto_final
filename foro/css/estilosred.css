@@ -8,6 +8,8 @@ body {
     background: #212529;
     color: #ddd;
 }
+
+/* Scrollbar pesonalizada */
 body::-webkit-scrollbar{
     width: 10px;
     background-color: #292e33;
@@ -26,8 +28,9 @@ body::-webkit-scrollbar-thumb{
     -o-border-radius: 30px;
     border-right: 2px solid #292e33;
 }
+/* Fin */
 
-/* Header fijo en la parte de arriba */
+/* Header*/
 header{
     display: flex;
     justify-content: space-between;
@@ -44,333 +47,345 @@ header{
 }
 
 
-/* LOGO FPG */
-.logoFPG img{
-    max-width: 65px;
-    margin-left: 30px;
-}
-
-
-/* BARRA DE BUSQUEDA  */
-.barraDeBusqueda{
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-}
-.barraDeBusqueda form {
-    display: flex;
-    align-items: center;
-    width: 600px; 
-}
-@media (width <= 900px){
-    .barraDeBusqueda form {
-        width: 100%;
+    /* LOGO FPG */
+    .logoFPG img{
+        max-width: 65px;
+        margin-left: 30px;
     }
-}
-.barraDeBusqueda input {
-    width: 100%;
-    color: #fff;
-    text-align: center;
-    background-color: #373E44;
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
-}
-.barraDeBusqueda .iconoPlaceHolder::placeholder{
-    background-image: url(../../imagenes/search.png);
-    background-size: 15px 15px;
-    background-repeat: no-repeat;
-    background-position: left center;
-}
+    /* Fin */
 
-/* IMAGEN PERFIL USER*/
-#imagen_perfil_header{
-    max-width: 40px;
-    border: 1px solid white;
-    border-radius: 30px;
-    -webkit-border-radius: 30px;
-    -moz-border-radius: 30px;
-    -ms-border-radius: 30px;
-    -o-border-radius: 30px;
-}
-.imagenDePerfilHeader{
-    text-align: right;
-    margin-right: 40px;
-}
-/* BOTON DROPDOWN */
-.custom-btn {
-    background: none;
-    border: none;
-    box-shadow: none;
-    padding-right: 0;
-}
+    /* BARRA DE BUSQUEDA  */
+    .barraDeBusqueda{
+        display: flex;
+        justify-content: center; 
+        align-items: center;
+    }
+    .barraDeBusqueda form {
+        display: flex;
+        align-items: center;
+        width: 600px; 
+    }
+    @media (width <= 900px){
+        .barraDeBusqueda form {
+            width: 100%;
+        }
+    }
+    .barraDeBusqueda input {
+        width: 100%;
+        color: #fff;
+        text-align: center;
+        background-color: #373E44;
+        border-radius: 20px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
+    }
+    .barraDeBusqueda .iconoPlaceHolder::placeholder{
+        background-image: url(../../imagenes/search.png);
+        background-size: 15px 15px;
+        background-repeat: no-repeat;
+        background-position: left center;
+    }
+    /* Fin */
 
-.custom-btn:focus {
-    box-shadow: none;
-    outline: none;
-}
-.btn.dropdown-toggle::after {
-    content: none;
-}
-/* Fin Header fijo en la parte de arriba */
+    /* IMAGEN PERFIL USER*/
+    #imagen_perfil_header{
+        max-width: 40px;
+        border: 1px solid white;
+        border-radius: 30px;
+        -webkit-border-radius: 30px;
+        -moz-border-radius: 30px;
+        -ms-border-radius: 30px;
+        -o-border-radius: 30px;
+    }
+    .imagenDePerfilHeader{
+        text-align: right;
+        margin-right: 40px;
+    }
+    /* Fin */
+    /* BOTON DROPDOWN */
+    .custom-btn {
+        background: none;
+        border: none;
+        box-shadow: none;
+        padding-right: 0;
+    }
+
+    .custom-btn:focus {
+        box-shadow: none;
+        outline: none;
+    }
+    .btn.dropdown-toggle::after {
+        content: none;
+    }
+    /* Fin */
+/* Fin Header */
 
 
 
-/* Pantalla izquierda de los lados del foro */
+/* Contenedor de toda la red excepto header */
 .contenedor_pant{
     display: flex;
     justify-content: space-between;
     margin-left: 22%; 
     margin-right: 30%;
 }
-.pantalla_izq{
-    background-color: #373e44;
-    border-radius: 50px;
-    width: 18%;
-    height: 70%;
-    position: absolute;
-    left: 0;
-    margin: 20px;
-    z-index: 80;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    -ms-border-radius: 50px;
-    -o-border-radius: 50px;
-}
-.pantalla_izq a{
-    display: flex; 
-    margin: 20px;
-}
-.accesosPantallaIzq{
-    margin: 5px;
 
-}
-.textoAccesos{
-    display: flex;
-    text-decoration: none;
-    color: #fff;
-}
-.textoAccesos:hover{
-    color: #212529;
-}
-/* Fin Pantallas de los lados del foro */
-
-
-/* Pantalla derecha de los lados del foro */
-.pantalla_der{
-    background-color: #373e44;
-    border-top-left-radius: 50px;
-    border-bottom-left-radius: 50px;
-    width: 22%;
-    height: 60%;
-    position: fixed;
-    overflow: auto;
-    right: 0;
-    margin: 20px;
-
-}
-.pantalla_der::-webkit-scrollbar{
-    width: 7px;
-    height: 10px;
-}
-.pantalla_der::-webkit-scrollbar-thumb{
-    background-color: #292e33;
-    border-radius: 40px;
-    -webkit-border-radius: 40px;
-    -moz-border-radius: 40px;
-    -ms-border-radius: 40px;
-    -o-border-radius: 40px;
-}
-  
-.pantalla_der a{
-    display: flex; 
-    justify-content: center; 
-}
-@keyframes confirmado {
-    0% {
-      transform: scale(1);
-      opacity: 1;
+    /* Pantalla izquierda */
+    .pantalla_izq{
+        background-color: #373e44;
+        border-radius: 50px;
+        width: 18%;
+        height: 70%;
+        position: absolute;
+        left: 0;
+        margin: 20px;
+        z-index: 80;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        -ms-border-radius: 50px;
+        -o-border-radius: 50px;
     }
-    50% {
-      transform: scale(1.5);
-      opacity: 1;
+    .pantalla_izq a{
+        display: flex; 
+        margin: 20px;
     }
-    100% {
-      transform: scale(1);
-      opacity: 1;
+    .accesosPantallaIzq{
+        margin: 5px;
+
     }
-  }
-  .icono {
-    position: absolute;
-    display: none;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation-name: confirmado;
-    animation-duration: 1s;
-    z-index: 9999;
-    font-size: 30px;
-  }
+    .textoAccesos{
+        display: flex;
+        text-decoration: none;
+        color: #fff;
+    }
+    .textoAccesos:hover{
+        color: #212529;
+    }
+    /* Fin Pantalla izquierda*/
 
 
-  /* Tabs */
-.tab {
-    overflow: hidden;
-    display: flex;
-    justify-content: center; /* Centra horizontalmente los elementos */
-  }
-  #Tab1{
-    min-height: 100%;
-  }
-  #textoInicial{
-    color: #888;
-  }
-  
-  .tab button {
-    background-color: inherit;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 10px 15px;
-    transition: 0.3s;
-  }
-  
-  .tab button:hover {
-    background-color: #ddd;
-    border-radius: 50px;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    -ms-border-radius: 50px;
-    -o-border-radius: 50px;
-}
-  
-  .tab button.active {
-    border-bottom: 1px solid #fff;
-  }
-  
-  .tabcontent {
-    display: none;
-    padding: 20px;
-    clear: both;
-  }
+    /* Pantalla derecha*/
+    .pantalla_der{
+        background-color: #373e44;
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+        width: 22%;
+        height: 60%;
+        position: fixed;
+        overflow: auto;
+        right: 0;
+        margin: 20px;
 
-  /* Estilos al agregar publicacion a guardados */
-  .publicacionEnPestana {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  
-  .publicacionEnPestana p {
-    margin: 5px 0;
-  }
-  
-  .publicacionEnPestana p:first-child {
-    font-weight: bold;
-  }
-  
-  .publicacionEnPestana p:last-child {
-    color: #888;
-  }
-/* Fin Pantallas de los lados del foro */
-
-/* Todas las publicaciones del foro  */
-.botones_fuera{
-    width: 100%;
-}
-
-.texto_foros{
-    text-align: center;
-}
-.publicacionesForo1{
-    width: 80%;
-    border-radius: 20px;
-    z-index: 100;
-    position: relative;
-    margin: auto;
-    background: #292e33;
-    padding: 8px;
-    margin-bottom: 5px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
-}
-.publicacionesForo1:hover {
-    border: 1px solid white;
-}
-.publi_user_contenedor{
-    width: 100%;
-}
-.publi_user_contenedor a{
-    color: #fff;
-    text-decoration: none;
-}
-.publi_user img{
-    width: 7%;
-    border-radius: 50px;
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    -ms-border-radius: 50px;
-    -o-border-radius: 50px;
-}
+    }
+    .pantalla_der::-webkit-scrollbar{
+        width: 7px;
+        height: 10px;
+    }
+    .pantalla_der::-webkit-scrollbar-thumb{
+        background-color: #292e33;
+        border-radius: 40px;
+        -webkit-border-radius: 40px;
+        -moz-border-radius: 40px;
+        -ms-border-radius: 40px;
+        -o-border-radius: 40px;
+    }
+    
+    .pantalla_der a{
+        display: flex; 
+        justify-content: center; 
+    }
+    @keyframes confirmado {
+        0% {
+        transform: scale(1);
+        opacity: 1;
+        }
+        50% {
+        transform: scale(1.5);
+        opacity: 1;
+        }
+        100% {
+        transform: scale(1);
+        opacity: 1;
+        }
+    }
+    .icono {
+        position: absolute;
+        display: none;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation-name: confirmado;
+        animation-duration: 1s;
+        z-index: 9999;
+        font-size: 30px;
+    }
+    /* Fin */
 
 
+    /* Tabs */
+    .tab {
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+    }
 
-.carousel-control-prev{
-margin-left: 22%;
-width: 5%;
-height: 10%;
-margin-top: 30%;
-}
-.carousel-control-next{
-margin-right: 30%;
-width: 5%;
-height: 10%;
-margin-top: 30%;
-}
+    #Tab1{
+        min-height: 100%;
+    }
+
+    #textoInicial{
+        color: #888;
+    }
+    
+    .tab button {
+        background-color: inherit;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 10px 15px;
+        transition: 0.3s;
+    }
+    
+    .tab button:hover {
+        background-color: #ddd;
+        border-radius: 50px;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        -ms-border-radius: 50px;
+        -o-border-radius: 50px;
+    }
+    
+    .tab button.active {
+        border-bottom: 1px solid #fff;
+    }
+    
+    .tabcontent {
+        display: none;
+        padding: 20px;
+        clear: both;
+    }
+    /* Fin */
+
+    /* Estilos al agregar publicacion a guardados */
+    .publicacionEnPestana {
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .publicacionEnPestana p {
+        margin: 5px 0;
+    }
+    
+    .publicacionEnPestana p:first-child {
+        font-weight: bold;
+    }
+    
+    .publicacionEnPestana p:last-child {
+        color: #888;
+    }
+    /* Fin */
+
+    /* Todas las publicaciones de la red  */
+    .todoElSliderRed{
+        width: 100%;
+    }
+
+    .texto_eyeslash{
+        text-align: center;
+    }
+    .publicacionesEyeslash{
+        width: 80%;
+        border-radius: 20px;
+        z-index: 100;
+        position: relative;
+        margin: auto;
+        background: #292e33;
+        padding: 8px;
+        margin-bottom: 5px;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        -o-border-radius: 20px;
+    }
+    .publicacionesEyeslash:hover {
+        border: 1px solid white;
+    }
+    .publi_user_contenedor{
+        width: 100%;
+    }
+    .publi_user_contenedor a{
+        color: #fff;
+        text-decoration: none;
+    }
+    .publi_user img{
+        width: 7%;
+        border-radius: 50px;
+        -webkit-border-radius: 50px;
+        -moz-border-radius: 50px;
+        -ms-border-radius: 50px;
+        -o-border-radius: 50px;
+    }
+    /* Fin */
 
 
-/* Estilos para anular superposicion de Bootstrap */
-/* Anula el estilo que restringe el movimiento de los elementos dentro del slider de Bootstrap */
-.carousel {
-    touch-action: pan-y; /* Otras propiedades pueden ser necesarias dependiendo del caso específico */
-}
-
-.carousel-inner {
-    overflow: visible; /* Asegúrate de que el contenido pueda desbordar el contenedor del slider */
-}
-
-.carousel-item {
-    transform: none; /* Permite que los elementos se muevan libremente sin restricciones de transformación */
-}
-/* Fin Todas las publicaciones del foro  */
-
-
-
-/* Color nro de respuestas */
-p span.cant {
-    color: red ;
-}
-/* / */
-/* Btn redactar */
-.btn_publicar{
-    color:#eee;
-    font-size: 1em;
-    text-decoration: none;
-    text-align: center;
-}
-/* / */
+    /* Controles del slider */
+    .carousel-control-prev{
+    margin-left: 22%;
+    width: 5%;
+    height: 10%;
+    margin-top: 30%;
+    }
+    .carousel-control-next{
+    margin-right: 30%;
+    width: 5%;
+    height: 10%;
+    margin-top: 30%;
+    }
+    /* Fin */
 
 
+    /* Estilos para anular restriccion de movimiento de Bootstrap */
+    .carousel {
+        touch-action: pan-y; 
+    }
+
+    .carousel-inner {
+        overflow: visible; 
+    }
+
+    .itemSliderPublicacion {
+        transform: none; 
+    }
+    /* Fin */
+
+    /* Color nro de respuestas */
+    p span.cant {
+        color: red ;
+    }
+    /* Fin */
+
+    /* Btn redactar */
+    .btn_publicar{
+        color:#eee;
+        font-size: 1em;
+        text-decoration: none;
+        text-align: center;
+    }
+    /* Fin */
+
+
+    /* Fin Todas las publicaciones de la red  */
+
+/* Fin Contenedor de toda la red excepto header */
 
 
 
 /* Estilos para responder publicacion */
-.foro .abierta {
+.eyeslash .abierta {
     width: 95%;
     margin: auto;
     padding: 8px;
@@ -380,7 +395,7 @@ p span.cant {
     margin-top: 80px;
 }
 
-.foro .publi_user p { 
+.eyeslash .publi_user p { 
     width: 100%;
     text-align: left; 
     font-size: 0.8em;
@@ -389,24 +404,24 @@ p span.cant {
 
 }
 
-.foro .publi_texto p{
+.eyeslash .publi_texto p{
     font-size: 1em;
     font-style: italic;
     color: #000;
 }
 
-.foro form {
+.eyeslash form {
     width: 100%;
     margin: 10px auto;
     padding: 10px;
     text-align: center;
 }
 
-.foro form input[type=text]  {
+.eyeslash form input[type=text]  {
     width: 70%;
     padding: 5px;
 }
-.foro form input[type=submit] {
+.eyeslash form input[type=submit] {
     width: 27%;
     padding: 5px;
     background: steelblue;

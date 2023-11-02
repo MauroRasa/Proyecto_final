@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/estilosred.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-    <title>Foro</title>
+    <title>Eyeslash</title>
 </head>
 
 <body>
@@ -64,9 +64,9 @@
     FROM publicaciones p
     JOIN usuarios u ON p.ID_user = U.ID_user AND Respuesta_ID_publi = '$id_publi' ORDER BY Fecha_publi asc";
     $consulta = mysqli_query($conexion, $sql2);
-    echo '<div class="foro">';
+    echo '<div class="eyeslash">';
     // echo '<a href="publicaciones.php"><i class="fa-solid fa-circle-arrow-left"></i></a>';
-    echo '<h2><a href="publicaciones.php"><i class="fa-solid fa-circle-arrow-left"></i></a> Foro</h2>';
+    echo '<h2><a href="publicaciones.php"><i class="fa-solid fa-circle-arrow-left"></i></a> eyeslash</h2>';
     echo '<div class="cont_publis">';
     //muestro publicacion abierta para iniciar respuestas
     echo '<div class="abierta"><div class="publi_user"><p>' . $fila['Usuario'] . ' - ' . $fila['Fecha_publi'] . ' - <span class="cant">' . $fila['Cant_respuestas'] . '</span></p></div><div class="publi_texto"><p>' . $fila['Publicacion'] . '</p></div></div>';

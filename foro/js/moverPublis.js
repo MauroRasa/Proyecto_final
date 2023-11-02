@@ -8,6 +8,7 @@ var yOffset = 0;
 var currentElement = null;
 var isOverTab1 = true;
 
+// Verificar que se arrastre sobre una publicacion
 function dragStart(e, id) {
   if (!active) {
     initialX = e.clientX - xOffset;
@@ -20,7 +21,7 @@ function dragStart(e, id) {
   }
 }
 
-function dragEnd(e, id) {
+function dragEnd(id) {
   if (active) {
     var publicacionArrastrada  = document.getElementById(id);
     // Alerta al soltar el cuadrado en pestaña
