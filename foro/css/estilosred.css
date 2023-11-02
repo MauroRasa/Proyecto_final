@@ -141,7 +141,7 @@ header{
         position: absolute;
         left: 0;
         margin: 20px;
-        z-index: 80;
+        z-index: 3;
         -webkit-border-radius: 50px;
         -moz-border-radius: 50px;
         -ms-border-radius: 50px;
@@ -150,6 +150,7 @@ header{
     .pantalla_izq a{
         display: flex; 
         margin: 20px;
+        cursor: pointer;
     }
     .accesosPantallaIzq{
         margin: 5px;
@@ -291,7 +292,7 @@ header{
 
     /* Todas las publicaciones de la red  */
     .todoElSliderRed{
-        width: 100%;
+        min-width: 100%;
     }
 
     .texto_eyeslash{
@@ -300,7 +301,7 @@ header{
     .publicacionesEyeslash{
         width: 80%;
         border-radius: 20px;
-        z-index: 100;
+        z-index: 1;
         position: relative;
         margin: auto;
         background: #292e33;

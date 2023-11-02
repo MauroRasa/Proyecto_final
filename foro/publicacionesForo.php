@@ -122,8 +122,7 @@ ini_set('display_errors', 1);
         );
 
         // Calcula la duración de la animación en función de la altura de la página
-        const duracionAnimacion = alturaTotal / 1000; // Puedes ajustar el divisor según la velocidad deseada
-
+        const duracionAnimacion = alturaTotal / 1000; 
         setTimeout(function () {
             window.location.href = 'publicaciones.php'; // Redirigir a la página 2
         }, duracionAnimacion * 300); // Multiplica la duración de la animación por 1000 para convertirla en milisegundos

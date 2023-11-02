@@ -34,10 +34,10 @@
         $id_publi = $_GET['id_publi'];
         $cant_resp = $_SESSION['cant_resp'];
         $cant_resp++;
-        $sql5 = "UPDATE publicaciones SET Cant_respuestas = '$cant_resp' WHERE ID_publi = '$id_publi'";
+        $sql5 = "UPDATE eyeslash_global SET Cant_respuestas = '$cant_resp' WHERE ID_publi = '$id_publi'";
         $actulizar = mysqli_query($conexion, $sql5);
 
-        $sql = "INSERT INTO publicaciones (Publicacion, ID_user, Respuesta_ID_publi, Fecha_publi) VALUES ('$publicacion','$id_user', '$respuesta_ID_publi', '$fecha')";
+        $sql = "INSERT INTO eyeslash_global (Publicacion, ID_user, Respuesta_ID_publi, Fecha_publi) VALUES ('$publicacion','$id_user', '$respuesta_ID_publi', '$fecha')";
         $guardar_publi = mysqli_query($conexion, $sql);
     }
     ?>
@@ -51,7 +51,7 @@
 
     // selecciono la publicacio abierta
     $sql1 = "SELECT p.ID_publi, p.Publicacion, p.ID_user, p.Respuesta_ID_publi, p.Fecha_publi, p.Cant_respuestas, u.Usuario
-    FROM publicaciones p
+    FROM eyeslash_global p
     JOIN usuarios u ON p.ID_user = U.ID_user AND ID_publi = '$id_publi'";
     $consulta1 = mysqli_query($conexion, $sql1);
     $fila = mysqli_fetch_assoc($consulta1);
@@ -61,7 +61,7 @@
 
     //seleccino de la db todas las resuestas a la publicacion abierta
     $sql2 = "SELECT p.ID_publi, p.Publicacion, p.ID_user, p.Respuesta_ID_publi, p.Fecha_publi, u.Usuario
-    FROM publicaciones p
+    FROM eyeslash_global p
     JOIN usuarios u ON p.ID_user = U.ID_user AND Respuesta_ID_publi = '$id_publi' ORDER BY Fecha_publi asc";
     $consulta = mysqli_query($conexion, $sql2);
     echo '<div class="eyeslash">';
