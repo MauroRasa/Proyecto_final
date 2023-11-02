@@ -2,6 +2,7 @@
 require_once("../conexion.php");
 require_once("include/configurarPestana.php");
 require_once("include/eyeslash.php");
+require_once("include/publicar.php");
 
 
 error_reporting(E_ALL);
@@ -15,6 +16,16 @@ error_reporting(E_ALL);
                 $fila = mysqli_fetch_assoc($resultadoHeader);
                 $img = $fila['Img_u'];
             }
+
+            $tablas_usuario = array();
+
+            $tablas_usuario[] = 'eyeslash_global';
+            $tablas_usuario[] = 'eyeslash_alimentacion';
+            $tablas_usuario[] = 'eyeslash_gimnasio';
+
+            $_SESSION['tablas_usuario'] = $tablas_usuario;
+
+
         } else {
             header('Location:../index.php?modalToShow=modalInicio');
             }
@@ -149,12 +160,13 @@ error_reporting(E_ALL);
     <div id="sliderEyeslashs" class="carousel slide" data-bs-interval="false">
     <div class="carousel-inner">
 
-    <!-- PRIMER Eyeslash -->
-        <?php eyeslash('eyeslash_global'); ?>
-    <!-- SEGUNDO Eyeslash -->
-        <?php eyeslash('eyeslash_alimentacion'); ?>
-    <!-- TERCER Eyeslash -->
-        <?php eyeslash('eyeslash_gimnasio'); ?>
+        <!-- Mostrar todos los Eyeslash del usuario -->
+        <?php 
+        $tablasGuardadas = $_SESSION['tablas_usuario'];
+            foreach ($tablasGuardadas as $nombreTabla) {
+                eyeslash($nombreTabla);
+            }
+        ?>
 
     </div><!-- Finaliza el contenedor de Eyeslashs de slider  -->
     </div><!-- Finaliza el contenedor de Eyeslashs de slider  -->

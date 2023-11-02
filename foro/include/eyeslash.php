@@ -2,6 +2,7 @@
 
 function eyeslash($tabla){
     include("../conexion.php");
+
     if($tabla === 'eyeslash_global') {
         echo '<div class="carousel-item itemSliderPublicacion active">';
     } else {
@@ -65,7 +66,7 @@ function eyeslash($tabla){
         
             // Boton redactar
             echo '<div class="btn_publicar"> 
-                <a href="publicacion.html"> Redactar </a>
+                <a href=""> Redactar </a>
             </div>';
 
         echo '</div>'; //.eyeslash
