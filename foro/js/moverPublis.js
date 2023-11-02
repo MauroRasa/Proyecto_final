@@ -21,7 +21,7 @@ function dragStart(e, id) {
   }
 }
 
-function dragEnd(id) {
+function dragEnd(e, id) {
   if (active) {
     var publicacionArrastrada  = document.getElementById(id);
     // Alerta al soltar el cuadrado en pestaña
