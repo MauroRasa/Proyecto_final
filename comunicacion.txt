@@ -10,6 +10,7 @@
 y visuales de la página
 -Agrego carpeta de js para poder ordenar mejor los codigos de javascript
 -Agrego modificaciones al foro y creo la FPGRed Social, organizo codigo y agrego objetos
+-Modificaciones en la logica de la red, agrego creador de eyeslashs
 -----------------------------------------------------------------------------------------------------------------
 
 

@@ -6,30 +6,37 @@ require_once("include/publicar.php");
 
 
 error_reporting(E_ALL);
-    ini_set('display_errors', 1);
-        session_start();
-        // Comprobar usuario
-        if (isset($_SESSION['usuario'])) {
-            $consultaHeader = "SELECT Img_u FROM usuarios WHERE Usuario = '" . $_SESSION['usuario'] . "'";
-            $resultadoHeader = mysqli_query($conexion, $consultaHeader);
-            if ($resultadoHeader) {
-                $fila = mysqli_fetch_assoc($resultadoHeader);
-                $img = $fila['Img_u'];
+ini_set('display_errors', 1);
+
+session_start();
+
+// Comprobar usuario
+if (isset($_SESSION['ID_user'])) {
+    // Obtener la imagen del usuario
+    $consultaHeader = "SELECT Usuario, Img_u, tablas_usuario FROM usuarios WHERE ID_user = '" . $_SESSION['ID_user'] . "'";
+    $resultadoHeader = mysqli_query($conexion, $consultaHeader);
+    if ($resultadoHeader) {
+        $fila = mysqli_fetch_assoc($resultadoHeader);
+        $img = $fila['Img_u'];
+        $usuario = $fila['Usuario'];
+        if (!isset($_SESSION['tablas_usuario'])) {
+            if (!empty($fila['tablas_usuario'])) {
+                $_SESSION['tablas_usuario'] = unserialize($fila['tablas_usuario']);
+            } else {
+                $tablas_usuario = array();
+                $tablas_usuario[] = 'eyeslash_global';
+                $tablas_usuario[] = 'eyeslash_alimentacion';
+                $tablas_usuario[] = 'eyeslash_gimnasio';
+                $_SESSION['tablas_usuario'] = $tablas_usuario;
+                guardarTablasUsuario($conexion, $_SESSION['ID_user'], $tablas_usuario);
             }
-
-            $tablas_usuario = array();
-
-            $tablas_usuario[] = 'eyeslash_global';
-            $tablas_usuario[] = 'eyeslash_alimentacion';
-            $tablas_usuario[] = 'eyeslash_gimnasio';
-
-            $_SESSION['tablas_usuario'] = $tablas_usuario;
-
-
-        } else {
-            header('Location:../index.php?modalToShow=modalInicio');
-            }
-
+        }
+    }
+} else {
+    // Redirigir al usuario si no ha iniciado sesión
+    header('Location:../index.php?modalToShow=modalInicio');
+    exit(); // Asegurar que el script se detenga después de la redirección
+}
 ?>
 
 <!DOCTYPE html>
@@ -63,7 +70,7 @@ error_reporting(E_ALL);
         <div class="btn-group">
             <button type="button" class="btn dropdown-toggle custom-btn" data-toggle="dropdown" aria-expanded="false">
                 <img src ="../imagenes/imagenes_perfil/<?php echo $img; ?>" id="imagen_perfil_header">
-                <span><?php echo htmlentities($_SESSION['usuario']); ?></span>
+                <span><?php echo $usuario; ?></span>
             </button>
             <div class="dropdown-menu dropdown-menu-end">
                 <a href="" class="dropdown-item" type="button">Configuración</a>
@@ -74,7 +81,22 @@ error_reporting(E_ALL);
 </header>
 
 
-<?php configuracion();?>
+<?php configuracion(); 
+
+echo '<script> console.log(' . json_encode($_SESSION['tablas_usuario']) . '); </script>';
+
+
+if(isset($_POST['idsPresionados'])) {
+    $idsPresionados = json_decode($_POST['idsPresionados'], true);
+
+    foreach ($idsPresionados as $dato) {
+        eliminarDatoArrayYBD($conexion, $_SESSION['ID_user'], $dato);
+    }
+
+    exit();
+}
+
+?>
 
 
 
@@ -144,7 +166,7 @@ error_reporting(E_ALL);
                 <a href="" class="textoAccesos">
                     <span class="material-symbols-outlined">search</span>Buscar
                 </a>
-                <a href="" class="textoAccesos">
+                <a href="" class="textoAccesos" data-toggle="modal" data-target="#modalCrearEyeslash">
                     <span class="material-symbols-outlined">new_window</span>Crear Eyelash
                 </a>
                 <a href="" class="textoAccesos">
@@ -211,6 +233,58 @@ error_reporting(E_ALL);
         </div>
     </div>
 </div>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalCrearEyeslash" tabindex="-1" role="dialog" aria-labelledby="modalCrearEyeslashLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalCrearEyeslashLabel">Modal title</h5>
+      </div>
+      <div class="modal-body">
+        <form action="" method="POST">
+            <label for="nombreEyeslash">Digite el nombe del Eyeslash</label>
+            <input type="text" name="nombreEyeslash" id="nombreEyeslash">
+
+            <label for="opcion">Estado del Eyeslash:</label>
+            <select name="opcion" id="opcion">
+                <option value="opcion1">Publica</option>
+                <option value="opcion2">Privada</option>
+            </select>
+
+            <button type="submit" name="crearEyeslash"></button>
+        </form>
+
+        <?php 
+            if(isset($_POST['crearEyeslash'])){
+                $nombreTabla = $_POST['nombreEyeslash'];
+                $Estado = $_POST['opcion'];
+                
+                // Agregar el nuevo nombre de tabla al array de tablas del usuario
+                if(!in_array('eyeslash__' . $nombreTabla, $_SESSION['tablas_usuario'])) {
+                    $_SESSION['tablas_usuario'][] = 'eyeslash__' . $nombreTabla;
+                    guardarTablasUsuario($conexion, $_SESSION['ID_user'], $_SESSION['tablas_usuario']); // Actualizar la base de datos
+                }
+                agregarTabla($nombreTabla, $_SESSION['ID_user'], $Estado); 
+            
+                echo '<script>alert("eyeslash creado correctamente"); </script>';
+                echo '<script>window.location = "./publicaciones.php";</script>';
+                exit();
+            }
+        ?>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
 
 
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

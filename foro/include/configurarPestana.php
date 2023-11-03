@@ -2,7 +2,7 @@
 
 function configuracion(){
 echo '<div id="overlay"></div>
-<button id="closeButton" onclick="closeOverlay()">Salir</button>';
+<button id="closeButton" onclick="closeOverlay();">Salir</button>';
 }
 
 

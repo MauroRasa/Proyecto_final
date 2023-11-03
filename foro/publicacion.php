@@ -14,9 +14,19 @@
     <?php
     session_start();
     require_once("../conexion.php");
-    if (isset($_SESSION['usuario'])) {
+    if (isset($_SESSION['ID_user'])) {
+        $sqlSes = "SELECT * FROM usuarios WHERE ID_user = '" . $_SESSION['ID_user'] . "'";
+        $consultaSes = mysqli_query($conexion, $sqlSes);
+
+        if(mysqli_num_rows($consultaSes)>0){
+            $registro = mysqli_fetch_array($consultaSes);
+            $usuario = $registro['Usuario'];
+        }else{
+            echo 'error';
+        }
+
         echo '<div class="header">';
-        echo '<span>Hola: ' . $_SESSION['usuario'] . '</span> | ';
+        echo '<span>Hola: ' . $usuario . '</span> | ';
         echo '<a href="logout.php">SALIR</a>';
         echo '</div>';
         $id_publi = $_GET['id_publi'];

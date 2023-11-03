@@ -135,18 +135,18 @@ header{
     /* Pantalla izquierda */
     .pantalla_izq{
         background-color: #373e44;
-        border-radius: 50px;
+        border-radius: 10px;
         width: 18%;
         height: 70%;
         position: absolute;
         left: 0;
         margin: 20px;
         z-index: 3;
-        -webkit-border-radius: 50px;
-        -moz-border-radius: 50px;
-        -ms-border-radius: 50px;
-        -o-border-radius: 50px;
-    }
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+}
     .pantalla_izq a{
         display: flex; 
         margin: 20px;
@@ -170,8 +170,8 @@ header{
     /* Pantalla derecha*/
     .pantalla_der{
         background-color: #373e44;
-        border-top-left-radius: 50px;
-        border-bottom-left-radius: 50px;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
         width: 22%;
         height: 60%;
         position: fixed;
@@ -300,18 +300,18 @@ header{
     }
     .publicacionesEyeslash{
         width: 80%;
-        border-radius: 20px;
+        border-radius: 7px;
         z-index: 1;
         position: relative;
         margin: auto;
         background: #292e33;
         padding: 8px;
         margin-bottom: 5px;
-        -webkit-border-radius: 20px;
-        -moz-border-radius: 20px;
-        -ms-border-radius: 20px;
-        -o-border-radius: 20px;
-    }
+        -webkit-border-radius: 7px;
+        -moz-border-radius: 7px;
+        -ms-border-radius: 7px;
+        -o-border-radius: 7px;
+}
     .publicacionesEyeslash:hover {
         border: 1px solid white;
     }
@@ -339,12 +339,14 @@ header{
     width: 5%;
     height: 10%;
     margin-top: 30%;
+    z-index: 4;
     }
     .carousel-control-next{
     margin-right: 30%;
     width: 5%;
     height: 10%;
     margin-top: 30%;
+    z-index: 4;
     }
     /* Fin */
 

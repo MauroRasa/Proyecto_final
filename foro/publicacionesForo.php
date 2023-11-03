@@ -5,12 +5,13 @@ ini_set('display_errors', 1);
 
     session_start();
     // Comprobar usuario
-    if (isset($_SESSION['usuario'])) {
-        $consultaHeader = "SELECT Img_u FROM usuarios WHERE Usuario = '" . $_SESSION['usuario'] . "'";
+    if (isset($_SESSION['ID_user'])) {
+        $consultaHeader = "SELECT Usuario, Img_u FROM usuarios WHERE ID_user = '" . $_SESSION['ID_user'] . "'";
         $resultadoHeader = mysqli_query($conexion, $consultaHeader);
         if ($resultadoHeader) {
             $fila = mysqli_fetch_assoc($resultadoHeader);
             $img = $fila['Img_u'];
+            $usuario = $fila['Usuario'];
         }
     } else {
         header('Location:../index.php?modalToShow=modalInicio');
@@ -46,7 +47,7 @@ ini_set('display_errors', 1);
         <div class="btn-group">
             <button type="button" class="btn dropdown-toggle custom-btn" data-toggle="dropdown" aria-expanded="false">
                 <img src ="../imagenes/imagenes_perfil/<?php echo $img; ?>" id="imagen_perfil_header">
-                <span><?php echo htmlentities($_SESSION['usuario']); ?></span>
+                <span><?php echo $usuario; ?></span>
             </button>
             <div class="dropdown-menu dropdown-menu-end">
                 <a href="" class="dropdown-item" type="button">Configuración</a>

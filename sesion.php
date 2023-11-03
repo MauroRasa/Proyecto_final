@@ -5,11 +5,11 @@ require_once("conexion.php");
 
 if(isset($_POST['inicio'])){
     // Recibe los datos del formulario
-    $usuario = $_POST['usuarioLogin'];
+    $email = $_POST['emailLogin'];
     $pass = $_POST['passwordLogin'];
     
 
-    $sql = "SELECT * FROM usuarios WHERE Usuario = '$usuario'";
+    $sql = "SELECT * FROM usuarios WHERE Email = '$email'";
     $query = mysqli_query($conexion, $sql);
 
     if(mysqli_num_rows($query)>0){

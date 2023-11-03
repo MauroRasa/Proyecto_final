@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-11-2023 a las 21:15:58
+-- Tiempo de generación: 03-11-2023 a las 18:23:49
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -115,6 +115,30 @@ INSERT INTO `eyeslash_global` (`ID_publi`, `Publicacion`, `ID_user`, `Respuesta_
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `eyeslash_tabla`
+--
+
+CREATE TABLE `eyeslash_tabla` (
+  `Codigo_eyeslash` varchar(255) COLLATE utf8_bin NOT NULL,
+  `Titulo` varchar(20) COLLATE utf8_bin NOT NULL,
+  `ID_usuario_creador` int(11) NOT NULL,
+  `Lista_blanca` varchar(255) COLLATE utf8_bin NOT NULL,
+  `Estado_eyeslash` varchar(7) COLLATE utf8_bin NOT NULL,
+  `ID_configuracion` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Volcado de datos para la tabla `eyeslash_tabla`
+--
+
+INSERT INTO `eyeslash_tabla` (`Codigo_eyeslash`, `Titulo`, `ID_usuario_creador`, `Lista_blanca`, `Estado_eyeslash`, `ID_configuracion`) VALUES
+('alimentacion', 'Alimentacion', 0, '', 'publico', 0),
+('gimnasio', 'Gimnasio', 0, '', 'publico', 0),
+('global', 'Global', 0, '', 'publico', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `foro`
 --
 
@@ -169,6 +193,7 @@ CREATE TABLE `usuarios` (
   `Email` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `Token_u` int(225) NOT NULL,
   `Img_u` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `tablas_usuario` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `Rol_ID` int(5) NOT NULL DEFAULT 2
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
@@ -176,14 +201,14 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`ID_user`, `Usuario`, `Pass`, `Email`, `Token_u`, `Img_u`, `Rol_ID`) VALUES
-(28, 'pp', '$2y$10$Rc6HFV84guZ.nVWOKlPzzu.CoDBusJbLpK/7elo/hnaDjmHJs9vDK', 'pp@gmail.com', 1, '1698445859-bokita.jpg', 1),
-(29, 'maria', '$2y$10$e.EahTnMb81r.6GiBxdAbe9OyrHQEMI0hZZgSGJD7znsdZk/z.r7K', 'maria@gmail.com', 1, '1698446165-body male.jpg', 2),
-(32, 'ff', '$2y$10$ljMMx3t0JK8g/aDFVcByHOTWDH6HHvVYMhS85RSs1fyNhzSTFIQfK', 'ff', 1698460095, 'default.jpg', 2),
-(33, 'gg', '$2y$10$jL4eQZV1UjA4/uGmiyaVR.uIdqH4vqVUfzzb.bR4x87MpT7BgKdrK', 'gg', 1698460182, 'default.jpg', 2),
-(34, 'll', '$2y$10$mzDSiFJtITgxMKOg9jPpnONYGUAHPGcDAo1vaHnLru.M3FTP6Ux9i', 'll', 1698460223, 'default.jpg', 2),
-(35, 'nh', '$2y$10$a.soRGVMU4Ctqs7iawdP.uLusbIOHwabW9ohBH0bVcFKHBsOQo9Ju', 'nh', 1698460285, 'default.jpg', 2),
-(36, 'lk', '$2y$10$0frAcZhryWTBMyNdAuTUH.9Kmn.oacZ36dyBXjOlHgR4tryDMQQFW', 'lk', 1698460350, 'default.jpg', 2);
+INSERT INTO `usuarios` (`ID_user`, `Usuario`, `Pass`, `Email`, `Token_u`, `Img_u`, `tablas_usuario`, `Rol_ID`) VALUES
+(28, 'pp', '$2y$10$Rc6HFV84guZ.nVWOKlPzzu.CoDBusJbLpK/7elo/hnaDjmHJs9vDK', 'pp@gmail.com', 1, '1698445859-bokita.jpg', 'a:4:{i:0;s:15:\"eyeslash_global\";i:1;s:21:\"eyeslash_alimentacion\";i:2;s:17:\"eyeslash_gimnasio\";i:3;s:16:\"eyeslash__czxczx\";}', 1),
+(29, 'maria', '$2y$10$e.EahTnMb81r.6GiBxdAbe9OyrHQEMI0hZZgSGJD7znsdZk/z.r7K', 'maria@gmail.com', 1, '1698446165-body male.jpg', '', 2),
+(32, 'ff', '$2y$10$ljMMx3t0JK8g/aDFVcByHOTWDH6HHvVYMhS85RSs1fyNhzSTFIQfK', 'ff', 1698460095, 'default.jpg', '', 2),
+(33, 'gg', '$2y$10$jL4eQZV1UjA4/uGmiyaVR.uIdqH4vqVUfzzb.bR4x87MpT7BgKdrK', 'gg', 1698460182, 'default.jpg', '', 2),
+(34, 'll', '$2y$10$mzDSiFJtITgxMKOg9jPpnONYGUAHPGcDAo1vaHnLru.M3FTP6Ux9i', 'll', 1698460223, 'default.jpg', '', 2),
+(35, 'nh', '$2y$10$a.soRGVMU4Ctqs7iawdP.uLusbIOHwabW9ohBH0bVcFKHBsOQo9Ju', 'nh', 1698460285, 'default.jpg', '', 2),
+(36, 'lk', '$2y$10$0frAcZhryWTBMyNdAuTUH.9Kmn.oacZ36dyBXjOlHgR4tryDMQQFW', 'lk', 1698460350, 'default.jpg', '', 2);
 
 --
 -- Índices para tablas volcadas
@@ -206,6 +231,12 @@ ALTER TABLE `eyeslash_gimnasio`
 --
 ALTER TABLE `eyeslash_global`
   ADD PRIMARY KEY (`ID_publi`);
+
+--
+-- Indices de la tabla `eyeslash_tabla`
+--
+ALTER TABLE `eyeslash_tabla`
+  ADD PRIMARY KEY (`Codigo_eyeslash`);
 
 --
 -- Indices de la tabla `foro`

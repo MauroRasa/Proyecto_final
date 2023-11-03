@@ -17,6 +17,7 @@ function dragStart(e, id) {
     currentElement = cuadrado;
     if (e.target === cuadrado || e.target.parentNode === cuadrado) {
       active = true;
+      cuadrado.style.zIndex = '4';
     }
   }
 }
@@ -69,6 +70,7 @@ function dragEnd(e, id) {
       }
     // fin
     publicacionArrastrada.style.transform = "translate(0px, 0px)";
+    publicacionArrastrada.style.zIndex = '1';
     active = false;
     xOffset = 0;
     yOffset = 0;

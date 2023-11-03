@@ -33,4 +33,12 @@
 .menuHamburguesaSinPantallaIzq{
     display: none;
 }
+.botonEliminarEyeslashConfigurarPestana{
+    display: none;
+    position: absolute;
+    z-index: 4;
+}
+.botonEliminarEyeslashConfigurarPestana span{
+    
+}
 /* Fin */

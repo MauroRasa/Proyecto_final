@@ -2,8 +2,8 @@
 include ('conexion.php');
 session_start();
 
-if (isset($_SESSION['usuario'])) {
-  $consulta = "SELECT Img_u FROM usuarios WHERE usuario = '" . $_SESSION['usuario'] . "'";
+if (isset($_SESSION['ID_user'])) {
+  $consulta = "SELECT Img_u FROM usuarios WHERE ID_user = '" . $_SESSION['ID_user'] . "'";
   $resultado = mysqli_query($conexion, $consulta);
   if ($resultado) {
       $fila = mysqli_fetch_assoc($resultado);
@@ -115,8 +115,8 @@ if (isset($_SESSION['usuario'])) {
             <h2 class="modalLogin fw-medium text-white">Iniciar Sesion</h2>
             <form class="modalLogin fw-medium text-white" action="sesion.php" method="POST">
               <div class="mb-3">
-                <label for="usuarioLogin" class="form-label text-white">Usuario:</label>
-                <input type="text" id="usuarioLogin" name="usuarioLogin" class="form-control">
+                <label for="emailLogin" class="form-label text-white">Email:</label>
+                <input type="text" id="emailLogin" name="emailLogin" class="form-control">
               </div>
       
               <div class="mb-3">
@@ -444,7 +444,7 @@ if(isset($_GET['send'])){
       <h1>Configuracion de Usuario</h1>
         <a>La contraseña y el email no pueden modificarse directamente, esto para evitar problemas de seguridad</a>
         <?php
-          $consulta = "SELECT * FROM usuarios WHERE usuario = '" . $_SESSION['usuario'] . "'";
+          $consulta = "SELECT * FROM usuarios WHERE ID_user = '" . $_SESSION['ID_user'] . "'";
           $resultado = mysqli_query($conexion, $consulta);
           if ($resultado) {
             $fila = mysqli_fetch_assoc($resultado);
