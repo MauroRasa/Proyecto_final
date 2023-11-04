@@ -31,6 +31,8 @@ if (isset($_SESSION['ID_user'])) {
                 guardarTablasUsuario($conexion, $_SESSION['ID_user'], $tablas_usuario);
             }
         }
+
+        
     }
 } else {
     // Redirigir al usuario si no ha iniciado sesión
@@ -169,13 +171,30 @@ if(isset($_POST['idsPresionados'])) {
                 <a href="" class="textoAccesos" data-toggle="modal" data-target="#modalCrearEyeslash">
                     <span class="material-symbols-outlined">new_window</span>Crear Eyelash
                 </a>
-                <a href="" class="textoAccesos">
+                <a class="textoAccesos" data-toggle="modal" data-target="#modalAgregarEyeslash">
                     <span class="material-symbols-outlined">add_circle</span>Agregar Eyelash
                 </a>
                 <a class="textoAccesos" onclick="increaseOpacity()">
                     <span class="material-symbols-outlined">edit</span>Configuracion de pestaña
                 </a>
             </div>
+            <div class="todoControlDeEyeslashs">
+                    <div class="controlDeEyeslashs">
+                        <h4>Eyeslash Config</h4>
+
+                        <?php 
+                            $tablasCreadasUsuario = $_SESSION['tablas_usuario'];
+                            foreach ($tablasCreadasUsuario as $nombreTabla) {
+                                if($nombreTabla !== 'eyeslash_global' || $nombreTabla !== 'eyeslash_alimentacion' || $nombreTabla !== 'eyeslash_gimnasio'){
+
+                                    $codigoTabla = str_replace('eyeslash__', '', $nombreTabla);
+                                    mostrarDatosEyeslash($codigoTabla); 
+                                }
+                            }
+                            
+                        ?>
+                    </div>
+                </div>
         </div>
     </div>
     <div class="todoElSliderRed">
@@ -186,7 +205,12 @@ if(isset($_POST['idsPresionados'])) {
         <?php 
         $tablasGuardadas = $_SESSION['tablas_usuario'];
             foreach ($tablasGuardadas as $nombreTabla) {
-                eyeslash($nombreTabla);
+                if($nombreTabla === 'eyeslash_global' || $nombreTabla === 'eyeslash_alimentacion' || $nombreTabla === 'eyeslash_gimnasio'){
+                    $codigo = str_replace('eyeslash_', '', $nombreTabla);
+                }else{
+                    $codigo = str_replace('eyeslash__', '', $nombreTabla);
+                }
+                eyeslash($nombreTabla, $codigo);
             }
         ?>
 
@@ -243,7 +267,7 @@ if(isset($_POST['idsPresionados'])) {
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modalCrearEyeslashLabel">Modal title</h5>
+        <h5 class="modal-title" id="modalCrearEyeslashLabel">Crear Eyeslash</h5>
       </div>
       <div class="modal-body">
         <form action="" method="POST">
@@ -252,8 +276,8 @@ if(isset($_POST['idsPresionados'])) {
 
             <label for="opcion">Estado del Eyeslash:</label>
             <select name="opcion" id="opcion">
-                <option value="opcion1">Publica</option>
-                <option value="opcion2">Privada</option>
+                <option value="Publico">Publico</option>
+                <option value="Privado">Privado</option>
             </select>
 
             <button type="submit" name="crearEyeslash"></button>
@@ -263,13 +287,14 @@ if(isset($_POST['idsPresionados'])) {
             if(isset($_POST['crearEyeslash'])){
                 $nombreTabla = $_POST['nombreEyeslash'];
                 $Estado = $_POST['opcion'];
+                $CodigoEyeslash = '#' . substr(uniqid(), 0, 8);
                 
                 // Agregar el nuevo nombre de tabla al array de tablas del usuario
                 if(!in_array('eyeslash__' . $nombreTabla, $_SESSION['tablas_usuario'])) {
-                    $_SESSION['tablas_usuario'][] = 'eyeslash__' . $nombreTabla;
+                    $_SESSION['tablas_usuario'][] = 'eyeslash__' . $CodigoEyeslash;
                     guardarTablasUsuario($conexion, $_SESSION['ID_user'], $_SESSION['tablas_usuario']); // Actualizar la base de datos
                 }
-                agregarTabla($nombreTabla, $_SESSION['ID_user'], $Estado); 
+                crearTabla($nombreTabla, $_SESSION['ID_user'], $Estado, $CodigoEyeslash); 
             
                 echo '<script>alert("eyeslash creado correctamente"); </script>';
                 echo '<script>window.location = "./publicaciones.php";</script>';
@@ -282,6 +307,41 @@ if(isset($_POST['idsPresionados'])) {
 </div>
 
 
+
+<!-- Modal agregar-->
+<div class="modal fade" id="modalAgregarEyeslash" tabindex="-1" role="dialog" aria-labelledby="modalAgregarEyeslashLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalAgregarEyeslashLabel">Agregar Eyeslash</h5>
+      </div>
+      <div class="modal-body">
+        <form action="" method="POST">
+            <label for="codigoAgregarTabla">Ingrese el codigo del Eyeslash</label>
+            <input type="text" name="codigoAgregarTabla" id="codigoAgregarTabla">
+
+            <button type="submit" name="agregarEyeslash"></button>
+        </form>
+
+        <?php 
+            if(isset($_POST['agregarEyeslash'])){
+                $codigoAgregarTabla = $_POST['codigoAgregarTabla'];
+                
+                // Agregar el nuevo nombre de tabla al array de tablas del usuario
+                if(!in_array('eyeslash__' . $codigoAgregarTabla, $_SESSION['tablas_usuario'])) {
+                    $_SESSION['tablas_usuario'][] = 'eyeslash__' . $codigoAgregarTabla;
+                    guardarTablasUsuario($conexion, $_SESSION['ID_user'], $_SESSION['tablas_usuario']); // Actualizar la base de datos
+                }
+            
+                echo '<script>alert("eyeslash agregado correctamente"); </script>';
+                echo '<script>window.location = "./publicaciones.php";</script>';
+                exit();
+            }
+        ?>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
@@ -316,6 +376,19 @@ if(isset($_POST['idsPresionados'])) {
             window.location.href = 'publicacionesForo.php'; // Redirigir a la página 2
         }, duracionAnimacion * 300); // Multiplica la duración de la animación por 1000 para convertirla en milisegundos
     }
+
+
+    const codigo = document.getElementById('codigoEyeslashIndividualConfig');
+    codigo.addEventListener('click', function() {
+    const texto = codigo.innerText;
+    navigator.clipboard.writeText(texto)
+        .then(() => {
+        console.log('Texto copiado al portapapeles: ' + texto);
+        })
+        .catch(err => {
+        console.error('Error al copiar al portapapeles: ', err);
+        });
+    });
 
 </script>
 

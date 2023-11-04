@@ -142,11 +142,25 @@ header{
         left: 0;
         margin: 20px;
         z-index: 3;
+        overflow: auto;
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
         -ms-border-radius: 10px;
         -o-border-radius: 10px;
-}
+    }
+    .pantalla_izq::-webkit-scrollbar{
+        width: 7px;
+        height: 10px;
+    }
+    .pantalla_izq::-webkit-scrollbar-thumb{
+        background-color: #292e33;
+        border-radius: 40px;
+        -webkit-border-radius: 40px;
+        -moz-border-radius: 40px;
+        -ms-border-radius: 40px;
+        -o-border-radius: 40px;
+    }
+
     .pantalla_izq a{
         display: flex; 
         margin: 20px;
@@ -163,6 +177,50 @@ header{
     }
     .textoAccesos:hover{
         color: #212529;
+    }
+    .accesosPantallaIzq .todoControlDeEyeslashs{
+        width: 90%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+    .controlDeEyeslashs{
+        width: 93%;
+        height: 80%;
+        margin: 0 auto;
+        border: 2px solid white;
+        border-radius: 3px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -ms-border-radius: 3px;
+        -o-border-radius: 3px;
+    }
+    .controlDeEyeslashs h4{
+        text-align: center;
+    }
+    .eyeslashIndividualConfig{
+        background-color: #212529;
+        width: 96%;
+        margin: 0 auto;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+    }
+    .eyeslashIndividualConfig:hover{
+        background-color: #4C5257;
+    }
+    .eyeslashIndividualConfig h1{
+        text-align: center;
+        font-size: 25px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    .codigoEyeslashIndividualConfig{
+        display: flex;
+        align-items: center;
     }
     /* Fin Pantalla izquierda*/
 

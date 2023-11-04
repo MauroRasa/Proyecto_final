@@ -1,7 +1,14 @@
 <?php
 
-function eyeslash($tabla){
+function eyeslash($tabla, $codigo){
     include("../conexion.php");
+
+    $sql3 = "SELECT Titulo FROM eyeslash_tabla WHERE Codigo_eyeslash = '$codigo'";
+    $resultado = mysqli_query($conexion, $sql3);
+
+    while ($consultar = mysqli_fetch_assoc($resultado)) {
+        $TituloEyeslash = $consultar['Titulo'];
+    }
 
     if($tabla === 'eyeslash_global') {
         echo '<div class="carousel-item itemSliderPublicacion active">';
@@ -9,9 +16,9 @@ function eyeslash($tabla){
         //Titulo de los Eyeslash
         echo '
         <div class="texto_eyeslash">
-            <a>' . str_replace('eyeslash_', '', $tabla) . '</a>
+            <a>' . $TituloEyeslash . '</a>
         </div>';
-    } else if($tabla === 'eyeslash_alimentacion' OR $tabla === 'eyeslash_gimnasio') {
+    } else {
         echo '<div class="carousel-item itemSliderPublicacion" id="eyeslashEntero'. $tabla . '">';
 
         //configuracion de pestaña
@@ -24,42 +31,31 @@ function eyeslash($tabla){
         //Titulo de los Eyeslash
         echo '
         <div class="texto_eyeslash">
-            <a>' . str_replace('eyeslash_', '', $tabla) . '</a>
-        </div>';
-    }else{
-        echo '<div class="carousel-item itemSliderPublicacion" id="eyeslashEntero'. $tabla . '">';
-
-        //configuracion de pestaña
-        echo '
-        <div class="botonEliminarEyeslashConfigurarPestana" id="' . $tabla .'">
-            <button onclick="apretarBotonDeleteEyeslash()"><span class="material-symbols-outlined">delete</span> </button>
-        </div>
-        ';
-        
-        //Titulo de los Eyeslash
-        echo '
-        <div class="texto_eyeslash">
-            <a>' . str_replace('eyeslash__', '', $tabla) . '</a>
+            <a>' .$TituloEyeslash. '</a>
         </div>';
     }
 
         //Consulta a la BD para el primer Eyeslash 
 
-        $sql = "SELECT p.ID_publi, p.Publicacion, p.ID_user, p.Respuesta_ID_publi, p.Hora_publi, p.Cant_respuestas, u.Usuario, u.Img_u
-        FROM " . $tabla . " p
-        JOIN usuarios u ON p.ID_user = u.ID_user AND Respuesta_ID_publi = 0 ORDER BY Hora_publi desc";
+        $sql = "SELECT p.ID_publi, p.Publicacion, p.ID_user, p.Respuesta_ID_publi, p.Hora_publi, p.Cant_respuestas, u.Usuario, u.Img_u, e.Codigo_eyeslash, e.Titulo
+        FROM `" . $tabla . "` p
+        JOIN usuarios u ON p.ID_user = u.ID_user 
+        JOIN eyeslash_tabla e ON e.Codigo_eyeslash = '". $codigo ."'
+        WHERE p.Respuesta_ID_publi = 0 
+        ORDER BY p.Hora_publi DESC";
+
         $consulta = mysqli_query($conexion, $sql);
 
         echo '<div class="eyeslash">';
         echo '<div class="cont_publis">';
         while ($registro = mysqli_fetch_assoc($consulta)) {
             $IDPublicacion = $registro['ID_publi'];
+            $TituloPubli = $registro['Titulo'];
             $UsuarioPubli = $registro['Usuario'];
             $ImagenUsuarioPubli = $registro['Img_u'];
             $CantRespuestasPubli = $registro['Cant_respuestas'];
             $PublicacionPubli = $registro['Publicacion'];
             $HoraPublicacionPubli = $registro['Hora_publi'];
-
 
             //Mostrar Eyeslash 
             echo '<div id="publi' . $IDPublicacion . '" class="publicacionesEyeslash" onmousedown="dragStart(event, \'publi' . $IDPublicacion . '\')" onmouseup="dragEnd(event, \'publi' . $IDPublicacion . '\')">';
@@ -76,10 +72,9 @@ function eyeslash($tabla){
                                 <p>
                                     <img src="../imagenes/imagenes_perfil/' . $ImagenUsuarioPubli . '" alt="">
                                     ' . $UsuarioPubli . '
-                                    <!-- <span class="cant">' . $CantRespuestasPubli . '</span> -->
                                 </p>
                             </div>
-                            <div class="publi_texto">
+                            <div class="publi_texto '.$TituloPubli.'">
                                 <p>' . $PublicacionPubli . '</p>
                             </div>
                             <div class="tiempoTransc">
@@ -105,11 +100,10 @@ function eyeslash($tabla){
 }
 
 // Función para agregar una nueva tabla al array
-function agregarTabla($nombreTabla, $ID_user, $Estado){
-
+function crearTabla($nombreTabla, $ID_user, $Estado, $CodigoEyeslash){
     // Realizar una consulta para crear una nueva tabla en la base de datos
     include("../conexion.php");
-    $sql = "CREATE TABLE eyeslash__" . $nombreTabla . " (
+    $sql = "CREATE TABLE `eyeslash__" . $CodigoEyeslash . "` (
         ID_publi INT NOT NULL AUTO_INCREMENT,
         Publicacion VARCHAR(255),
         ID_user INT,
@@ -120,8 +114,8 @@ function agregarTabla($nombreTabla, $ID_user, $Estado){
         PRIMARY KEY (ID_publi)
     )";
 
+
     if (mysqli_query($conexion, $sql)) {
-        $CodigoEyeslash = '#' . substr(uniqid(), 0, 8);
         $sql2 = "INSERT INTO eyeslash_tabla (Codigo_eyeslash, Titulo, ID_usuario_creador, Estado_eyeslash, ID_configuracion) VALUES ('$CodigoEyeslash', '$nombreTabla', '$ID_user', '$Estado', '')";
         $eyeslash_tabla = mysqli_query($conexion, $sql2);
     
@@ -160,5 +154,40 @@ function eliminarDatoArrayYBD($conexion, $ID_user, $dato) {
 
     // Guardar el array actualizado en la base de datos
     guardarTablasUsuario($conexion, $ID_user, $_SESSION['tablas_usuario']);
+}
+
+
+
+
+function mostrarDatosEyeslash($codigo){
+    include("../conexion.php");
+
+    $sql = "SELECT et.*, u.Usuario 
+        FROM eyeslash_tabla et
+        JOIN usuarios u ON et.ID_usuario_creador = u.ID_user
+        WHERE et.Codigo_eyeslash = '$codigo'";
+
+    $consulta = mysqli_query($conexion, $sql);
+
+        while($registro = mysqli_fetch_assoc($consulta)){
+            if($_SESSION['ID_user'] === $registro['ID_usuario_creador'] ){
+        
+            echo 
+            '
+                <div class="eyeslashIndividualConfig">
+                    <h1> '.$registro['Titulo'].' </h1>
+        
+                    <div class="codigoEyeslashIndividualConfig">
+                        <a>Codigo: </a>
+                        <a id="codigoEyeslashIndividualConfig">'.$registro['Codigo_eyeslash'].' </a>
+                    </div>
+                    <p> Estado: '.$registro['Estado_eyeslash'].' </p>
+                    <p> Creador: '.$registro['Usuario'].' </p>
+                </div>
+            ';
+        
+        }
+    }
+
 }
         ?>

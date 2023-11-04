@@ -22,6 +22,11 @@ function dragStart(e, id) {
   }
 }
 
+// Función para generar un ID único para la publicacion guardada
+function generarIdUnico() {
+  return '_' + Math.random().toString(36).substr(2, 9);
+}
+
 function dragEnd(e, id) {
   if (active) {
     var publicacionArrastrada  = document.getElementById(id);
@@ -30,6 +35,7 @@ function dragEnd(e, id) {
         var rect = currentElement.getBoundingClientRect();
         var pestaña = document.getElementById('Tab1');
         var pestañaRect = pestaña.getBoundingClientRect();
+        var idUnico = generarIdUnico();
         var cuadradoDentroDePestana = !(
           rect.right < pestañaRect.left ||
           rect.left > pestañaRect.right ||
@@ -53,8 +59,12 @@ function dragEnd(e, id) {
                 // Crear un nuevo elemento para la publicación en la pestaña
                 var nuevaPublicacion = document.createElement('div');
                 nuevaPublicacion.classList.add('publicacionEnPestana');
+                nuevaPublicacion.setAttribute('id', idUnico); 
                 nuevaPublicacion.innerHTML = `
-                <p>${nombreUsuario}</p>
+                <div class="headerPublicacionGuardados">
+                  <p>${nombreUsuario}</p>
+                  <a class="deletePublicacionGuardados" onclick="eliminarPublicacionGuardada('${idUnico}')"><span class="material-symbols-outlined">delete</span></a>
+                </div>
                 <p>${contenidoPublicacion}</p>
                 `;
 
@@ -90,14 +100,14 @@ function drag(e) {
     setTranslate(currentX, currentY, currentElement);
 
     var rect = currentElement.getBoundingClientRect();
-var pestaña = document.getElementById('Tab1');
-var pestañaRect = pestaña.getBoundingClientRect();
-var cuadradoDentroDePestana = !(
-  rect.right < pestañaRect.left ||
-  rect.left > pestañaRect.right ||
-  rect.bottom < pestañaRect.top ||
-  rect.top > pestañaRect.bottom
-);
+  var pestaña = document.getElementById('Tab1');
+  var pestañaRect = pestaña.getBoundingClientRect();
+  var cuadradoDentroDePestana = !(
+    rect.right < pestañaRect.left ||
+    rect.left > pestañaRect.right ||
+    rect.bottom < pestañaRect.top ||
+    rect.top > pestañaRect.bottom
+  );
 
 if (cuadradoDentroDePestana && isOverTab1) {
   pestaña.style.backgroundColor = 'green'; // Cambia el color a verde si el cuadrado está encima
@@ -111,6 +121,14 @@ function setTranslate(xPos, yPos, el) {
   el.style.transform = "translate(" + xPos + "px, " + yPos + "px)";
 }
 
+
+
+function eliminarPublicacionGuardada(idUnico) {
+  var publicacion = document.getElementById(idUnico);
+  if (publicacion) {
+    publicacion.remove();
+  }
+}
 
 
 

@@ -41,4 +41,17 @@
 .botonEliminarEyeslashConfigurarPestana span{
     
 }
+
+.headerPublicacionGuardados{
+    display: flex;
+    justify-content: space-between;
+}
+.deletePublicacionGuardados{
+    text-decoration: none;
+    color: black;
+    cursor:pointer;
+}
+.deletePublicacionGuardados:hover{
+    color: gray;
+}
 /* Fin */
