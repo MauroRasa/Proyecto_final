@@ -74,12 +74,20 @@
     FROM eyeslash_global p
     JOIN usuarios u ON p.ID_user = U.ID_user AND Respuesta_ID_publi = '$id_publi' ORDER BY Fecha_publi asc";
     $consulta = mysqli_query($conexion, $sql2);
+
+    $FechaPublicacionPubli = $fila['Fecha_publi'];
+    // Convertir la cadena de fecha y hora a un objeto de fecha y hora
+    $fecha = new DateTime($FechaPublicacionPubli);
+
+    // Formatear la fecha y hora 
+    $fechaFormateada = $fecha->format('Y-m-d H:i');
+
     echo '<div class="eyeslash">';
     // echo '<a href="publicaciones.php"><i class="fa-solid fa-circle-arrow-left"></i></a>';
     echo '<h2><a href="publicaciones.php"><i class="fa-solid fa-circle-arrow-left"></i></a> eyeslash</h2>';
     echo '<div class="cont_publis">';
     //muestro publicacion abierta para iniciar respuestas
-    echo '<div class="abierta"><div class="publi_user"><p>' . $fila['Usuario'] . ' - ' . $fila['Fecha_publi'] . ' - <span class="cant">' . $fila['Cant_respuestas'] . '</span></p></div><div class="publi_texto"><p>' . $fila['Publicacion'] . '</p></div></div>';
+    echo '<div class="abierta"><div class="publi_user"><p>' . $fila['Usuario'] . ' - ' . $fechaFormateada . ' - <span class="cant">' . $fila['Cant_respuestas'] . '</span></p></div><div class="publi_texto"><p>' . $fila['Publicacion'] . '</p></div></div>';
 
     //muestro todas las respuesta a esta publicacion
     while ($registro = mysqli_fetch_assoc($consulta)) {

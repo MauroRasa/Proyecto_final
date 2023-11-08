@@ -1,0 +1,340 @@
+/* Modal de ayuda estilos */
+    body.modalAyuda {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+  
+    header.modalAyuda {
+        background-color: #212529;
+        text-align: center;
+        padding: 20px;
+    }
+  
+    /* BARRA DE NAVEGACION */
+    nav.modalAyuda ul.modalAyuda {
+        list-style-type: none;
+        padding: 0;
+        background-color: #212529;
+        text-align: center;
+    }
+    
+    nav.modalAyuda ul.modalAyuda li {
+        display: inline;
+        margin: 0 10px;
+    }
+    
+    nav.modalAyuda ul.modalAyuda li.modalAyuda a.modalAyuda {
+        text-decoration: none;
+    }
+    /* Fin */
+  
+  
+    main.modalAyuda {
+        padding: 20px;
+    }
+  
+    section.modalAyuda {
+        background-color: var(--bs-black);
+        border: 1px solid #ddd;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+  
+    ol.modalAyuda, ul.modalAyuda {
+        padding-left: 20px;
+    }
+    
+    footer.modalAyuda {
+        background-color: #212529;
+        text-align: center;
+        padding: 10px;
+    }
+    
+    footer.modalAyuda a.modalAyuda {
+        text-decoration: none;
+    }
+  /* Fin modal ayuda */
+  
+  
+  
+  
+  
+/* Modal de CONTACTO estilos */
+  
+  
+    #modalContacto .modal-body {
+        box-sizing: border-box;
+        background-color: var(--bs-gray-900);
+    }
+    
+    body.modalContacto {
+        color: #fff;
+        line-height: 1.6;
+        font-family: 'Quicksand', sans-serif;
+        padding: 0 1.5em;
+        margin: 0; 
+    }
+  
+    .modalContacto.content {
+        max-width: 1170px;
+        margin: 0 auto; 
+        padding: 1.5em;
+    }
+    
+    ul.modalContacto {
+        list-style: none;
+        padding: 0;
+    }
+    
+    .modalContacto.logo {
+        text-align: center;
+        font-size: 3em;
+    }
+    
+    .modalContacto.logo span {
+        color: #B70E21;
+    }
+  
+    .modalContacto.contact-wrapper {
+        box-shadow: 0 0 20px 0 rgba(255, 255, 255, .3);
+    }
+    
+    .modalContacto.contact-wrapper > * {
+        padding: 1em;
+    }
+    
+    .modalContacto.contact-form {
+        padding: 1em; 
+    }
+    
+    .modalContacto.contact-form form.modalContacto {
+        display: grid;
+        grid-template-columns: 1fr; 
+    }
+    
+    .modalContacto.contact-form form.modalContacto label {
+        display: block;
+    }
+    
+    .modalContacto.contact-form form.modalContacto p {
+        margin: 0;
+        padding: 1em;
+    }
+  
+    .modalContacto.contact-form form.modalContacto .block {
+        grid-column: 1 / 2;
+    }
+    
+    .modalContacto.contact-form form button,
+    .modalContacto.contact-form form input,
+    .modalContacto.contact-form form textarea {
+        width: 100%;
+        padding: .7em;
+        border: none;
+        background: none;
+        outline: 0;
+        color: #fff;
+        border-bottom: 1px solid #d63031;
+        margin-bottom: 1em; 
+    }
+  
+    .modalContacto.contact-form form button {
+        background: #B70E21;
+        border: 0;
+        text-transform: uppercase;
+        padding: 1em;
+    }
+    
+    .modalContacto.contact-form form button:hover,
+    .modalContacto.contact-form form button:focus {
+        background: #d63031;
+        color: #fff;
+        transition: background-color 1s ease-out;
+        outline: 0;
+    }
+  
+    /* CONTACTO INFO */
+        .modalContacto.contact-info {
+            background: #000;
+        }
+        
+        .modalContacto.contact-info h4, .contact-info ul, .contact-info p {
+            text-align: center;
+            margin: 0 0 1rem 0;
+        }
+    /* Fin */
+  
+    /* RESPONSIVE */
+        @media(min-width: 700px) {
+            body.modalContacto {
+                padding: 0 4em;
+            }
+            .modalContacto.container {
+                padding: 2em; 
+            }
+            .modalContacto.contact-wrapper {
+                grid-template-columns: 2fr 1fr;
+            }
+            .modalContacto.contact-wrapper > * {
+                padding: 2em;
+            }
+            .modalContacto.contact-info h4,
+            .modalContacto.contact-info ul,
+            .modalContacto.contact-info p {
+                text-align: left;
+            }
+        }
+    /* Fin */
+/* Fin modal contacto */
+  
+  
+/* Modal configuracion de usuario */
+    .modal-content.modalConfiguracion{
+        background-color: #212529;
+        color: white;
+    }
+    .modal-content.modalConfiguracion h1{
+        text-align: center;
+    }
+    .modal-content.modalConfiguracion a{
+        text-align: center;
+        font-size: 10px;
+    }
+    .modal-content.modalConfiguracion .formTotal{
+        margin: 5px;
+    }
+    .modal-content.modalConfiguracion input{
+        width: 30%;
+        background-color: #212529;
+        margin: 5px;
+        color: white;
+    }
+    .modal-content.modalConfiguracion img{
+        width: 30%;
+        display: flex;
+    }
+    
+/* Fin */
+  
+/* Modal recuperar contraseña */
+    .modal-content.modalRecuperar{
+        background-color: #212529;
+        color: white;
+    }
+    .modal-content.modalRecuperar h1{
+        text-align: center;
+        font-size: 20px;
+    }
+    .modal-content.modalRecuperar .formTotal{
+        margin: 5px;
+    }
+    .modal-content.modalRecuperar input{
+        width: 90%;
+        background-color: #212529;
+        margin: 5px;
+        color: white;
+    }
+/* Fin */
+  
+  
+/* MODAL REGISTRO INICIAR SESION */
+    /* Estilos para el contenedor principal */
+    .modalRegistrarse.outer-container,
+    .modalLogin.outer-container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: #010101;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+    }
+    .form-container{
+        width: 30%;
+        height: 100% ;
+        padding: 20px; 
+        text-align: left;
+    }
+    /* Fin */
+  
+    /* Estilos para el formulario de registro */
+    
+    .modalRegistrarse .form-container input[type="text"],
+    .modalRegistrarse .form-container input[type="password"],
+    .modalLogin .form-container input[type="text"],
+    .modalLogin .form-container input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 5%;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .modalLogin .form-container button,
+    .modalLogin .form-container a,
+    .modalRegistrarse .form-container button{
+        width: 100%;
+        display: inline-block;
+        text-align: left;
+    }
+    /* Fin */
+
+    /* Estilos para la imagen */
+    .modalRegistrarse.image-container,
+    .modalLogin.image-container {
+        width: 70%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .modalRegistrarse.image-container img,
+    .modalLogin.image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    /* Fin */
+  
+  
+    /*Animacion para moverse entre modal*/
+    .modalLogin .bt.aregistro,
+    .modalRegistrarse .bt.alogin {
+        background-color: #030303;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .modalLogin .boton,
+    .modalRegistrarse .boton {
+        width: 150px;
+        animation: move 2s infinite;
+        -webkit-animation: move 2s infinite;
+    }
+    
+    @keyframes move {
+        0% {
+        transform: translateX(0);
+        }
+        50% {
+        transform: translateX(10px); 
+        }
+        100% {
+        transform: translateX(0);
+        }
+    }
+    /*Fin*/
+/* MODAL REGISTRO INICIAR SESION FINAL */

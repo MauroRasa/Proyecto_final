@@ -54,7 +54,7 @@ function dragEnd(e, id) {
                 icono.style.display = 'none';
 
                 var contenidoPublicacion = publicacionArrastrada.querySelector('.publi_texto').innerText;
-                var nombreUsuario = publicacionArrastrada.querySelector('.publi_user p').innerText;
+                var nombreUsuario = publicacionArrastrada.querySelector('.publi_user_usuario').innerText;
 
                 // Crear un nuevo elemento para la publicación en la pestaña
                 var nuevaPublicacion = document.createElement('div');

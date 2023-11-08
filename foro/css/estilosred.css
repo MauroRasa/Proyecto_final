@@ -6,7 +6,6 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: #212529;
-    color: #ddd;
 }
 
 /* Scrollbar pesonalizada */
@@ -65,6 +64,16 @@ header{
         align-items: center;
         width: 600px; 
     }
+    .barraDeBusqueda form input {
+        border: 1px solid #464646; /* Establecer un borde para el input */
+        padding: 0.5rem; /* Ajustar el relleno interior del input según sea necesario */
+        border-radius: 0.25rem; /* Ajustar el radio del borde según sea necesario */
+        box-shadow: none; /* Eliminar cualquier sombra alrededor del input */
+    }
+    .barraDeBusqueda form input:focus {
+        outline: none; /* Eliminar el borde alrededor del input al hacer clic */
+        box-shadow: none; /* Eliminar el efecto de sombra al hacer clic */
+      }
     @media (width <= 900px){
         .barraDeBusqueda form {
             width: 100%;
@@ -141,12 +150,15 @@ header{
         position: absolute;
         left: 0;
         margin: 20px;
-        z-index: 3;
         overflow: auto;
+        z-index: 4;
         -webkit-border-radius: 10px;
         -moz-border-radius: 10px;
         -ms-border-radius: 10px;
         -o-border-radius: 10px;
+    }
+    #pantalla_izq_interm{
+        z-index: 4;
     }
     .pantalla_izq::-webkit-scrollbar{
         width: 7px;
@@ -161,7 +173,7 @@ header{
         -o-border-radius: 40px;
     }
 
-    .pantalla_izq a{
+    .pantalla_izq .accesosPantallaIzq a{
         display: flex; 
         margin: 20px;
         cursor: pointer;
@@ -173,7 +185,7 @@ header{
     .textoAccesos{
         display: flex;
         text-decoration: none;
-        color: #fff;
+        color: #000000;
     }
     .textoAccesos:hover{
         color: #212529;
@@ -186,47 +198,58 @@ header{
         align-items: center;
         margin: 0 auto;
     }
-    .controlDeEyeslashs{
-        width: 93%;
-        height: 80%;
-        margin: 0 auto;
-        border: 2px solid white;
-        border-radius: 3px;
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        -ms-border-radius: 3px;
-        -o-border-radius: 3px;
-    }
-    .controlDeEyeslashs h4{
-        text-align: center;
-    }
-    .eyeslashIndividualConfig{
-        background-color: #212529;
-        width: 96%;
-        margin: 0 auto;
-        border-radius: 10px;
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
-        -ms-border-radius: 10px;
-        -o-border-radius: 10px;
-    }
-    .eyeslashIndividualConfig:hover{
-        background-color: #4C5257;
-    }
-    .eyeslashIndividualConfig h1{
-        text-align: center;
-        font-size: 25px;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    }
-    .codigoEyeslashIndividualConfig{
-        display: flex;
-        align-items: center;
-    }
+
+        /* Estilos para la pestaña dentro de pantalla izq que configura los eyeslash propios */
+        .controlDeEyeslashs{
+            display: none;
+            width: 93%;
+            height: 80%;
+            margin: 0 auto;
+            border: 2px solid white;
+            border-radius: 3px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            -ms-border-radius: 3px;
+            -o-border-radius: 3px;
+        }
+        .controlDeEyeslashs h4{
+            text-align: center;
+        }
+        .eyeslashIndividualConfig{
+            background-color: #212529;
+            width: 96%;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 10px;
+        }
+        .eyeslashIndividualConfig:hover{
+            background-color: #4C5257;
+        }
+        .eyeslashIndividualConfig h1{
+            text-align: center;
+            font-size: 20px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: #fff;
+        }
+        .codigoEyeslashIndividualConfig{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #fff;
+        }
+        #codigoEyeslashIndividualConfig{
+            cursor: pointer;
+        }
+        /* Fin */
     /* Fin Pantalla izquierda*/
 
 
     /* Pantalla derecha*/
-    .pantalla_der{
+    #pantalla_der{
         background-color: #373e44;
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
@@ -236,7 +259,7 @@ header{
         overflow: auto;
         right: 0;
         margin: 20px;
-
+        z-index: 3;
     }
     .pantalla_der::-webkit-scrollbar{
         width: 7px;
@@ -285,9 +308,20 @@ header{
 
     /* Tabs */
     .tab {
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    .tab-container {
+        display: inline-block;
+    }
+    
+    .tablinks {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #f1f1f1;
+        border: none;
+        cursor: pointer;
+        white-space: nowrap;
     }
 
     #Tab1{
@@ -326,7 +360,6 @@ header{
         clear: both;
     }
     /* Fin */
-
     /* Estilos al agregar publicacion a guardados */
     .publicacionEnPestana {
         border: 1px solid #ddd;
@@ -334,158 +367,17 @@ header{
         padding: 10px;
         margin-bottom: 10px;
     }
-    
+
     .publicacionEnPestana p {
         margin: 5px 0;
     }
-    
+
     .publicacionEnPestana p:first-child {
         font-weight: bold;
     }
-    
+
     .publicacionEnPestana p:last-child {
         color: #888;
     }
     /* Fin */
-
-    /* Todas las publicaciones de la red  */
-    .todoElSliderRed{
-        min-width: 100%;
-    }
-
-    .texto_eyeslash{
-        text-align: center;
-    }
-    .publicacionesEyeslash{
-        width: 80%;
-        border-radius: 7px;
-        z-index: 1;
-        position: relative;
-        margin: auto;
-        background: #292e33;
-        padding: 8px;
-        margin-bottom: 5px;
-        -webkit-border-radius: 7px;
-        -moz-border-radius: 7px;
-        -ms-border-radius: 7px;
-        -o-border-radius: 7px;
-}
-    .publicacionesEyeslash:hover {
-        border: 1px solid white;
-    }
-    .publi_user_contenedor{
-        width: 100%;
-    }
-    .publi_user_contenedor a{
-        color: #fff;
-        text-decoration: none;
-    }
-    .publi_user img{
-        width: 7%;
-        border-radius: 50px;
-        -webkit-border-radius: 50px;
-        -moz-border-radius: 50px;
-        -ms-border-radius: 50px;
-        -o-border-radius: 50px;
-    }
-    /* Fin */
-
-
-    /* Controles del slider */
-    .carousel-control-prev{
-    margin-left: 22%;
-    width: 5%;
-    height: 10%;
-    margin-top: 30%;
-    z-index: 4;
-    }
-    .carousel-control-next{
-    margin-right: 30%;
-    width: 5%;
-    height: 10%;
-    margin-top: 30%;
-    z-index: 4;
-    }
-    /* Fin */
-
-
-    /* Estilos para anular restriccion de movimiento de Bootstrap */
-    .carousel {
-        touch-action: pan-y; 
-    }
-
-    .carousel-inner {
-        overflow: visible; 
-    }
-
-    .itemSliderPublicacion {
-        transform: none; 
-    }
-    /* Fin */
-
-    /* Color nro de respuestas */
-    p span.cant {
-        color: red ;
-    }
-    /* Fin */
-
-    /* Btn redactar */
-    .btn_publicar{
-        color:#eee;
-        font-size: 1em;
-        text-decoration: none;
-        text-align: center;
-    }
-    /* Fin */
-
-
-    /* Fin Todas las publicaciones de la red  */
-
 /* Fin Contenedor de toda la red excepto header */
-
-
-
-/* Estilos para responder publicacion */
-.eyeslash .abierta {
-    width: 95%;
-    margin: auto;
-    padding: 8px;
-    margin-bottom: 5px;
-    background:  rgb(143, 202, 192);
-    color: #eee;
-    margin-top: 80px;
-}
-
-.eyeslash .publi_user p { 
-    width: 100%;
-    text-align: left; 
-    font-size: 0.8em;
-    font-weight: bold;
-    color: #000;
-
-}
-
-.eyeslash .publi_texto p{
-    font-size: 1em;
-    font-style: italic;
-    color: #000;
-}
-
-.eyeslash form {
-    width: 100%;
-    margin: 10px auto;
-    padding: 10px;
-    text-align: center;
-}
-
-.eyeslash form input[type=text]  {
-    width: 70%;
-    padding: 5px;
-}
-.eyeslash form input[type=submit] {
-    width: 27%;
-    padding: 5px;
-    background: steelblue;
-    color: #eee;
-}
-/* Fin Estilos para responder publicacion */

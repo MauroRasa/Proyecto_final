@@ -14,22 +14,27 @@
     cursor: pointer;
 }
 #closeButton {
-    display: none;
     position: fixed;
+    width: 40px;
+    height: 40px;
     top: 20px;
     right: 20px;
-    z-index: 4;
+    z-index: 3;
 }
 #botonDeletePestaña{
     display: none;
-    width: 100%;
-    height: 100%;
+    width: 20%;
+    height: 10%;
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 4;
+    background-color: rgb(116, 116, 116);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
 }
-#botonDeletePestaña span{
-    background-color: rgba(0, 0, 0, 0.5);
-}
+
 .menuHamburguesaSinPantallaIzq{
     display: none;
 }
@@ -45,6 +50,9 @@
 .headerPublicacionGuardados{
     display: flex;
     justify-content: space-between;
+}
+.headerPublicacionGuardados p{
+    color: #000000;
 }
 .deletePublicacionGuardados{
     text-decoration: none;

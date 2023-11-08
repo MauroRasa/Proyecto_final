@@ -53,6 +53,7 @@ if (isset($_SESSION['ID_user'])) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="css/estilosred.css">
     <link rel="stylesheet" href="css/configurarpestana.css">
+    <link rel="stylesheet" href="css/eyeslash.css">
     <title>Red Social</title>
 </head>
 <body>
@@ -63,6 +64,14 @@ if (isset($_SESSION['ID_user'])) {
     <div class="logoFPG">
         <img onclick="irAlForo()" src="../imagenes/Logo.png" alt="">
     </div>
+    <div class="btn-group botonPantallaIzq" style="display:none;">
+            <button type="button" class="btn dropdown-toggle custom-btn" data-toggle="dropdown" aria-expanded="false">
+                Pantalla izquierda
+            </button>
+            <div class="dropdown-menu botonPantallaIzq dropdown-menu-end">
+
+            </div>
+        </div>
     <div class="barraDeBusqueda">
         <form action="" method="POST">
             <input type="text" class="iconoPlaceHolder" name="barraDeBusqueda" placeholder="Buscar en FPGRedSocial">
@@ -94,75 +103,22 @@ if(isset($_POST['idsPresionados'])) {
     foreach ($idsPresionados as $dato) {
         eliminarDatoArrayYBD($conexion, $_SESSION['ID_user'], $dato);
     }
-
     exit();
 }
 
+
+
 ?>
 
-
-
-<?php
-    // Llamar a la BD para crear una publicacion PUBLICACIONES
-    if (isset($_POST['publicar'])) {
-        $publicacion = $_POST['publi'];
-        $id_user = $_SESSION['ID_user'];
-        $respuesta_ID_publi = 0;
-        $fecha = date('Y-m-d');
-                    //Codigo PROVISIONAL para arreglar desface horario de localhost
-                    $hora_actualBD = date('H:i');
-                    $timestamp_actualBD = strtotime($hora_actualBD);
-                    $timestamp_anteriorBD = $timestamp_actualBD - 3600 * 4;
-
-                    $hora = date('H:i', $timestamp_anteriorBD);
-
-        $sql = "INSERT INTO eyeslash_global (Publicacion, ID_user, Respuesta_ID_publi, Fecha_publi, Hora_publi) VALUES ('$publicacion','$id_user', '$respuesta_ID_publi', '$fecha', '$hora')";
-        $guardar_publi = mysqli_query($conexion, $sql) ? print("<script> alert ('Publicación enviada'); window.location = 'publicaciones.php'</script>") : print("<script> alert ('Error al envíar publicación'</script>");
-    }
-
-    // Llamar a la BD para crear una publicacion PUBLICACIONES_ALIMENTACION
-    if (isset($_POST['publicar_2'])) {
-        $publicacion = $_POST['publi'];
-        $id_user = $_SESSION['ID_user'];
-        $respuesta_ID_publi = 0;
-        $fecha = date('Y-m-d');
-                    //Codigo PROVISIONAL para arreglar desface horario de localhost
-                    $hora_actualBD = date('H:i');
-                    $timestamp_actualBD = strtotime($hora_actualBD);
-                    $timestamp_anteriorBD = $timestamp_actualBD - 3600 * 4;
-
-                    $hora = date('H:i', $timestamp_anteriorBD);
-
-        $sql = "INSERT INTO eyeslash_alimentacion (Publicacion, ID_user, Respuesta_ID_publi, Fecha_publi, Hora_publi) VALUES ('$publicacion','$id_user', '$respuesta_ID_publi', '$fecha', '$hora')";
-        $guardar_publi = mysqli_query($conexion, $sql) ? print("<script> alert ('Publicación enviada'); window.location = 'publicaciones.php'</script>") : print("<script> alert ('Error al envíar publicación'</script>");
-    }
-
-    // Llamar a la BD para crear una publicacion PUBLICACIONES_GIMNASIO
-    if (isset($_POST['publicar_3'])) {
-        $publicacion = $_POST['publi'];
-        $id_user = $_SESSION['ID_user'];
-        $respuesta_ID_publi = 0;
-        $fecha = date('Y-m-d');
-                    //Codigo PROVISIONAL para arreglar desface horario de localhost
-                    $hora_actualBD = date('H:i');
-                    $timestamp_actualBD = strtotime($hora_actualBD);
-                    $timestamp_anteriorBD = $timestamp_actualBD - 3600 * 4;
-
-                    $hora = date('H:i', $timestamp_anteriorBD);
-
-        $sql = "INSERT INTO eyeslash_gimnasio (Publicacion, ID_user, Respuesta_ID_publi, Fecha_publi, Hora_publi) VALUES ('$publicacion','$id_user', '$respuesta_ID_publi', '$fecha', '$hora')";
-        $guardar_publi = mysqli_query($conexion, $sql) ? print("<script> alert ('Publicación enviada'); window.location = 'publicaciones.php'</script>") : print("<script> alert ('Error al envíar publicación'</script>");
-    }
-?>
 <!-- Comienza el contenedor de las 2 pantallas (izq, dere) y el eyeslash (publicaciones) -->
 <div class="contenedor_pant" id="contenedor_pant">
 
     <!-- Pantalla izquierda -->
     <div class="pantalla_izq" id="pantalla_izq">
         <?php botonDelete() ?>
-        <div class="pantalla_izq_interm">
-            <div class="accesosPantallaIzq">
-                <a href="" class="textoAccesos">
+        <div class="pantalla_izq_interm" id="pantalla_izq_interm">
+            <div class="accesosPantallaIzq" id="accesosPantallaIzq">
+                <a href="publicacioness.php" class="textoAccesos">
                     <span class="material-symbols-outlined">home</span>Home
                 </a>
                 <a href="" class="textoAccesos">
@@ -179,7 +135,7 @@ if(isset($_POST['idsPresionados'])) {
                 </a>
             </div>
             <div class="todoControlDeEyeslashs">
-                    <div class="controlDeEyeslashs">
+                    <div class="controlDeEyeslashs" id="controlDeEyeslashs">
                         <h4>Eyeslash Config</h4>
 
                         <?php 
@@ -233,11 +189,13 @@ if(isset($_POST['idsPresionados'])) {
 
 
     <!-- Pantalla derecha -->
-    <div class="pantalla_der" ondrop="drop(event)" ondragover="allowDrop(event)">
-        <div class="tab">
-            <button class="tablinks active" onclick="openTab(event, 'Tab1')">Guardados</button>
-            <button class="tablinks" onclick="openTab(event, 'Tab2')">Tab 2</button>
-            <button class="tablinks" onclick="openTab(event, 'Tab3')">Tab 3</button>
+    <div class="pantalla_der" id="pantalla_der" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div class="tab" id="tab">
+            <div class="tab-container">
+                <button class="tablinks active" onclick="openTab(event, 'Tab1')">Guardados</button>
+                <button class="tablinks" onclick="openTab(event, 'Tab2')">Tab 2</button>
+                <button class="tablinks" onclick="openTab(event, 'Tab3')">Tab 3</button>
+           </div>
         </div>
 
         <div id="Tab1" class="tabcontent" style="display: block;">
@@ -389,6 +347,22 @@ if(isset($_POST['idsPresionados'])) {
         console.error('Error al copiar al portapapeles: ', err);
         });
     });
+
+
+    var controlDeEyeslashs = document.getElementById("controlDeEyeslashs");
+    var eyeslashIndividualConfig = document.querySelector(".eyeslashIndividualConfig");
+    if (eyeslashIndividualConfig) {
+    controlDeEyeslashs.style.display = "block";
+    }
+
+
+
+    function scrollToTab(tabId) {
+    var tabElement = document.getElementById(tabId);
+    if (tabElement) {
+        tabElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+    }
+}
 
 </script>
 

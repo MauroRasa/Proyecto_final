@@ -2,6 +2,7 @@
 
 function eyeslash($tabla, $codigo){
     include("../conexion.php");
+    date_default_timezone_set('America/Argentina/Buenos_Aires');
 
     $sql3 = "SELECT Titulo FROM eyeslash_tabla WHERE Codigo_eyeslash = '$codigo'";
     $resultado = mysqli_query($conexion, $sql3);
@@ -16,7 +17,7 @@ function eyeslash($tabla, $codigo){
         //Titulo de los Eyeslash
         echo '
         <div class="texto_eyeslash">
-            <a>' . $TituloEyeslash . '</a>
+            <a class="texto_eyeslash_etiqueta">' . $TituloEyeslash . '</a>
         </div>';
     } else {
         echo '<div class="carousel-item itemSliderPublicacion" id="eyeslashEntero'. $tabla . '">';
@@ -31,22 +32,28 @@ function eyeslash($tabla, $codigo){
         //Titulo de los Eyeslash
         echo '
         <div class="texto_eyeslash">
-            <a>' .$TituloEyeslash. '</a>
+            <a class="texto_eyeslash_etiqueta">' .$TituloEyeslash. '</a>
         </div>';
     }
 
         //Consulta a la BD para el primer Eyeslash 
 
-        $sql = "SELECT p.ID_publi, p.Publicacion, p.ID_user, p.Respuesta_ID_publi, p.Hora_publi, p.Cant_respuestas, u.Usuario, u.Img_u, e.Codigo_eyeslash, e.Titulo
+        $sql = "SELECT p.ID_publi, p.Publicacion, p.ID_user, p.Respuesta_ID_publi, p.Fecha_publi, p.Cant_respuestas, u.Usuario, u.Img_u, e.Codigo_eyeslash, e.Titulo
         FROM `" . $tabla . "` p
         JOIN usuarios u ON p.ID_user = u.ID_user 
         JOIN eyeslash_tabla e ON e.Codigo_eyeslash = '". $codigo ."'
         WHERE p.Respuesta_ID_publi = 0 
-        ORDER BY p.Hora_publi DESC";
+        ORDER BY p.Fecha_publi DESC";
 
         $consulta = mysqli_query($conexion, $sql);
 
         echo '<div class="eyeslash">';
+                
+            // Boton redactar
+            eyeslashRedactar($codigo);
+            postPublicarEnEyeslash($tabla, $codigo);
+
+
         echo '<div class="cont_publis">';
         while ($registro = mysqli_fetch_assoc($consulta)) {
             $IDPublicacion = $registro['ID_publi'];
@@ -55,10 +62,34 @@ function eyeslash($tabla, $codigo){
             $ImagenUsuarioPubli = $registro['Img_u'];
             $CantRespuestasPubli = $registro['Cant_respuestas'];
             $PublicacionPubli = $registro['Publicacion'];
-            $HoraPublicacionPubli = $registro['Hora_publi'];
+            $FechaPublicacionPubli = $registro['Fecha_publi']; 
+
+            // Convertir la fecha de publicación en un valor de tiempo Unix
+            $tiempoPublicacion = strtotime($FechaPublicacionPubli);
+
+            // Calcular la diferencia en segundos entre la marca de tiempo actual y la marca de tiempo de publicación
+            $diferenciaSegundos = time() - $tiempoPublicacion;
+
+            // Convertir la diferencia en el formato deseado (segundos, minutos, horas, días)
+            if ($diferenciaSegundos < 60) {
+                $TiempoDePublicado = $diferenciaSegundos . " segundos";
+            } elseif ($diferenciaSegundos < 90) {
+                $TiempoDePublicado = round($diferenciaSegundos / 60) . " minuto";
+            } elseif ($diferenciaSegundos < 3600) {
+                $TiempoDePublicado = round($diferenciaSegundos / 60) . " minutos";
+            } elseif ($diferenciaSegundos < 7200) {
+                $TiempoDePublicado = round($diferenciaSegundos / 3600) . " hora";
+            } elseif ($diferenciaSegundos < 86400) {
+                $TiempoDePublicado = round($diferenciaSegundos / 3600) . " horas";
+            } else if($diferenciaSegundos < 172800) {
+                $TiempoDePublicado = round($diferenciaSegundos / 86400) . " día";
+            }else {
+                $TiempoDePublicado = round($diferenciaSegundos / 86400) . " días";
+            } 
+
 
             //Mostrar Eyeslash 
-            echo '<div id="publi' . $IDPublicacion . '" class="publicacionesEyeslash" onmousedown="dragStart(event, \'publi' . $IDPublicacion . '\')" onmouseup="dragEnd(event, \'publi' . $IDPublicacion . '\')">';
+            echo '<div id="publi' . $IDPublicacion . $codigo .'" class="publicacionesEyeslash" onmousedown="dragStart(event, \'publi' . $IDPublicacion . $codigo .'\')" onmouseup="dragEnd(event, \'publi' . $IDPublicacion . $codigo .'\')">';
 
                 //Lineas indicadores de movimiento
                 echo '<hr style="border: none; border-top: 2px solid #ccc; width: 85%;    margin: 0 auto;">
@@ -69,16 +100,16 @@ function eyeslash($tabla, $codigo){
                     <a href="publicacion.php?id_publi=' . $IDPublicacion . '">
                         <div class="publi">
                             <div class="publi_user">
-                                <p>
+                                <a class="publi_user_usuario">
                                     <img src="../imagenes/imagenes_perfil/' . $ImagenUsuarioPubli . '" alt="">
                                     ' . $UsuarioPubli . '
-                                </p>
+                                </a>
+                                <a class="publi_user_tiempo">
+                                    • ' . $TiempoDePublicado . '
+                                </a>
                             </div>
                             <div class="publi_texto '.$TituloPubli.'">
                                 <p>' . $PublicacionPubli . '</p>
-                            </div>
-                            <div class="tiempoTransc">
-                                ' . $HoraPublicacionPubli . '
                             </div>
                         </div>
                     </a>
@@ -87,11 +118,6 @@ function eyeslash($tabla, $codigo){
 
         }
         echo '</div>'; //.cont_publis
-        
-            // Boton redactar
-            echo '<div class="btn_publicar"> 
-                <a href=""> Redactar </a>
-            </div>';
 
         echo '</div>'; //.eyeslash
 
@@ -109,8 +135,7 @@ function crearTabla($nombreTabla, $ID_user, $Estado, $CodigoEyeslash){
         ID_user INT,
         Respuesta_ID_publi INT,
         Cant_respuestas INT,
-        Fecha_publi DATE,
-        Hora_publi TIME,
+        Fecha_publi DATETIME,
         PRIMARY KEY (ID_publi)
     )";
 
@@ -145,15 +170,15 @@ function eliminarDatoArrayYBD($conexion, $ID_user, $dato) {
     foreach ($_SESSION['tablas_usuario'] as $key => $value) {
         if ($value === $dato) {
             unset($_SESSION['tablas_usuario'][$key]);
-            echo '<script> console.log('.implode(',', $_SESSION['tablas_usuario']).') </script>';
         }
         else{
-            echo '<script> console.log(no) </script>';
+            echo '<script> console.log(Error al eliminar) </script>';
         }
     }
 
     // Guardar el array actualizado en la base de datos
     guardarTablasUsuario($conexion, $ID_user, $_SESSION['tablas_usuario']);
+
 }
 
 
@@ -189,5 +214,36 @@ function mostrarDatosEyeslash($codigo){
         }
     }
 
+}
+
+
+
+function eyeslashRedactar($codigo){
+
+    echo '
+    <div class="contenedorBotonRedactar">
+        <form action="" method="POST" enctype="multipart/form-data">
+            <input type="text" name="publicacionEyeslash" id="publicacionEyeslash" placeholder="¿Que estás pensando?" autocomplete="off" required>
+        
+            <input type="submit" name="publicarEnEyeslash'.$codigo.'" id="publicarEnEyeslash">
+        </form>
+    </div>
+    ';
+}
+
+function postPublicarEnEyeslash($tabla, $codigo){
+    include('../conexion.php');
+
+    date_default_timezone_set('America/Argentina/Buenos_Aires');
+
+    if(isset($_POST['publicarEnEyeslash' . $codigo])) {
+        $publicacion = $_POST['publicacionEyeslash'];
+        $id_user = $_SESSION['ID_user'];
+        $respuesta_ID_publi = 0;
+        $fecha = date("Y/m/d H:i:s");
+    
+        $sql = "INSERT INTO `" . $tabla . "` (Publicacion, ID_user, Respuesta_ID_publi, Fecha_publi) VALUES ('$publicacion','$id_user', '$respuesta_ID_publi', '$fecha')";
+        $guardar_publi = mysqli_query($conexion, $sql) ? print ("<script> alert ('Publicación enviada'); window.location = 'publicaciones.php'</script>") : print ("<script> alert ('Error al envíar publicación'</script>");
+    }
 }
         ?>

@@ -1,0 +1,166 @@
+.contenedorBotonRedactar{
+    display: flex;
+    justify-content: center;
+}
+.contenedorBotonRedactar form input[type=text]{
+    width: 100%;
+    background-color: #444444;
+}
+.eyeslash form{
+    width: 90%;
+}
+/* Todas las publicaciones de la red  */
+.todoElSliderRed{
+    min-width: 100%;
+}
+.texto_eyeslash{
+    text-align: center;
+}
+.texto_eyeslash_etiqueta{
+    color: #000000;
+    text-decoration: none;
+}
+.publicacionesEyeslash{
+    width: 80%;
+    z-index: 1;
+    position: relative;
+    margin: auto;
+    background: #292e33;
+    padding: 8px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    -ms-border-radius: 7px;
+    -o-border-radius: 7px;
+}
+.publicacionesEyeslash:hover {
+    border: 1px solid white;
+}
+.publi_user_usuario{
+    color: #000000;
+}
+.publi_user_tiempo{
+    color: #b4b4b4;
+    font-size: 10px;
+}
+.publi_texto{
+    color: #fff;
+    margin-top: 15px;
+}
+.publi_user_contenedor{
+    width: 100%;
+    display: flex;
+    cursor: pointer;
+}
+.publi_user_contenedor a{
+    text-decoration: none;
+}
+.publi_user img{
+    width: 35px;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+}
+/* Fin */
+
+
+/* Controles del slider */
+.carousel-control-prev{
+margin-left: 22%;
+width: 5%;
+height: 10%;
+margin-top: 30%;
+z-index: 4;
+}
+.carousel-control-next{
+margin-right: 30%;
+width: 5%;
+height: 10%;
+margin-top: 30%;
+z-index: 4;
+}
+/* Fin */
+
+
+/* Estilos para anular restriccion de movimiento de Bootstrap */
+.carousel {
+    touch-action: pan-y; 
+}
+
+.carousel-inner {
+    overflow: visible; 
+}
+
+.itemSliderPublicacion {
+    transform: none; 
+}
+/* Fin */
+
+/* Color nro de respuestas */
+p span.cant {
+    color: red ;
+}
+/* Fin */
+
+/* Btn redactar */
+.btn_publicar{
+    color:#eee;
+    font-size: 1em;
+    text-decoration: none;
+    text-align: center;
+}
+/* Fin */
+
+
+/* Fin Todas las publicaciones de la red  */
+
+
+
+/* Estilos para responder publicacion */
+/* .eyeslash .abierta {
+width: 95%;
+margin: auto;
+padding: 8px;
+margin-bottom: 5px;
+background:  rgb(143, 202, 192);
+color: #eee;
+margin-top: 80px;
+}
+
+.eyeslash .publi_user p { 
+width: 100%;
+text-align: left; 
+font-size: 0.8em;
+font-weight: bold;
+color: #000;
+
+}
+
+.eyeslash .publi_texto p{
+font-size: 1em;
+font-style: italic;
+color: #000;
+}
+
+.eyeslash form {
+width: 100%;
+margin: 10px auto;
+padding: 10px;
+text-align: center;
+}
+
+.eyeslash form input[type=text]  {
+width: 70%;
+padding: 5px;
+}
+.eyeslash form input[type=submit] {
+width: 27%;
+padding: 5px;
+background: steelblue;
+color: #eee;
+} */
+/* Fin Estilos para responder publicacion */

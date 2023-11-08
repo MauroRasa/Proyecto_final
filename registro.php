@@ -15,7 +15,7 @@ if (isset($_POST['registrarse'])) {
     // Recibe los datos del formulario
     $usuario = $_POST['usuarioRegistro'];
     $password = $_POST['passwordRegistro'];
-    $email = $_POST['email'];
+    $email = $_POST['emailRegistro'];
     $token = time();
 
     if(is_uploaded_file($_FILES['imagen']['tmp_name'])){
