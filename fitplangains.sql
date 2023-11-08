@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-11-2023 a las 18:23:49
+-- Tiempo de generación: 08-11-2023 a las 20:41:06
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -33,20 +33,18 @@ CREATE TABLE `eyeslash_alimentacion` (
   `ID_user` int(11) NOT NULL,
   `Respuesta_ID_publi` int(11) NOT NULL,
   `Cant_respuestas` int(11) NOT NULL,
-  `Fecha_publi` varchar(16) COLLATE utf8_bin NOT NULL,
-  `Hora_publi` varchar(10) COLLATE utf8_bin NOT NULL
+  `Fecha_publi` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Volcado de datos para la tabla `eyeslash_alimentacion`
 --
 
-INSERT INTO `eyeslash_alimentacion` (`ID_publi`, `Publicacion`, `ID_user`, `Respuesta_ID_publi`, `Cant_respuestas`, `Fecha_publi`, `Hora_publi`) VALUES
-(2, 'Acá se habla de gimnasio nomas perror el que habla de otra cosa rafagzo lo agarramos y lo empomamos en la esquina asi nomas atr cuimbia cajeteala toda gato y al que no le gusta que se re mil joda eeeeeeeeaaaaaaa ', 4, 0, 0, '2023-10-04', '22:56'),
-(3, 'EEEAAAAAAAAAAA', 4, 0, 0, '2023-10-04', '22:57'),
-(4, 'pa las rocha beso pa los giles rafagazo', 4, 0, 0, '2023-10-04', '22:57'),
-(5, 'JAJAJJJAJAJAJAJ', 0, 0, 0, '2023-10-11', '17:25'),
-(6, 'holadada', 28, 0, 0, '2023-10-31', '13:29');
+INSERT INTO `eyeslash_alimentacion` (`ID_publi`, `Publicacion`, `ID_user`, `Respuesta_ID_publi`, `Cant_respuestas`, `Fecha_publi`) VALUES
+(1, '¿Qué me recomienda que coma antes de ir al gimnasio? En 20 minutos voy al gym y quería comer algo antes de ir, para estar bien activo.', 2, 0, 0, '2023-11-06 02:02:38'),
+(2, 'Hoy tengo ganas de comer unas frutillas con crema, creo que me voy a dar un gustito, total ni quería llegar al verano. :p', 1, 0, 0, '2023-11-06 22:27:09'),
+(3, 'Hoy de cena, mi receta especial de fideos a la bolognesa, seguime si querés enterarte como hacer los videos mas ricos de zonar sur ;)', 2, 0, 0, '2023-11-06 22:29:47'),
+(4, 'Hoy de comer, un buen plato de pastas para matarme mañana en el gimnasio, que esos biceps no salen solos.', 5, 0, 0, '2023-11-06 22:35:02');
 
 -- --------------------------------------------------------
 
@@ -60,16 +58,18 @@ CREATE TABLE `eyeslash_gimnasio` (
   `ID_user` int(11) NOT NULL,
   `Respuesta_ID_publi` int(11) NOT NULL,
   `Cant_respuestas` int(11) NOT NULL,
-  `Fecha_publi` varchar(16) COLLATE utf8_bin NOT NULL,
-  `Hora_publi` varchar(10) COLLATE utf8_bin NOT NULL
+  `Fecha_publi` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Volcado de datos para la tabla `eyeslash_gimnasio`
 --
 
-INSERT INTO `eyeslash_gimnasio` (`ID_publi`, `Publicacion`, `ID_user`, `Respuesta_ID_publi`, `Cant_respuestas`, `Fecha_publi`, `Hora_publi`) VALUES
-(1, 'Retaca la matraca de la raca re cualica ala maraca no hay raca que no atraca en la resaca de esta taca y despues de un takak taka nos hacemo el waka waka para una bienvenida historia de una monja y una noria que prudente este destino eligiendo este placer de juntos conocer un fabuloso deber', 29, 0, 0, '2023-11-01', '00:20');
+INSERT INTO `eyeslash_gimnasio` (`ID_publi`, `Publicacion`, `ID_user`, `Respuesta_ID_publi`, `Cant_respuestas`, `Fecha_publi`) VALUES
+(1, '¿Cuál creen que debería ser el primer conjunto de músculos que se debe entrenar en la semana? Yo, personalmente, empiezo la semana entrenando piernas ya que es el musculo que más peso carga, y el que mas cansado me deja. Después lo complemento con hombros.', 3, 0, 0, '2023-11-06 01:33:33'),
+(2, 'Hoy día de pecho, veremos que tal nos va, tengo que recuperar fuerza para el verano!', 4, 0, 0, '2023-11-06 19:51:36'),
+(3, 'Mañana día de piernas, que alguien me salve!', 1, 0, 0, '2023-11-06 22:26:26'),
+(4, 'Mañana no se va al gym, lo tengo decidido, no se puede con tanto trabajo.', 6, 0, 0, '2023-11-06 22:37:41');
 
 -- --------------------------------------------------------
 
@@ -83,34 +83,22 @@ CREATE TABLE `eyeslash_global` (
   `ID_user` int(11) NOT NULL,
   `Respuesta_ID_publi` int(11) NOT NULL,
   `Cant_respuestas` int(11) NOT NULL,
-  `Fecha_publi` varchar(16) COLLATE utf8_spanish_ci NOT NULL,
-  `Hora_publi` varchar(10) COLLATE utf8_spanish_ci NOT NULL
+  `Fecha_publi` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Volcado de datos para la tabla `eyeslash_global`
 --
 
-INSERT INTO `eyeslash_global` (`ID_publi`, `Publicacion`, `ID_user`, `Respuesta_ID_publi`, `Cant_respuestas`, `Fecha_publi`, `Hora_publi`) VALUES
-(38, 'Sacalamatracaparaestaracatanbellaca', 4, 0, 0, '2023-10-04', '20:34'),
-(39, 'Retaca la matraca de la raca re cualica ala maraca no hay raca que no atraca en la resaca de esta taca y despues de un takak taka nos hacemo el waka waka para una bienvenida historia de una monja y una noria que prudente este destino eligiendo este placer de juntos conocer un fabuloso deber', 4, 0, 0, '2023-10-04', '20:36'),
-(40, 'JAJAJAJAJAJAJA', 0, 0, 0, '2023-10-11', '17:25'),
-(41, 'usdhuiadhasiudasbiudasd', 0, 0, 0, '2023-10-11', '17:33'),
-(42, 'Kiksdisadasoldi', 1, 0, 0, '2023-10-11', '17:45'),
-(43, 'hola', 28, 0, 0, '2023-10-31', '13:28'),
-(44, 'kdasklmdasd', 29, 0, 0, '2023-11-01', '19:48'),
-(45, 'caca pedo pis', 29, 0, 0, '2023-11-01', '19:48'),
-(46, 'a la lucha a la lucha no seremos fuertes pero somos muchas', 29, 0, 0, '2023-11-01', '19:48'),
-(47, 'me gusta el arrrrrte', 29, 0, 0, '2023-11-01', '19:48'),
-(48, 'sacalacac', 29, 0, 0, '2023-11-01', '20:21'),
-(49, 'dasdas', 29, 0, 0, '2023-11-01', '20:21'),
-(51, 'fdsdfas', 29, 0, 0, '2023-11-01', '02:10'),
-(52, 'fsdfsdf', 29, 0, 2, '2023-11-01', '22:11'),
-(53, 'caralho filho da puta', 29, 0, 0, '2023-11-01', '00:19'),
-(54, 'caralho filho da puta', 29, 0, 0, '2023-11-01', '00:20'),
-(55, 'dasdas', 28, 0, 0, '2023-11-02', '12:22'),
-(56, 'jbkj', 28, 52, 0, '2023-11-02 20:20', ''),
-(57, 'jb k bk bj', 28, 52, 0, '2023-11-02 20:20', '');
+INSERT INTO `eyeslash_global` (`ID_publi`, `Publicacion`, `ID_user`, `Respuesta_ID_publi`, `Cant_respuestas`, `Fecha_publi`) VALUES
+(1, '¿Qué cuentan?', 3, 0, 0, '2023-11-06 01:33:55'),
+(2, 'Que día tan frío, no entiendo a la gente que le gusta este clima, para mi es lo peor que hay.', 3, 0, 0, '2023-11-06 01:36:49'),
+(3, 'Quería comer unas buenas frutillas para después de comer, y la en la verduleria no tenían ni una, empezamos mal el día. ', 1, 0, 0, '2023-11-06 01:41:27'),
+(4, 'Bien de madrugada y todavía no pego un ojo, esto del insomnio me está matando, y no tengo idea como cambiar mi ciclo de sueño.', 4, 0, 0, '2023-11-06 02:17:21'),
+(5, 'Que día tan aburrido, que hacen cuándo se aburren un día normal? Creo que solo voy a aprovechar a relajarme y mirar algún video de cocina.', 2, 0, 0, '2023-11-06 22:28:43'),
+(6, 'Canto en la orilla, vivo en el agua, no soy pescado ni cigarra. ¿Quién soy? LA RANA. Así como la ven, perdí un concurso culpa de no saber esta adivinanza -_-', 5, 0, 0, '2023-11-06 22:34:02'),
+(7, 'Hoy está para dormir todo el día y que de mi futuro se encargue otro Zzz', 5, 0, 0, '2023-11-06 22:34:26'),
+(8, 'QUE SUEÑO QUE TENGO QUE ALGUIN ME SAQUE DE ACÁ QUE QUIERO IRME A MI CAMA A DORMIR', 6, 0, 0, '2023-11-06 22:36:58');
 
 -- --------------------------------------------------------
 
@@ -132,9 +120,33 @@ CREATE TABLE `eyeslash_tabla` (
 --
 
 INSERT INTO `eyeslash_tabla` (`Codigo_eyeslash`, `Titulo`, `ID_usuario_creador`, `Lista_blanca`, `Estado_eyeslash`, `ID_configuracion`) VALUES
+('#65487726', 'Los pibes del Barrio', 4, '', 'Publico', 0),
 ('alimentacion', 'Alimentacion', 0, '', 'publico', 0),
 ('gimnasio', 'Gimnasio', 0, '', 'publico', 0),
 ('global', 'Global', 0, '', 'publico', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `eyeslash__#65487726`
+--
+
+CREATE TABLE `eyeslash__#65487726` (
+  `ID_publi` int(11) NOT NULL,
+  `Publicacion` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `ID_user` int(11) DEFAULT NULL,
+  `Respuesta_ID_publi` int(11) DEFAULT NULL,
+  `Cant_respuestas` int(11) DEFAULT NULL,
+  `Fecha_publi` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Volcado de datos para la tabla `eyeslash__#65487726`
+--
+
+INSERT INTO `eyeslash__#65487726` (`ID_publi`, `Publicacion`, `ID_user`, `Respuesta_ID_publi`, `Cant_respuestas`, `Fecha_publi`) VALUES
+(1, 'Bienvenidos a mi Eyeslash \"Los pibes del Barrio\", espero podamos compartir mucho juntos!', 4, 0, NULL, '2023-11-06 02:19:11'),
+(2, 'Como anda la banda, mañana nos encontramos en la plaza para ir al gym? O se van a seguir haciendo los vagos', 5, 0, NULL, '2023-11-06 22:38:56');
 
 -- --------------------------------------------------------
 
@@ -202,13 +214,12 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`ID_user`, `Usuario`, `Pass`, `Email`, `Token_u`, `Img_u`, `tablas_usuario`, `Rol_ID`) VALUES
-(28, 'pp', '$2y$10$Rc6HFV84guZ.nVWOKlPzzu.CoDBusJbLpK/7elo/hnaDjmHJs9vDK', 'pp@gmail.com', 1, '1698445859-bokita.jpg', 'a:4:{i:0;s:15:\"eyeslash_global\";i:1;s:21:\"eyeslash_alimentacion\";i:2;s:17:\"eyeslash_gimnasio\";i:3;s:16:\"eyeslash__czxczx\";}', 1),
-(29, 'maria', '$2y$10$e.EahTnMb81r.6GiBxdAbe9OyrHQEMI0hZZgSGJD7znsdZk/z.r7K', 'maria@gmail.com', 1, '1698446165-body male.jpg', '', 2),
-(32, 'ff', '$2y$10$ljMMx3t0JK8g/aDFVcByHOTWDH6HHvVYMhS85RSs1fyNhzSTFIQfK', 'ff', 1698460095, 'default.jpg', '', 2),
-(33, 'gg', '$2y$10$jL4eQZV1UjA4/uGmiyaVR.uIdqH4vqVUfzzb.bR4x87MpT7BgKdrK', 'gg', 1698460182, 'default.jpg', '', 2),
-(34, 'll', '$2y$10$mzDSiFJtITgxMKOg9jPpnONYGUAHPGcDAo1vaHnLru.M3FTP6Ux9i', 'll', 1698460223, 'default.jpg', '', 2),
-(35, 'nh', '$2y$10$a.soRGVMU4Ctqs7iawdP.uLusbIOHwabW9ohBH0bVcFKHBsOQo9Ju', 'nh', 1698460285, 'default.jpg', '', 2),
-(36, 'lk', '$2y$10$0frAcZhryWTBMyNdAuTUH.9Kmn.oacZ36dyBXjOlHgR4tryDMQQFW', 'lk', 1698460350, 'default.jpg', '', 2);
+(1, 'Pp', '$2y$10$GbiLNIVVVzm1MPTbwnHiE.l9deBQoVcgvceNarOZY2XDa84XzBLmu', 'pp@gmail.com', 1, '1699247613-GROOT.jpg', 'a:3:{i:0;s:15:\"eyeslash_global\";i:1;s:21:\"eyeslash_alimentacion\";i:2;s:17:\"eyeslash_gimnasio\";}', 1),
+(2, 'Maria', '$2y$10$2EmNZyf8VXWJJ7rMnk5bS.rh5t5uPRrCR9/UkoejHRELb1Oa/qJb2', 'maria@gmail.com', 1, '1699247570-FREDDY.jpg', 'a:3:{i:0;s:15:\"eyeslash_global\";i:1;s:21:\"eyeslash_alimentacion\";i:2;s:17:\"eyeslash_gimnasio\";}', 2),
+(3, 'Toto', '$2y$10$y4.G6oHT1GcPSIIusSS2ve2Y8TUMwNTxwCJASPez2zfXmWbs7bgqS', 'toto@gmail.com', 1, '1699247586-SPIDERMAN.jpg', 'a:3:{i:0;s:15:\"eyeslash_global\";i:1;s:21:\"eyeslash_alimentacion\";i:2;s:17:\"eyeslash_gimnasio\";}', 2),
+(4, 'Pola', '$2y$10$H2nJ0NO4pjqQZC5dahBKoezY.dgSvisxa69.WMNDrIIYGE/aojpdS', 'pola@gmail.com', 1, '1699247629-BOCA.jpg', 'a:4:{i:0;s:15:\"eyeslash_global\";i:1;s:21:\"eyeslash_alimentacion\";i:2;s:17:\"eyeslash_gimnasio\";i:3;s:19:\"eyeslash__#65487726\";}', 2),
+(5, 'Kiko', '$2y$10$bjZpKAR3cq.fF.EDwv/DCe5ozZLAo4PLRHqWU1yV.0tWUmRQlRCFy', 'kiko@gmail.com', 1, '1699321081-HARRY Y SCAMANDER.jpg', 'a:4:{i:0;s:15:\"eyeslash_global\";i:1;s:21:\"eyeslash_alimentacion\";i:2;s:17:\"eyeslash_gimnasio\";i:3;s:19:\"eyeslash__#65487726\";}', 2),
+(6, 'Marta', '$2y$10$2MNoUYRqmBCfKkFQ9jB4teIdyNFuhPfjO7hdyoGSkiVZZvvWQmYpy', 'marta@gmail.com', 1, '1699320965-BIGHERO.jpeg', 'a:3:{i:0;s:15:\"eyeslash_global\";i:1;s:21:\"eyeslash_alimentacion\";i:2;s:17:\"eyeslash_gimnasio\";}', 2);
 
 --
 -- Índices para tablas volcadas
@@ -239,6 +250,12 @@ ALTER TABLE `eyeslash_tabla`
   ADD PRIMARY KEY (`Codigo_eyeslash`);
 
 --
+-- Indices de la tabla `eyeslash__#65487726`
+--
+ALTER TABLE `eyeslash__#65487726`
+  ADD PRIMARY KEY (`ID_publi`);
+
+--
 -- Indices de la tabla `foro`
 --
 ALTER TABLE `foro`
@@ -265,19 +282,25 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `eyeslash_alimentacion`
 --
 ALTER TABLE `eyeslash_alimentacion`
-  MODIFY `ID_publi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID_publi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `eyeslash_gimnasio`
 --
 ALTER TABLE `eyeslash_gimnasio`
-  MODIFY `ID_publi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID_publi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `eyeslash_global`
 --
 ALTER TABLE `eyeslash_global`
-  MODIFY `ID_publi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `ID_publi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT de la tabla `eyeslash__#65487726`
+--
+ALTER TABLE `eyeslash__#65487726`
+  MODIFY `ID_publi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `foro`
@@ -295,7 +318,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `ID_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `ID_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
