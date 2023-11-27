@@ -83,7 +83,7 @@ if (isset($_SESSION['ID_user'])) {
                 <img src ="../imagenes/imagenes_perfil/<?php echo $img; ?>" id="imagen_perfil_header">
                 <span><?php echo $usuario; ?></span>
             </button>
-            <div class="dropdown-menu dropdown-menu-end">
+            <div class="dropdown-menu dropdown-menu-right">
                 <a href="" class="dropdown-item" type="button">Configuración</a>
                 <a href="../logout.php" class="dropdown-item" type="button">Cerrar Sesión</a>
             </div>

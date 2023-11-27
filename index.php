@@ -2,6 +2,7 @@
 include('conexion.php');
 require_once('include/modal.php');
 require_once('include/verificacionesPost.php');
+require_once('include/slider.php');
 session_start();
 
 if (isset($_SESSION['ID_user'])) {
@@ -48,6 +49,7 @@ if (isset($_SESSION['ID_user'])) {
   <title>FitPlanGains</title>
   <link rel="stylesheet" type="text/css" href="estilos/estilos.css">
   <link rel="stylesheet" type="text/css" href="estilos/modalEstilos.css">
+  <link rel="stylesheet" type="text/css" href="estilos/slider.css">
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"
     integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -388,10 +390,9 @@ configuracionUsuario($conexion, $_SESSION['ID_user']);
 
 <!-- Bienvenida a la pagina e informacion del uso de la página -->
 <div class="bienvenidaCont">
-  <p class="texto-bienvenida fs-2 fw-medium text-center">
-    Bienvenido a FitPlanGains
-  </p>
-  <h6 class="texto-bienvenida fs-2 fw-medium text-center">--insertar videos--</h6>
+  <?php
+sliderInicio();
+?>
 </div>
 <!-- Fin -->
 
@@ -443,56 +444,6 @@ configuracionUsuario($conexion, $_SESSION['ID_user']);
   </div>
 </div>
 <!-- Fin contenedor de tarjetas -->
-
-<!-- Slider con recomendaciones deportivas y alimenticias -->
-<div id="slider-container" class="slider_container">
-  <button id="button-left" class="button-slider button--left">
-    <span class="material-symbols-outlined">
-      chevron_left
-    </span>
-  </button>
-  <div id="slider" class="slider">
-    <div class="slider__element slider__element--consejo1">
-      <img src="imagenes/nubes.jpg" alt=""></img>
-    </div>
-    <div class="slider__element slider__element--consejo2">
-      <p>¿No sabes cómo entrenar? Hazte un horario. Piensa en tus objetivos y establece unas rutinas. Para ello, te
-        recomendamos apuntar cuándo quieres ir (antes de ir al trabajo, a la hora de comer, por la tarde, a última
-        hora del día…), cuántas veces por semana realizarás esta rutina (sé sensato y empieza por una rutina de
-        gimnasio para principiantes, siempre podrás aumentar la frecuencia y la dificultad más adelante) y cuánto
-        tiempo durarán las sesiones y cómo estructurarás los ejercicios.</p>
-    </div>
-    <div class="slider__element slider__element--consejo3">
-      <h2></h2>
-      <p>Prepáralo todo antes de ir al gym. Aunque parezca una tontería, tener siempre la bolsa preparada te ayudará a
-        vencer la pereza de tener que pasar por casa previamente. ¡No hay tiempo que perder!</p>
-    </div>
-    <div class="slider__element slider__element--consejo4">
-      <h2></h2>
-      <p>Confía en ti y en caso de no saber qué es lo que tienes que hacer exactamente, pide ayuda. Existen personal
-        trainners que te ayudarán a realizar los ejercicios más adecuados para ti, teniendo en cuenta tu condición y
-        tus objetivos. No estés más pendiente de los demás que de ti mismo y no te sientas acomplejado: estás en el
-        gimnasio para ponerte en forma y lo lograrás. Si quieres, para empezar, puedes probar de ir a horas más
-        tranquilas, a fin de ir ganando en seguridad y comodidad poco a poco.</p>
-    </div>
-    <div class="slider__element slider__element--consejo5">
-      <h2></h2>
-      <p>Calienta siempre antes de iniciar los ejercicios y haz tu rutina preestablecida con ganas.</p>
-    </div>
-    <div class="slider__element slider__element--consejo6">
-      <h2></h2>
-      <p>Hidrátate siempre antes y después de tus sesiones de deporte, así evitarás que tu rendimiento físico no
-        disminuya.</p>
-    </div>
-  </div>
-  <button id="button-right" class="button-slider button--right">
-    <span class="material-symbols-outlined">
-      navigate_next
-    </span>
-  </button>
-</div>
-<!-- Fin slider -->
-
 
 
   <footer>
