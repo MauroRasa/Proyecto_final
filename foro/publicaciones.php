@@ -66,15 +66,16 @@ if (isset($_SESSION['ID_user'])) {
     </div>
     <div class="btn-group botonPantallaIzq" style="display:none;">
             <button type="button" class="btn dropdown-toggle custom-btn" data-toggle="dropdown" aria-expanded="false">
-                Pantalla izquierda
+                <span class="material-symbols-outlined">keyboard_arrow_down</span>
             </button>
-            <div class="dropdown-menu botonPantallaIzq dropdown-menu-end">
+            <div class="dropdown-menu botonPantallaIzq dropdown-menu-end bg-secondary">
 
             </div>
         </div>
     <div class="barraDeBusqueda">
-        <form action="" method="POST">
-            <input type="text" class="iconoPlaceHolder" name="barraDeBusqueda" placeholder="Buscar en FPGRedSocial">
+        <form action="buscarRed.php" method="POST">
+            <input type="text" class="iconoPlaceHolder" name="barraDeBusqueda" placeholder="Digite un Usuario para buscar sus publicaciones">
+            <input type="submit" name="buscar" style="display:none;">
         </form>
     </div>
     <div class="imagenDePerfilHeader">
@@ -84,7 +85,7 @@ if (isset($_SESSION['ID_user'])) {
                 <span><?php echo $usuario; ?></span>
             </button>
             <div class="dropdown-menu dropdown-menu-right">
-                <a href="" class="dropdown-item" type="button">Configuración</a>
+                <a href="../index.php" class="dropdown-item" type="button">Volver a FPG</a>
                 <a href="../logout.php" class="dropdown-item" type="button">Cerrar Sesión</a>
             </div>
         </div>
@@ -118,11 +119,8 @@ if(isset($_POST['idsPresionados'])) {
         <?php botonDelete() ?>
         <div class="pantalla_izq_interm" id="pantalla_izq_interm">
             <div class="accesosPantallaIzq" id="accesosPantallaIzq">
-                <a href="publicacioness.php" class="textoAccesos">
+                <a href="publicaciones.php" class="textoAccesos">
                     <span class="material-symbols-outlined">home</span>Home
-                </a>
-                <a href="" class="textoAccesos">
-                    <span class="material-symbols-outlined">search</span>Buscar
                 </a>
                 <a href="" class="textoAccesos" data-toggle="modal" data-target="#modalCrearEyeslash">
                     <span class="material-symbols-outlined">new_window</span>Crear Eyelash
@@ -193,23 +191,12 @@ if(isset($_POST['idsPresionados'])) {
         <div class="tab" id="tab">
             <div class="tab-container">
                 <button class="tablinks active" onclick="openTab(event, 'Tab1')">Guardados</button>
-                <button class="tablinks" onclick="openTab(event, 'Tab2')">Tab 2</button>
-                <button class="tablinks" onclick="openTab(event, 'Tab3')">Tab 3</button>
            </div>
         </div>
 
         <div id="Tab1" class="tabcontent" style="display: block;">
             <p id="textoInicial">Arrastra una publicación aquí</p>
         </div>
-
-        <div id="Tab2" class="tabcontent">
-            
-        </div>
-
-        <div id="Tab3" class="tabcontent">
-            
-        </div>
-
         <div id="icono" class="icono">
             <i class="fas fa-check"></i>
         </div>

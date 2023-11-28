@@ -1,0 +1,82 @@
+
+.foro {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.contenidoForo {
+    width: 100%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.preguntaCompleta {
+    margin-bottom: 20px;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.preguntaCompleta h2 {
+    color: #ffffff;
+    text-align: center;
+}
+.preguntaCompleta p {
+    color: #dfdfdf;
+}
+
+.respuestas {
+    background-color: #6b6b6b;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.respuestas h3 {
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+form {
+    margin-top: 10px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    resize: vertical;
+    background-color: #9b9b9b;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.backButton span{
+    text-decoration: none;
+    color: #9b9b9b;
+    position: absolute;
+}
+.contenidoRespuestas{
+
+}
+.respuestaCompleta{
+    background-color: #888888;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.respuestaCompleta a{
+    color: #ffffff;
+}
+.respuestaCompleta a:hover{
+    color: #424242;
+}

@@ -1,6 +1,9 @@
 <?php
 require_once("../conexion.php");
 require_once("include/foroAdiciones.php");
+
+date_default_timezone_set('America/Argentina/Buenos_Aires');
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -20,8 +23,9 @@ ini_set('display_errors', 1);
         }
 ?>
 
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,51 +34,49 @@ ini_set('display_errors', 1);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="css/estilosforo.css">
+    <link rel="stylesheet" href="css/estilosFormularPregunta.css">
     <title>Foro</title>
-</head>
 </head>
 <body>
 <?php todoHeader($img, $usuario); ?>
 
-
-<div class="foro">
+    <div class="foro">
     <?php pantallaIzquierda(); ?>
-    <div class="centroForoPreguntas">
-        <div class="inicio">
-            <div class="textoArriba">
-                <h1>Bienvenido al foro</h1>
-                <div class="btnFormularPregunta">
-                    <a href="formularPreguntaForo.php"><span class="material-symbols-outlined">edit_note</span>Formular pregunta</a>
-                </div>
+
+        <div class="centroForoPreguntas">
+            <div class="formularPregunta">
+                <h1>Formular Pregunta</h1>
+                <form action="" method="POST">
+                    <label for="titulo">Título de la Pregunta:</label>
+                    <input type="text" id="titulo" name="titulo" required>
+
+                    <label for="tag">Tag:</label>
+                    <input type="text" id="tag" name="tag" required>
+
+                    <label for="cuerpo">Cuerpo de la Pregunta:</label>
+                    <textarea id="cuerpo" name="cuerpo" rows="4" required></textarea>
+
+                    <button type="submit" name="pregunta">Enviar Pregunta</button>
+                </form>
             </div>
-        </div>
+
             <?php
-            // Realizar la consulta SQL
-            $sql = "SELECT ID_pregunta, titulo, cant_respuestas, tag FROM foro WHERE ID_respuesta = '0'";
-            $resultado = mysqli_query($conexion, $sql);
-        
-            // Imprimir los datos
-            echo '<div class="contenidoForo">';
-            while ($fila = mysqli_fetch_assoc($resultado)) {
-                $IDPregunta = $fila['ID_pregunta'];
-                $titulo = $fila['titulo'];
-                $cantRespuestas = $fila['cant_respuestas'];
-                $tag = $fila['tag'];
-        
-                echo '<div class="consultaForo">';
-                echo '<a href="responderForo.php?id='.$IDPregunta.'" class="preguntasForo">';
-                echo "<div class='todasPreguntasForo'><p>#$IDPregunta</p>";
-                echo "<p>Titulo: $titulo</p>";
-                echo "<p>Cantidad de Respuestas: $cantRespuestas</p>";
-                echo "<p>Tag: $tag</p>";
-                echo '</a>';
-                echo '</div></div>';
+            if (isset($_POST['pregunta'])) {
+                $titulo = $_POST["titulo"];
+                $tag = $_POST["tag"];
+                $cuerpo = $_POST["cuerpo"];
+                $idUsuario = $_SESSION['ID_user'];
+                $fecha = date("Y/m/d H:i:s");
+
+                // Insertar la pregunta en la base de datos
+                $sql_insertar = "INSERT INTO foro (Titulo, Pregunta, Tag, ID_usuario, Fecha_pregunta) VALUES ('$titulo', '$cuerpo', '$tag', '$idUsuario', '$fecha')";
+                $resultado_insertar = mysqli_query($conexion, $sql_insertar) ? print ("<script> alert ('Pregunta enviada'); window.location = 'publicacionesForo.php'</script>") : print ("<script> alert ('Error al validar'</script>");
             }
-            echo '</div>';
             ?>
+        </div>
+
+        <?php pantallaDerecha(); ?>
     </div>
-    <?php pantallaDerecha(); ?>
-</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

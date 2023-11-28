@@ -5,28 +5,6 @@ echo '<div id="overlay">
     <button id="closeButton" onclick="closeOverlay();">
         <span class="material-symbols-outlined">close</span>
     </button>
-
-        <div class="todoElTabConfiguracion">
-            <div class="tabConfiguracion" id="tabConfiguracion">
-                <div class="tabConfiguracion-container">
-                    <button class="tablinksConfiguracion active" onclick="openTabConfiguracion(event, \'TabConfiguracion1\')">Tab 1</button>
-                    <button class="tablinksConfiguracion" onclick="openTabConfiguracion(event, \'TabConfiguracion2\')">Tab 2</button>
-                    <button class="tablinksConfiguracion" onclick="openTabConfiguracion(event, \'TabConfiguracion3\')">Tab 3</button>
-               </div>
-            </div>
-            
-            <div id="TabConfiguracion1" class="tabcontentConfiguracion" style="display: block;">
-                <p>Tab1</p>
-            </div>
-            
-            <div id="TabConfiguracion2" class="tabcontentConfiguracion">
-                <p>Tab2</p>
-            </div>
-            
-            <div id="TabConfiguracion3" class="tabcontentConfiguracion">
-                <p>Tab3</p>
-            </div>
-        </div>
     </div>
     ';
     ?>

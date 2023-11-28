@@ -30,51 +30,47 @@ ini_set('display_errors', 1);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="css/estilosforo.css">
+    <link rel="stylesheet" href="css/estilosBuscarForo.css">
     <title>Foro</title>
 </head>
-</head>
-<body>
+
 <?php todoHeader($img, $usuario); ?>
 
-
-<div class="foro">
+<body>
+    <div class="foro">
+    <a href="publicacionesForo.php" class="backButton"><span class="material-symbols-outlined">arrow_back</span></a>
     <?php pantallaIzquierda(); ?>
-    <div class="centroForoPreguntas">
-        <div class="inicio">
-            <div class="textoArriba">
-                <h1>Bienvenido al foro</h1>
-                <div class="btnFormularPregunta">
-                    <a href="formularPreguntaForo.php"><span class="material-symbols-outlined">edit_note</span>Formular pregunta</a>
-                </div>
-            </div>
-        </div>
-            <?php
-            // Realizar la consulta SQL
-            $sql = "SELECT ID_pregunta, titulo, cant_respuestas, tag FROM foro WHERE ID_respuesta = '0'";
-            $resultado = mysqli_query($conexion, $sql);
+    <?php
+    if(isset($_POST['buscar'])){
+    $busqueda = $_POST['barraDeBusqueda'];
+
+    // Consulta SQL para buscar en la tabla 'foro'
+    $sql = "SELECT * FROM foro WHERE Titulo LIKE '$busqueda' OR Pregunta LIKE '$busqueda' OR Tag LIKE '$busqueda'";
+    $result = mysqli_query($conexion, $sql);;
+
+    // Mostrar resultados
+    if ($result->num_rows > 0) {
+        echo '<div class="contenidoForo">
+                <div class="preguntaCompleta">
+                    <h2>Resultados de la búsqueda:</h2>';
         
-            // Imprimir los datos
-            echo '<div class="contenidoForo">';
-            while ($fila = mysqli_fetch_assoc($resultado)) {
-                $IDPregunta = $fila['ID_pregunta'];
-                $titulo = $fila['titulo'];
-                $cantRespuestas = $fila['cant_respuestas'];
-                $tag = $fila['tag'];
-        
-                echo '<div class="consultaForo">';
-                echo '<a href="responderForo.php?id='.$IDPregunta.'" class="preguntasForo">';
-                echo "<div class='todasPreguntasForo'><p>#$IDPregunta</p>";
-                echo "<p>Titulo: $titulo</p>";
-                echo "<p>Cantidad de Respuestas: $cantRespuestas</p>";
-                echo "<p>Tag: $tag</p>";
-                echo '</a>';
-                echo '</div></div>';
-            }
-            echo '</div>';
-            ?>
-    </div>
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo '<div class="preguntita"><a href="responderForo.php?id=' . $row['ID_pregunta'] . '" class="preguntasForo">
+                    <h3>' . $row['Titulo'] . '</h3>';
+            echo "<p>" . $row['Pregunta'] . "</p>";
+            echo "<p>Tag: " . $row['Tag'] . "</p></div>";
+            echo "<hr>";
+        }
+
+        echo '</div>
+            </div>';
+    } else {
+        echo "<p>No se encontraron resultados para la búsqueda: '$busqueda'</p>";
+    }
+    }
+    ?>
     <?php pantallaDerecha(); ?>
-</div>
+    </div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

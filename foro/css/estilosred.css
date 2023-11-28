@@ -185,7 +185,7 @@ header{
     .textoAccesos{
         display: flex;
         text-decoration: none;
-        color: #000000;
+        color: #ffffff;
     }
     .textoAccesos:hover{
         color: #212529;
@@ -277,6 +277,7 @@ header{
     .pantalla_der a{
         display: flex; 
         justify-content: center; 
+        color: #ddd;
     }
     @keyframes confirmado {
         0% {
@@ -310,9 +311,15 @@ header{
     .tab {
         overflow-x: auto;
         white-space: nowrap;
+        text-align: center;
     }
     .tab-container {
-        display: inline-block;
+        display: flex;
+        justify-content: center;
+    }
+    .tab-container button{
+        margin: 0 auto;
+        color: #ddd;
     }
     
     .tablinks {

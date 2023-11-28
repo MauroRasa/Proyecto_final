@@ -1,0 +1,36 @@
+.contenidoRed{
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.publicacionCompleta{
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(196, 196, 196);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.publicacionCompleta h2{
+    margin-bottom: 40px;
+}
+.publicacion{
+
+}
+.backButton{
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+}
+.backButton:hover{
+    text-decoration: none;
+    color: rgb(104, 104, 104);
+    font-size: 30px;
+}
+.falso{
+    
+}

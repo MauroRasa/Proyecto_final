@@ -225,7 +225,7 @@ function eyeslashRedactar($codigo){
         <form action="" method="POST" enctype="multipart/form-data">
             <input type="text" name="publicacionEyeslash" id="publicacionEyeslash" placeholder="¿Que estás pensando?" autocomplete="off" required>
         
-            <input type="submit" name="publicarEnEyeslash'.$codigo.'" id="publicarEnEyeslash">
+            <input type="submit" name="publicarEnEyeslash'.$codigo.'" id="publicarEnEyeslash" style="display:none;">
         </form>
     </div>
     ';

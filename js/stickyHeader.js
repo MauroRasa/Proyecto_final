@@ -42,7 +42,7 @@ window.addEventListener("scroll", function(){
       logoColor.classList.add("d-none");
     }
 
-    backgroundHeader.classList.add("bg-black");
+    backgroundHeader.classList.add("bg-night");
 
     btnDrop.classList.remove("bg-transparent");
     btnDrop.classList.add("bg-secondary");

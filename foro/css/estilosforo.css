@@ -49,6 +49,16 @@ header{
     margin-left: 30px;
 }
 
+.menuResponsive{
+    display: none;
+}
+/* Estilo para pantallas más pequeñas que 1050px */
+@media (max-width: 1050px) {
+    .menuResponsive {
+        display: block;
+    }
+}
+
 
 /* BARRA DE BUSQUEDA  */
 .barraDeBusqueda{
@@ -135,12 +145,21 @@ header{
     margin-top: 30px;
     text-align: center;
     font-size: 20px;
+    color: #ddd;
 }
 .pestanaDerecha a{
     text-align: left;
     font-size: 15px;
     display: block;
     margin: 5px;
+}
+.contenidoDerecha a{
+    color: #c7c7c7;
+    text-decoration: none;
+}
+.contenidoDerecha a:hover{
+    color: #8b8b8b;
+    text-decoration: none;
 }
 /* fin */
 
@@ -154,12 +173,31 @@ header{
 .pestanaIzquierda p{
     margin-top: 30px;
     text-align: center;
+    color: #ddd;
 }
 .pestanaIzquierda a{
     display: flex;
     margin-left: 20px;
     text-decoration: none;
-    color: #1a1a1a;
+    color: #cccccc;
+}
+.pestanaIzquierda a:hover{
+    color: #8f8f8f;
+}
+.contenidoIzquierda{
+    width: rgb(133, 133, 133)
+}
+@media (width <= 1050px){
+    .pestanaIzquierda{
+        display: none;
+    }
+}
+
+.mostrarEtiquetas{
+    display: none;
+}
+.botonEtiqueta{
+    cursor: pointer;
 }
 /* fin */
 
@@ -218,4 +256,19 @@ header{
   
   .consultaForo p {
     margin: 5px 0;
+  }
+  .consultaForo a {
+    color: #ddd;
+  }
+  .consultaForo a:hover {
+    color: #777777;
+  }
+  .preguntasForo{
+    text-decoration: none;
+  }
+
+
+
+  .textoArriba h1{
+    color: #eee;
   }
