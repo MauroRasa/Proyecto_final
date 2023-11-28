@@ -400,52 +400,6 @@ sliderInicio();
 </div>
 
 
-<!-- Contenedor tarjetas -->
-<div class="container_tarjetas" id="planes">
-  <div class="image-container">
-    <!-- Imagen plan alimentacion -->
-    <span class="tarjetas_titulo mb-auto fs-3 text-white fw-medium">Plan Alimentación</span>
-    <div class="tarjetas_contenido">
-      <a href="#" data-bs-toggle="modal" data-bs-target="#modalInicio">
-        <img class="image" src="imagenes/plancha.jpg" alt="Image 1">
-        <div class="square" onclick="redirectToPedirDatos()">
-          <a href="#" data-bs-toggle="modal" data-bs-target="#modalInicio">Comienza tu camino por una alimentación
-            saludable y una vida mejor.</a>
-        </div>
-      </a>
-    </div>
-  </div>
-  <div class="image-container">
-    <!-- Imagen foro -->
-    <span class="tarjetas_titulo text-white fs-3 fw-medium">Foro</span>
-    <div class="tarjetas_contenido">
-      <a href="foro/publicaciones.php">
-        <img class="image" src="imagenes/foro.jpg" alt="Image 2">
-        <div class="square" onclick="redirectToPedirDatos()">
-          <a href="foro/publicaciones.php">Ingresa a nuestro foro para compartir experiencias con otros apasionados
-            por el
-            gym.</a>
-        </div>
-      </a>
-    </div>
-  </div>
-  <div class="image-container">
-    <!-- Imagen rutinas -->
-    <span class="tarjetas_titulo text-white fs-3 fw-medium">Rutinas</span>
-    <div class="tarjetas_contenido">
-      <a href="#" data-bs-toggle="modal" data-bs-target="#modalInicio">
-        <img class="image" src="imagenes/nubes.jpg" alt="Image 1">
-        <div class="square" onclick="redirectToPedirDatos()">
-          <a href="#" data-bs-toggle="modal" data-bs-target="#modalInicio">Comienza tu camino por una alimentación
-            saludable y una vida mejor.</a>
-        </div>
-      </a>
-    </div>
-  </div>
-</div>
-<!-- Fin contenedor de tarjetas -->
-
-
   <footer>
 
   </footer>
