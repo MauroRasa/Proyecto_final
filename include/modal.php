@@ -1,6 +1,6 @@
 <?php
 
-function modalLargoFormulario($IDModal, $nombreModal, $Titulo, $formAction, $IDForm, $funcionForm, $botonSiguienteModal, $nombreSiguienteModal, $contenidoForm){
+function modalLargoFormulario($IDModal, $nombreModal, $Titulo, $formAction, $IDForm, $funcionForm, $botonSiguienteModal, $nombreSiguienteModal, $contenidoForm, $imagen){
     include("conexion.php");
 
 echo '
@@ -16,7 +16,7 @@ echo '
                     </form>
                 </div>   
                 <div class="'.$nombreModal.' image-container">
-                    <img src="imagenes/image.jpg" alt="Imagen">
+                    <img src="imagenes/'.$imagen.'.jpg" alt="Imagen">
                 </div>
                 <button class="bt aregistro boton position-absolute bottom-0 end-0" data-bs-target="#modal'.$botonSiguienteModal.'" data-bs-toggle="modal">'.$nombreSiguienteModal.' ➡</button>
                 </div>

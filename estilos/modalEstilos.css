@@ -303,7 +303,7 @@
   
     /*Animacion para moverse entre modal*/
     .modalLogin .bt.aregistro,
-    .modalRegistrarse .bt.alogin {
+    .modalRegistrarse .bt.aregistro {
         background-color: #030303;
         border: none;
         color: white;
@@ -337,4 +337,22 @@
         }
     }
     /*Fin*/
+
+    /* RESPONSIVE */
+    @media(width <= 990px) {
+        .modalLogin.image-container,
+        .modalRegistrarse.image-container{
+            display:none
+        }
+        .modalRegistrarse .form-container input[type="text"],
+        .modalRegistrarse .form-container input[type="password"],
+        .modalLogin .form-container input[type="text"],
+        .modalLogin .form-container input[type="password"] {
+            width: 90%;
+        }
+        .form-container{
+            width: 100%;
+        }
+    }
+    /* Fin */
 /* MODAL REGISTRO INICIAR SESION FINAL */

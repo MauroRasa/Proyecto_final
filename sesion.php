@@ -30,6 +30,11 @@ if(isset($_POST['inicio'])){
             
             session_destroy();
         }
+    }else{
+        echo '<script>
+        alert("El correo es incorrecto"); window.location.href = "index.php?modalToShow=modalInicio"
+        </script>
+        ';
     }
 }
 ?>

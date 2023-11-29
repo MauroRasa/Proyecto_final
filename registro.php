@@ -21,7 +21,7 @@ if (isset($_POST['registrarse'])) {
     if(is_uploaded_file($_FILES['imagen']['tmp_name'])){
       move_uploaded_file($_FILES['imagen']['tmp_name'], $_FILES['imagen']['name']);
 
-      $img = redimensionarImg($_FILES['imagen']['name'], 100, 100);
+      $img = redimensionarImg($_FILES['imagen']['name'], 400, 400);
       unlink($_FILES['imagen']['name']); //Borra imagen original
 
 

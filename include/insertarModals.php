@@ -22,7 +22,9 @@ function modalInicio(){
   <a class="btn btn-second fs-6" data-bs-target="#modalRecuperar" data-bs-toggle="modal">Recuperar Contraseña</a> 
   <button class="bt btn btn-second" type="submit" name="inicio">Iniciar</button> 
   ';
-  modalLargoFormulario($IDModal1, $nombreModal1, $Titulo1, $formAction1, $IDForm1, $funcionForm1, $botonSiguienteModal1, $nombreSiguienteModal1, $contenidoForm1);
+
+  $imagen = "image";
+  modalLargoFormulario($IDModal1, $nombreModal1, $Titulo1, $formAction1, $IDForm1, $funcionForm1, $botonSiguienteModal1, $nombreSiguienteModal1, $contenidoForm1, $imagen);
 }
 
 function modalRegistro(){
@@ -32,7 +34,7 @@ function modalRegistro(){
   $formAction2 = "registro.php";
   $IDForm2 = "formularioRegistro";
   $funcionForm2 = 'onsubmit="return validarFormulario()"';
-  $botonSiguienteModal2 = "Login";
+  $botonSiguienteModal2 = "Inicio";
   $nombreSiguienteModal2 = "Inicio";
 
   $contenidoForm2 = '    
@@ -65,7 +67,9 @@ function modalRegistro(){
     <button class="bt btn btn-second" type="submit" name="registrarse">Registrarse</button>
   ';
 
-  modalLargoFormulario($IDModal2, $nombreModal2, $Titulo2, $formAction2, $IDForm2, $funcionForm2, $botonSiguienteModal2, $nombreSiguienteModal2, $contenidoForm2);
+  $imagen = "image2";
+
+  modalLargoFormulario($IDModal2, $nombreModal2, $Titulo2, $formAction2, $IDForm2, $funcionForm2, $botonSiguienteModal2, $nombreSiguienteModal2, $contenidoForm2, $imagen);
 }
 
 function modalAyuda(){
@@ -234,6 +238,7 @@ echo' <div class="modal fade bd-modal-config-lg" tabindex="-1" role="dialog" ari
 
                 <label for="imgConfig" class="form-label text-white">Imagen de perfil:</label>
                 <img src="imagenes/imagenes_perfil/' . $imagenConfig . '">
+                <input type="hidden" id="imgOriginal" name="imgOriginal" value="'.$imagenConfig.'">
                 <input type="file" id="imgConfig" name="imgConfig" class="form-control">
 
                 <button type="submit" name="configuracionUsuario">Guardar</button> 

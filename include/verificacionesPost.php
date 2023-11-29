@@ -106,14 +106,15 @@ function configuracionUsuario($conexion, $idConfig){
 
     if(isset($_POST['configuracionUsuario'])){
         $nuevoUsuario = $_POST['usuarioConfig'];
+        $imgOriginal = $_POST['imgOriginal'];
 
         if(is_uploaded_file($_FILES['imgConfig']['tmp_name'])){
             move_uploaded_file($_FILES['imgConfig']['tmp_name'], $_FILES['imgConfig']['name']);
       
             $nuevaImagen = redimensionarImg($_FILES['imgConfig']['name'], 100, 100);
             unlink($_FILES['imgConfig']['name']); //Borra imagen original
-      
-      
+        }else{
+            $nuevaImagen = $imgOriginal;
         }
 
         $consultaConfig = "UPDATE usuarios SET Usuario='$nuevoUsuario', Img_u='$nuevaImagen' WHERE ID_user='$idConfig'";

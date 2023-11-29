@@ -6,11 +6,12 @@ function redimensionarImg ($img, $ancho_f, $alto_f){
 	//Creamos una variable a partir de la imagen original según su tipo
 
 	switch ($nro_tipo) {
-		case '1': $img_inicial = imagecreatefromgif($img);break;
-		case '2': $img_inicial = imagecreatefromjpeg($img);break;
-		case '3': $img_inicial = imagecreatefrompng($img);break;
+		case 1: $img_inicial = imagecreatefromgif($img); break;
+		case 2: $img_inicial = imagecreatefromjpeg($img); break;
+		case 3: $img_inicial = imagecreatefrompng($img); break;
 		default:
-			echo "imagen invalidad";break;
+			echo "imagen invalida";
+			break;
 	}
 
 //Calculamos RATIO proporción entre las magnitudes originales y finales
@@ -37,13 +38,13 @@ $nueva_img = imagecreatetruecolor($ancho_f, $alto_f);
 
 //copiamos la imagen original sobre la acabamos de crear en blanco
 
-imagecopyresampled($nueva_img, $img_inicial, -$cortar_ancho * $desplazamiento, -$cortar_alto * $desplazamiento, 0, 0, $ancho_f + $cortar_ancho, $alto_f + $cortar_alto, $ancho_i, $alto_i);
+imagecopyresampled($nueva_img, $img_inicial, 0, 0, $cortar_ancho * $desplazamiento, $cortar_alto * $desplazamiento, $ancho_f, $alto_f, $ancho_i - $cortar_ancho, $alto_i - $cortar_alto);
 
 //se destruye la variable original para liberar memoria
 imagedestroy($img_inicial);
 
 //definimos calidad de la imagen a guardar
-$calidad = 60;
+$calidad = 300;
 
 //definimos el nombre final de la imagen, para que sea unico lo concatenamos con la funcion time()
 $nbr_img =time()."-".$img;
